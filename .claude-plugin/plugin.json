@@ -1,0 +1,14 @@
+{
+  "name": "payments-ops-squad",
+  "displayName": "Payments Ops Squad",
+  "version": "0.1.0",
+  "description": "Payments operations specialists for Stripe, Primer and FunnelFox: export analysis, incident investigation, decline codes and workflow review. Read-only by design.",
+  "author": {
+    "name": "Vitor Dvorschi (Appyon)"
+  },
+  "license": "MIT",
+  "skills": [
+    "./skills/",
+    "./skills/stripe/"
+  ]
+}

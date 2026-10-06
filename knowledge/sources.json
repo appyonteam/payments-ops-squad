@@ -1,0 +1,77 @@
+{
+  "note": "Official sources used by payments-ops-squad. Documentation is fetched on demand with tools/fetch_doc.py into a local cache and is never stored in this repository. Git repositories are listed for reference only and are not downloaded automatically.",
+  "sources": [
+    {
+      "id": "stripe-docs",
+      "vendor": "stripe",
+      "kind": "docs_llms_index",
+      "url": "https://docs.stripe.com/llms.txt",
+      "license": "Stripe terms of service",
+      "redistribute": false,
+      "note": "Index of Stripe documentation pages. Fetch pages on demand (the .md form is tried first) and cite the URL and fetch date."
+    },
+    {
+      "id": "primer-docs",
+      "vendor": "primer",
+      "kind": "docs_llms_index",
+      "url": "https://primer.io/docs/llms.txt",
+      "license": "Primer terms of service",
+      "redistribute": false,
+      "note": "Index of Primer documentation pages. Fetch pages on demand and cite the URL and fetch date."
+    },
+    {
+      "id": "funnelfox-docs",
+      "vendor": "funnelfox",
+      "kind": "docs_llms_index",
+      "url": "https://funnelfox.com/docs/llms.txt",
+      "license": "No redistribution license",
+      "redistribute": false,
+      "note": "Index of FunnelFox documentation pages. Fetch pages on demand and cite the URL and fetch date."
+    },
+    {
+      "id": "primer-sdk-ios",
+      "vendor": "primer",
+      "kind": "git_repo",
+      "url": "https://github.com/primer-io/primer-sdk-ios",
+      "license": "MIT",
+      "redistribute": true,
+      "note": "Client SDK. Reference only; not downloaded automatically. Does not describe Workflows, routing or fallback."
+    },
+    {
+      "id": "primer-sdk-3ds-ios",
+      "vendor": "primer",
+      "kind": "git_repo",
+      "url": "https://github.com/primer-io/primer-sdk-3ds-ios",
+      "license": "MIT (contains a third-party Netcetera binary not covered by the MIT License)",
+      "redistribute": false,
+      "note": "Client SDK. Reference only; not downloaded automatically. Redistribution is limited by the bundled third-party binary."
+    },
+    {
+      "id": "primer-sdk-android",
+      "vendor": "primer",
+      "kind": "git_repo",
+      "url": "https://github.com/primer-io/sdk-android",
+      "license": "BSD-3-Clause",
+      "redistribute": true,
+      "note": "Client SDK. Reference only; not downloaded automatically."
+    },
+    {
+      "id": "primer-example-web-checkout",
+      "vendor": "primer",
+      "kind": "git_repo",
+      "url": "https://github.com/primer-io/example-web-checkout",
+      "license": "None (archived repository)",
+      "redistribute": false,
+      "note": "Archived example. Historical reference only; not downloaded automatically."
+    },
+    {
+      "id": "funnelfox-billing-js",
+      "vendor": "funnelfox",
+      "kind": "git_repo",
+      "url": "https://github.com/adaptyteam/funnelfox-billing-js",
+      "license": "MIT, Copyright (c) 2024 Funnelfox",
+      "redistribute": true,
+      "note": "Public @funnelfox/billing web SDK. Reference only; not downloaded automatically. State the package version and date when citing it."
+    }
+  ]
+}

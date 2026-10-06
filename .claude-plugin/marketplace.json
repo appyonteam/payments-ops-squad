@@ -1,0 +1,14 @@
+{
+  "name": "payments-ops-marketplace",
+  "owner": { "name": "Appyon" },
+  "metadata": {
+    "description": "Payments operations squad for Stripe, Primer and FunnelFox"
+  },
+  "plugins": [
+    {
+      "name": "payments-ops-squad",
+      "source": "./",
+      "description": "Payments operations squad for Stripe, Primer and FunnelFox"
+    }
+  ]
+}
