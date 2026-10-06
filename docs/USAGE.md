@@ -78,4 +78,6 @@ the cache file; cite its `source_url` and `fetched_at`.
 In Claude Code you can ask for a specialist by name, for example: "Use primer-3ds to separate authentication failures from
 authorization failures in this export" or "Use funnelfox-retries to check whether retries are stacked across layers". For complex
 Primer investigations start with `primer-squad`; for FunnelFox start with the `funnelfox-core` skill; for Stripe account questions
-start with the `stripe-router` skill.
+start with the `stripe-router` skill, which names the owning agent (`stripe-payments`, `stripe-risk`, `stripe-disputes`,
+`stripe-billing` or `stripe-finance`). You can also ask for one of them directly, for example: "Use stripe-billing to explain why
+MRR dropped".

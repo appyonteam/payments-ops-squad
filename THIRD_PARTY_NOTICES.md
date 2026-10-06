@@ -14,7 +14,10 @@ This file lists third-party material included in or referenced by payments-ops-s
     description no longer lists the `/stripe-skill` and `/stripe` triggers (it lists `/payments-ops-squad:pay-ask`);
   - `stripe-billing-context` carries a note that the file it writes holds account details and must stay out of version
     control;
-  - `cohort-retention` uses a `YYYY-MM` placeholder instead of a fixed month in its output template.
+  - `cohort-retention` uses a `YYYY-MM` placeholder instead of a fixed month in its output template;
+  - `stripe-router` has an added "Agent" column in its routing table naming the specialist agent that owns each skill (v0.2.0);
+  - `stripe-router` has a routing row for Early Fraud Warning with no skill (forwarded to `stripe-disputes`), a note on webhook
+    ownership, and a corrected "How is the business doing?" chain row (v0.2.0).
 
   Content is otherwise unchanged.
 

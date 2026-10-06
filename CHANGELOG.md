@@ -2,6 +2,20 @@
 
 All notable changes to this project are documented here. Versions follow semantic versioning.
 
+## [0.2.0] - 2026-10-06
+
+### Added
+- 5 Stripe specialist agents: `stripe-payments`, `stripe-risk`, `stripe-disputes`, `stripe-billing` and `stripe-finance`. Each
+  skill (34, all but `stripe-router`) belongs to exactly one agent, with explicit hand-offs and cross-references between agents.
+- "Agent" column in the `stripe-router` routing table; the router stays the entry point. Recorded in THIRD_PARTY_NOTICES.
+- "Stripe specialists" section in the README with the full table of Stripe skills grouped by agent.
+- Tests: every Stripe skill is owned by exactly one agent (no orphan, no duplicate) and each `stripe-*` agent follows the pattern.
+- Totals: 21 agents, 43 skills (35 Stripe and 8 own), 6 commands, 64 zips.
+
+### Known gap
+- No dedicated Early Fraud Warning skill yet. `stripe-disputes` covers the topic from stable concepts and the official
+  Stripe documentation, and marks deadlines, program rules and refund effects as "confirm in docs.stripe.com".
+
 ## [0.1.0] - 2026-10-06
 
 ### Added

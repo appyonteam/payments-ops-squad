@@ -9,7 +9,7 @@ sys.path.insert(0, os.path.join(os.path.dirname(__file__), "..", "tools"))
 import build_dist  # noqa: E402
 
 ROOT = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
-AGENTS, STRIPE, OWN = 16, 35, 8
+AGENTS, STRIPE, OWN = 21, 35, 8
 
 
 class BuildDistTest(unittest.TestCase):

@@ -9,46 +9,51 @@ metadata:
 
 # Stripe Router
 
-Route natural-language Stripe requests to **one** specialist skill (max 3). Announce `→ Loading: <skill-name>` then invoke the skill `<skill-name>` by name. Do not answer yourself.
+Route natural-language Stripe requests to **one** specialist skill (max 3). Announce `→ Loading: <skill-name>` then invoke the skill `<skill-name>` by name. Do not answer yourself. Exception: a row with "(no skill)" has nothing to load; forward the request directly to the agent named in the Agent column.
 
 ## Routing Table
 
-| Intent / phrase | Route to |
-|---|---|
-| MRR, ARR, monthly revenue, recurring revenue snapshot | `mrr-arr-snapshot` |
-| How many subs, active subscriptions, trialing, canceled counts | `active-subscriptions-audit` |
-| Churn rate, cancellations, retention, logo churn | `churn-analysis` |
-| Past due, unpaid, failed renewal, dunning, smart retries | `past-due-dunning` |
-| Payment failed, decline, card declined, failure reasons | `payment-failure-audit` |
-| Prepaid, virtual card, disposable card, debit vs credit | `card-funding-risk` |
-| Radar, fraud, block rules, 3DS, high risk | `radar-fraud-rules` |
-| Products, prices, plans, what we sell, price IDs | `pricing-products-audit` |
-| Checkout conversion, checkout sessions, signup funnel | `checkout-conversion` |
-| Invoices, open invoices, billing history | `invoice-revenue-audit` |
-| Customer portal, update payment method, self-serve billing | `customer-portal-setup` |
-| Webhooks failing, webhook delivery, event sync | `webhook-reliability` |
-| Payment failed email, dunning email, billing emails | `email-dunning-setup` |
-| Coupons, promo codes, discounts, promotions | `coupon-promotion-audit` |
-| Disputes, chargebacks, refunds | `dispute-refund-audit` |
-| Balance, payouts, cash available, treasury | `payout-balance-report` |
-| Upgrade, downgrade, plan change, proration | `subscription-plan-changes` |
-| Full billing health check, weekly Stripe review | `stripe-health-dashboard` |
-| First time / set up context doc | `stripe-billing-context` |
-| Revenue forecast, MRR projection, ARR run-rate, growth trajectory | `revenue-forecasting` |
-| Cohort, retention curve, LTV curve, retention by signup month | `cohort-retention` |
-| Price test, raise prices, grandfathering, elasticity | `pricing-experiments` |
-| Expansion revenue, upsell, NRR, add-ons, grow accounts | `upsell-expansion` |
-| One customer, customer detail, LTV lookup, cus_/email | `customer-360` |
-| Segment customers, by country/plan, best customers, value tiers | `customer-segmentation` |
-| Revenue recognition, deferred revenue, accrual, MRR vs cash | `revenue-recognition` |
-| Stripe Tax, sales tax, VAT, GST, nexus | `tax-compliance` |
-| Reconciliation, payout vs bank, Stripe fees, balance transactions | `financial-reconciliation` |
-| Review Stripe code, audit integration, double-charging, idempotency | `stripe-integration-review` |
-| Add/fix webhook handler, handle events, signature verification | `webhook-implementation` |
-| Add checkout, build payment flow, integrate payments, paywall | `checkout-implementation` |
-| Stripe security, key management, secret leak, PCI, restricted keys | `stripe-security-audit` |
-| Connect, marketplace, payouts to sellers, application fee, split payments | `stripe-connect` |
-| Usage-based, metered, pay per use, meters, credits, overage | `usage-based-billing` |
+The Agent column names the specialist agent that owns each skill; `stripe-router` itself is the entry point and has no owner. In Claude Code, hand deep or multi-skill work to that agent.
+
+| Intent / phrase | Route to | Agent |
+|---|---|---|
+| MRR, ARR, monthly revenue, recurring revenue snapshot | `mrr-arr-snapshot` | `stripe-billing` |
+| How many subs, active subscriptions, trialing, canceled counts | `active-subscriptions-audit` | `stripe-billing` |
+| Churn rate, cancellations, retention, logo churn | `churn-analysis` | `stripe-billing` |
+| Past due, unpaid, failed renewal, dunning, smart retries | `past-due-dunning` | `stripe-billing` |
+| Payment failed, decline, card declined, failure reasons | `payment-failure-audit` | `stripe-payments` |
+| Prepaid, virtual card, disposable card, debit vs credit | `card-funding-risk` | `stripe-risk` |
+| Radar, fraud, block rules, 3DS, high risk | `radar-fraud-rules` | `stripe-risk` |
+| Products, prices, plans, what we sell, price IDs | `pricing-products-audit` | `stripe-billing` |
+| Checkout conversion, checkout sessions, signup funnel | `checkout-conversion` | `stripe-payments` |
+| Invoices, open invoices, billing history | `invoice-revenue-audit` | `stripe-billing` |
+| Customer portal, update payment method, self-serve billing | `customer-portal-setup` | `stripe-billing` |
+| Webhooks failing, webhook delivery, event sync | `webhook-reliability` | `stripe-payments` |
+| Payment failed email, dunning email, billing emails | `email-dunning-setup` | `stripe-billing` |
+| Coupons, promo codes, discounts, promotions | `coupon-promotion-audit` | `stripe-billing` |
+| Disputes, chargebacks, refunds | `dispute-refund-audit` | `stripe-disputes` |
+| Early Fraud Warning, fraud warning, TC40 | (no skill) | `stripe-disputes` |
+| Balance, payouts, cash available, treasury | `payout-balance-report` | `stripe-finance` |
+| Upgrade, downgrade, plan change, proration | `subscription-plan-changes` | `stripe-billing` |
+| Full billing health check, weekly Stripe review | `stripe-health-dashboard` | `stripe-billing` |
+| First time / set up context doc | `stripe-billing-context` | `stripe-billing` |
+| Revenue forecast, MRR projection, ARR run-rate, growth trajectory | `revenue-forecasting` | `stripe-finance` |
+| Cohort, retention curve, LTV curve, retention by signup month | `cohort-retention` | `stripe-billing` |
+| Price test, raise prices, grandfathering, elasticity | `pricing-experiments` | `stripe-billing` |
+| Expansion revenue, upsell, NRR, add-ons, grow accounts | `upsell-expansion` | `stripe-billing` |
+| One customer, customer detail, LTV lookup, cus_/email | `customer-360` | `stripe-billing` |
+| Segment customers, by country/plan, best customers, value tiers | `customer-segmentation` | `stripe-billing` |
+| Revenue recognition, deferred revenue, accrual, MRR vs cash | `revenue-recognition` | `stripe-finance` |
+| Stripe Tax, sales tax, VAT, GST, nexus | `tax-compliance` | `stripe-finance` |
+| Reconciliation, payout vs bank, Stripe fees, balance transactions | `financial-reconciliation` | `stripe-finance` |
+| Review Stripe code, audit integration, double-charging, idempotency | `stripe-integration-review` | `stripe-payments` |
+| Add/fix webhook handler, handle events, signature verification | `webhook-implementation` | `stripe-payments` |
+| Add checkout, build payment flow, integrate payments, paywall | `checkout-implementation` | `stripe-payments` |
+| Stripe security, key management, secret leak, PCI, restricted keys | `stripe-security-audit` | `stripe-risk` |
+| Connect, marketplace, payouts to sellers, application fee, split payments | `stripe-connect` | `stripe-finance` |
+| Usage-based, metered, pay per use, meters, credits, overage | `usage-based-billing` | `stripe-billing` |
+
+Webhook rows: implementation in `stripe-payments`, posture audit in `stripe-risk`.
 
 ## Multi-Skill Chains
 

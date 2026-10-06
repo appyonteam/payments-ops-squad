@@ -38,7 +38,9 @@ FunnelFox, Primer, processor, 3DS, network, issuer) and ranks hypotheses with th
 The `explain-decline` skill identifies the code namespace, paraphrases the official meaning with the URL and date, and says what
 the source states about retrying and about the message shown to the customer.
 
-## Specialists
+## Primer and FunnelFox specialists
+
+16 of the 21 specialists are listed here (Primer and FunnelFox).
 
 | Specialist | Covers |
 |---|---|
@@ -58,7 +60,82 @@ the source states about retrying and about the message shown to the customer.
 | `funnelfox-tokenization` | Credentials that actually reach the processor |
 | `funnelfox-performance` | Approval and conversion measured at the right grain |
 | `funnelfox-integrations` | Processors supported by FunnelFox and responsibility per layer |
-| Stripe skills (35) | MRR, churn, dunning, failed payments, disputes, Radar, payouts, reconciliation and more (start with `stripe-router`) |
+| 5 Stripe agents | See Stripe specialists below |
+
+## Stripe specialists
+
+Five Stripe agents own the 34 Stripe skills below; each skill belongs to exactly one agent. The `stripe-router` skill is the
+entry point: it routes a request to the right skill and names the agent that owns it. Early Fraud Warning has no dedicated
+skill yet; `stripe-disputes` covers it from the official documentation.
+
+| Specialist | Covers |
+|---|---|
+| `stripe-payments` | Failed payments, checkout, webhooks and integration code review |
+| `stripe-risk` | Radar rules, card funding risk and Stripe security posture |
+| `stripe-disputes` | Disputes, chargebacks, refunds and Early Fraud Warning |
+| `stripe-billing` | Subscriptions, MRR, churn, dunning, pricing, invoices and billing health |
+| `stripe-finance` | Payouts, reconciliation, revenue recognition, forecasting, tax and Connect |
+
+**`stripe-payments`**
+
+| Skill | What it does |
+|---|---|
+| `payment-failure-audit` | Failed payments: declines, PaymentIntents, invoice failures, decline codes and failure rates |
+| `checkout-conversion` | Checkout Session completion, abandonment and signup funnel |
+| `checkout-implementation` | Implements Checkout Sessions, Payment Element and subscription signup flows |
+| `webhook-reliability` | Webhook delivery health: failed events, missing handlers, idempotency risks |
+| `webhook-implementation` | Implements or fixes webhook handlers: signature check, event routing, retry-safe processing |
+| `stripe-integration-review` | Reviews integration code: idempotency, error handling, API version pinning, race conditions |
+
+**`stripe-risk`**
+
+| Skill | What it does |
+|---|---|
+| `radar-fraud-rules` | Designs and audits Radar rules: risk levels, 3DS, lists and decline patterns |
+| `card-funding-risk` | Card funding types (prepaid, debit, credit, unknown) across active and past_due subscriptions |
+| `stripe-security-audit` | API key hygiene, restricted keys, secret leakage, PCI scope, webhook signature verification |
+
+**`stripe-disputes`**
+
+| Skill | What it does |
+|---|---|
+| `dispute-refund-audit` | Disputes, chargebacks and refunds: volume, reasons and revenue leakage |
+
+**`stripe-billing`**
+
+| Skill | What it does |
+|---|---|
+| `active-subscriptions-audit` | Subscription counts and status mix: active, trialing, past_due, canceled, paused |
+| `mrr-arr-snapshot` | Current MRR and ARR by plan, interval and currency |
+| `churn-analysis` | Cancellations, ended subscriptions, voluntary vs involuntary signals and trends |
+| `cohort-retention` | Retention and revenue-retention tables by signup month |
+| `past-due-dunning` | past_due and unpaid subscriptions: failed invoice attempts, MRR at risk, retry status |
+| `email-dunning-setup` | Payment-failed and dunning email flows: Stripe built-in vs custom webhook emails |
+| `customer-portal-setup` | Customer Portal configuration: payment method updates, cancellation flow, plan changes |
+| `customer-360` | Full profile of one customer: subscriptions, LTV, invoices, payment health, churn risk |
+| `customer-segmentation` | Subscriber segments by plan, country, card funding, tenure or value, with MRR and churn |
+| `pricing-products-audit` | Products and prices: plans, intervals, amounts, active vs archived, prices on live subscriptions |
+| `pricing-experiments` | Price tests, price increases, grandfathering and elasticity analysis |
+| `coupon-promotion-audit` | Coupons and promotion codes: active discounts, redemptions, revenue impact |
+| `subscription-plan-changes` | Upgrades, downgrades, prorations and plan migrations |
+| `upsell-expansion` | Expansion revenue: add-ons, seat and plan upgrades, net revenue retention |
+| `usage-based-billing` | Metered billing: meters, usage records, tiered pricing, credit burn-down |
+| `invoice-revenue-audit` | Invoices: paid, open, uncollectible, revenue by period, billing health |
+| `stripe-billing-context` | Creates or updates the billing context document other skills rely on |
+| `stripe-health-dashboard` | Full billing health check: MRR, subscriptions, churn signals, past due, failures, disputes |
+
+**`stripe-finance`**
+
+| Skill | What it does |
+|---|---|
+| `payout-balance-report` | Balance, available and pending funds, payouts and cash flow |
+| `financial-reconciliation` | Payouts vs bank deposits and balance transaction breakdown: gross, fees, refunds, net |
+| `revenue-recognition` | Deferred and recognized revenue, MRR vs cash differences for accounting |
+| `revenue-forecasting` | Projects MRR, ARR and run-rate from current trends and churn |
+| `tax-compliance` | Stripe Tax configuration, tax collected, nexus and registration coverage, VAT/GST/sales tax |
+| `stripe-connect` | Connect for marketplaces and platforms: connected accounts, payouts to sellers, application fees |
+
+Entry point: `stripe-router` (routes to any of the skills above).
 
 Skills for the use cases: `analyze-export`, `investigate-incident`, `explain-decline`, `review-workflow`, `ask-payments`,
 `fetch-docs`, plus `primer-core` and `funnelfox-core` as entry points for each vendor.
