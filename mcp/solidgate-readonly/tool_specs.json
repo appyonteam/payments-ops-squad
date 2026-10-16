@@ -1,0 +1,1114 @@
+{
+  "generated_from": "official Solidgate OpenAPI v1 and v2 (api-docs.solidgate.com); see README",
+  "tools": [
+    {
+      "tool": "v1_get_status_card_order",
+      "version": "v1",
+      "operationId": "get-status-card-order",
+      "method": "POST",
+      "path": "/status",
+      "host": "https://pay.solidgate.com/api/v1",
+      "summary": "Check order status",
+      "capability": "get_payment_status / get_payment",
+      "note": null,
+      "body_required": [
+        "order_id"
+      ],
+      "body_properties": {
+        "order_id": {
+          "type": "string"
+        }
+      },
+      "params": []
+    },
+    {
+      "tool": "v1_get_status_apm_order",
+      "version": "v1",
+      "operationId": "get-status-apm-order",
+      "method": "POST",
+      "path": "/v1/status",
+      "host": "https://gate.solidgate.com/api",
+      "summary": "Check order status",
+      "capability": "get_payment_status (APM)",
+      "note": null,
+      "body_required": [
+        "order_id"
+      ],
+      "body_properties": {
+        "order_id": {
+          "type": "string"
+        }
+      },
+      "params": []
+    },
+    {
+      "tool": "v1_get_arn_codes",
+      "version": "v1",
+      "operationId": "get-arn-codes",
+      "method": "POST",
+      "path": "/arn-code",
+      "host": "https://pay.solidgate.com/api/v1",
+      "summary": "Get ARN codes",
+      "capability": "get_payment (ARN)",
+      "note": null,
+      "body_required": [
+        "order_id"
+      ],
+      "body_properties": {
+        "order_id": {
+          "type": "string"
+        }
+      },
+      "params": []
+    },
+    {
+      "tool": "v1_get_subscription_status",
+      "version": "v1",
+      "operationId": "get-subscription-status",
+      "method": "POST",
+      "path": "/subscription/status",
+      "host": "https://subscriptions.solidgate.com/api/v1",
+      "summary": "Get subscription status",
+      "capability": "get_subscription",
+      "note": null,
+      "body_required": [
+        "subscription_id"
+      ],
+      "body_properties": {
+        "subscription_id": {
+          "type": "string"
+        }
+      },
+      "params": []
+    },
+    {
+      "tool": "v1_retrieve_subscriptions_by_customer",
+      "version": "v1",
+      "operationId": "retrieve-subscriptions-by-customer",
+      "method": "POST",
+      "path": "/subscription/list",
+      "host": "https://subscriptions.solidgate.com/api/v1",
+      "summary": "Retrieve subscriptions by customer",
+      "capability": "get_subscription",
+      "note": null,
+      "body_required": [
+        "customer_account_id"
+      ],
+      "body_properties": {
+        "customer_account_id": {
+          "type": "string"
+        }
+      },
+      "params": []
+    },
+    {
+      "tool": "v1_list_invoices_by_subscription_id",
+      "version": "v1",
+      "operationId": "list-invoices-by-subscription-id",
+      "method": "POST",
+      "path": "/subscription/invoice/list",
+      "host": "https://subscriptions.solidgate.com/api/v1",
+      "summary": "List invoices by subscription",
+      "capability": "get_subscription",
+      "note": null,
+      "body_required": [
+        "subscription_id"
+      ],
+      "body_properties": {
+        "subscription_id": {
+          "type": "string"
+        },
+        "pagination": {
+          "type": "object"
+        }
+      },
+      "params": []
+    },
+    {
+      "tool": "v1_list_orders_by_invoice_id",
+      "version": "v1",
+      "operationId": "list-orders-by-invoice-id",
+      "method": "POST",
+      "path": "/subscription/order/list",
+      "host": "https://subscriptions.solidgate.com/api/v1",
+      "summary": "List orders by invoice",
+      "capability": "get_subscription",
+      "note": null,
+      "body_required": [
+        "invoice_id"
+      ],
+      "body_properties": {
+        "invoice_id": {
+          "type": "string"
+        },
+        "pagination": {
+          "type": "object"
+        }
+      },
+      "params": []
+    },
+    {
+      "tool": "v1_get_products",
+      "version": "v1",
+      "operationId": "get-products",
+      "method": "GET",
+      "path": "/products",
+      "host": "https://subscriptions.solidgate.com/api/v1",
+      "summary": "Get product list",
+      "capability": "catalogo",
+      "note": null,
+      "body_required": [],
+      "body_properties": {},
+      "params": [
+        {
+          "name": "filter[id]",
+          "in": "query",
+          "required": false,
+          "type": "string"
+        },
+        {
+          "name": "filter[status]",
+          "in": "query",
+          "required": false,
+          "type": "string"
+        },
+        {
+          "name": "filter[has_trial]",
+          "in": "query",
+          "required": false,
+          "type": "boolean"
+        },
+        {
+          "name": "pagination[limit]",
+          "in": "query",
+          "required": false,
+          "type": "integer"
+        },
+        {
+          "name": "pagination[offset]",
+          "in": "query",
+          "required": false,
+          "type": "integer"
+        }
+      ]
+    },
+    {
+      "tool": "v1_get_product_by_id",
+      "version": "v1",
+      "operationId": "get-product-by-id",
+      "method": "GET",
+      "path": "/products/{product_id}",
+      "host": "https://subscriptions.solidgate.com/api/v1",
+      "summary": "Get product by ID",
+      "capability": "catalogo",
+      "note": null,
+      "body_required": [],
+      "body_properties": {},
+      "params": [
+        {
+          "name": "product_id",
+          "in": "path",
+          "required": true,
+          "type": null
+        }
+      ]
+    },
+    {
+      "tool": "v1_get_product_prices",
+      "version": "v1",
+      "operationId": "get-product-prices",
+      "method": "GET",
+      "path": "/products/{product_id}/prices",
+      "host": "https://subscriptions.solidgate.com/api/v1",
+      "summary": "Get product prices",
+      "capability": "catalogo",
+      "note": null,
+      "body_required": [],
+      "body_properties": {},
+      "params": [
+        {
+          "name": "product_id",
+          "in": "path",
+          "required": true,
+          "type": "string"
+        },
+        {
+          "name": "filter[currency]",
+          "in": "query",
+          "required": false,
+          "type": "string"
+        },
+        {
+          "name": "filter[country]",
+          "in": "query",
+          "required": false,
+          "type": "string"
+        },
+        {
+          "name": "pagination[limit]",
+          "in": "query",
+          "required": false,
+          "type": "integer"
+        },
+        {
+          "name": "pagination[offset]",
+          "in": "query",
+          "required": false,
+          "type": "integer"
+        }
+      ]
+    },
+    {
+      "tool": "v1_find_prices",
+      "version": "v1",
+      "operationId": "find-prices",
+      "method": "POST",
+      "path": "/products/prices/list",
+      "host": "https://subscriptions.solidgate.com/api/v1",
+      "summary": "Retrieve prices",
+      "capability": "catalogo",
+      "note": null,
+      "body_required": [],
+      "body_properties": {
+        "filters": {
+          "type": "object"
+        },
+        "pagination": {
+          "type": "object"
+        }
+      },
+      "params": []
+    },
+    {
+      "tool": "v1_retrieve_card_orders",
+      "version": "v1",
+      "operationId": "retrieve-card-orders",
+      "method": "POST",
+      "path": "/card-orders",
+      "host": "https://reports.solidgate.com/api/v1",
+      "summary": "Card orders",
+      "capability": "search_transactions / get_payment_errors (campos de erro no relatorio)",
+      "note": null,
+      "body_required": [
+        "date_from",
+        "date_to"
+      ],
+      "body_properties": {
+        "filter": {
+          "type": "string",
+          "enum": [
+            "updated_at",
+            "created_at"
+          ]
+        },
+        "date_from": {
+          "type": "string"
+        },
+        "date_to": {
+          "type": "string"
+        },
+        "limit": {
+          "type": "integer"
+        },
+        "next_page_iterator": {
+          "type": "string"
+        }
+      },
+      "params": []
+    },
+    {
+      "tool": "v1_retrieve_apm_orders",
+      "version": "v1",
+      "operationId": "retrieve-apm-orders",
+      "method": "POST",
+      "path": "/apm-orders",
+      "host": "https://reports.solidgate.com/api/v1",
+      "summary": "APM orders",
+      "capability": "search_transactions",
+      "note": null,
+      "body_required": [
+        "date_from",
+        "date_to"
+      ],
+      "body_properties": {
+        "filter": {
+          "type": "string",
+          "enum": [
+            "updated_at",
+            "created_at"
+          ]
+        },
+        "date_from": {
+          "type": "string"
+        },
+        "date_to": {
+          "type": "string"
+        },
+        "limit": {
+          "type": "integer"
+        },
+        "next_page_iterator": {
+          "type": "string"
+        }
+      },
+      "params": []
+    },
+    {
+      "tool": "v1_retrieve_subscriptions",
+      "version": "v1",
+      "operationId": "retrieve-subscriptions",
+      "method": "POST",
+      "path": "/subscriptions",
+      "host": "https://reports.solidgate.com/api/v1",
+      "summary": "Subscriptions",
+      "capability": "get_subscription",
+      "note": null,
+      "body_required": [
+        "date_from",
+        "date_to"
+      ],
+      "body_properties": {
+        "filter": {
+          "type": "string",
+          "enum": [
+            "updated_at",
+            "created_at"
+          ]
+        },
+        "date_from": {
+          "type": "string"
+        },
+        "date_to": {
+          "type": "string"
+        },
+        "limit": {
+          "type": "integer"
+        },
+        "next_page_iterator": {
+          "type": "string"
+        }
+      },
+      "params": []
+    },
+    {
+      "tool": "v1_retrieve_card_chargebacks",
+      "version": "v1",
+      "operationId": "retrieve-card-chargebacks",
+      "method": "POST",
+      "path": "/card-orders/chargebacks",
+      "host": "https://reports.solidgate.com/api/v1",
+      "summary": "Chargebacks",
+      "capability": "get_dispute",
+      "note": null,
+      "body_required": [
+        "date_from",
+        "date_to"
+      ],
+      "body_properties": {
+        "filter": {
+          "type": "string",
+          "enum": [
+            "updated_at",
+            "created_at"
+          ]
+        },
+        "date_from": {
+          "type": "string"
+        },
+        "date_to": {
+          "type": "string"
+        },
+        "limit": {
+          "type": "integer"
+        },
+        "next_page_iterator": {
+          "type": "string"
+        }
+      },
+      "params": []
+    },
+    {
+      "tool": "v1_retrieve_apm_paypal_disputes",
+      "version": "v1",
+      "operationId": "retrieve-apm-paypal-disputes",
+      "method": "POST",
+      "path": "/apm-orders/paypal-disputes",
+      "host": "https://reports.solidgate.com/api/v1",
+      "summary": "PayPal disputes",
+      "capability": "get_dispute",
+      "note": null,
+      "body_required": [
+        "date_from",
+        "date_to"
+      ],
+      "body_properties": {
+        "filter": {
+          "type": "string",
+          "enum": [
+            "updated_at",
+            "created_at"
+          ]
+        },
+        "date_from": {
+          "type": "string"
+        },
+        "date_to": {
+          "type": "string"
+        },
+        "limit": {
+          "type": "integer"
+        },
+        "next_page_iterator": {
+          "type": "string"
+        }
+      },
+      "params": []
+    },
+    {
+      "tool": "v1_retrieve_card_fraud_alerts",
+      "version": "v1",
+      "operationId": "retrieve-card-fraud-alerts",
+      "method": "POST",
+      "path": "/card-orders/fraud-alerts",
+      "host": "https://reports.solidgate.com/api/v1",
+      "summary": "Card fraud alerts",
+      "capability": "get_dispute / antifraude",
+      "note": null,
+      "body_required": [
+        "date_from",
+        "date_to"
+      ],
+      "body_properties": {
+        "filter": {
+          "type": "string",
+          "enum": [
+            "updated_at",
+            "created_at"
+          ]
+        },
+        "date_from": {
+          "type": "string"
+        },
+        "date_to": {
+          "type": "string"
+        },
+        "limit": {
+          "type": "integer"
+        },
+        "next_page_iterator": {
+          "type": "string"
+        }
+      },
+      "params": []
+    },
+    {
+      "tool": "v1_prevention_alerts_by_date",
+      "version": "v1",
+      "operationId": "prevention-alerts-by-date",
+      "method": "POST",
+      "path": "/prevention_alerts",
+      "host": "https://reports.solidgate.com/api/v1",
+      "summary": "Prevention alerts",
+      "capability": "get_financial_report / alertas",
+      "note": "Generates a report on the Solidgate side and returns a report_url; no financial effect. Marked 'indeterminate' by the name heuristic in the operations index: accepted as a report read after reading the OpenAPI; review by a human.",
+      "body_required": [
+        "date_from",
+        "date_to"
+      ],
+      "body_properties": {
+        "filter": {
+          "type": "string",
+          "enum": [
+            "updated_at",
+            "created_at"
+          ]
+        },
+        "date_from": {
+          "type": "string"
+        },
+        "date_to": {
+          "type": "string"
+        }
+      },
+      "params": []
+    },
+    {
+      "tool": "v1_financial_entries_by_date",
+      "version": "v1",
+      "operationId": "financial-entries-by-date",
+      "method": "POST",
+      "path": "/financial_entries",
+      "host": "https://reports.solidgate.com/api/v1/finance",
+      "summary": "Financial entries by date range",
+      "capability": "get_financial_report",
+      "note": "Generates a CSV report and returns a report_url; no financial effect. Marked 'indeterminate' by the name heuristic: report read, review by a human.",
+      "body_required": [
+        "date_from",
+        "date_to"
+      ],
+      "body_properties": {
+        "date_from": {
+          "type": "string"
+        },
+        "date_to": {
+          "type": "string"
+        },
+        "filter": {
+          "type": "string",
+          "enum": [
+            "created_at",
+            "accounting_date",
+            "transaction_datetime_utc",
+            "transaction_datetime_provider"
+          ]
+        }
+      },
+      "params": []
+    },
+    {
+      "tool": "v1_routing_events_by_date",
+      "version": "v1",
+      "operationId": "routing-events-by-date",
+      "method": "POST",
+      "path": "/routing/events",
+      "host": "https://reports.solidgate.com/api/v1",
+      "summary": "Routing events",
+      "capability": "get_routing_events / analyze_routing",
+      "note": "Generates a report and returns a report_url; no financial effect. Marked 'indeterminate' by the name heuristic: report read, review by a human.",
+      "body_required": [
+        "date_from",
+        "date_to"
+      ],
+      "body_properties": {
+        "filter": {
+          "type": "string",
+          "enum": [
+            "updated_at",
+            "created_at"
+          ]
+        },
+        "date_from": {
+          "type": "string"
+        },
+        "date_to": {
+          "type": "string"
+        }
+      },
+      "params": []
+    },
+    {
+      "tool": "v1_fraud_prevention_list_items_list",
+      "version": "v1",
+      "operationId": "fraud-prevention-list-items-list",
+      "method": "POST",
+      "path": "/fraud-prevention-list-items/list",
+      "host": "https://risks.solidgate.com/api/v1",
+      "summary": "List fraud prevention list items",
+      "capability": "antifraud lists",
+      "note": null,
+      "body_required": [],
+      "body_properties": {
+        "list_type": {
+          "type": "string",
+          "enum": [
+            "pass",
+            "reject"
+          ]
+        },
+        "payment_field_value": {
+          "type": "object"
+        },
+        "include_deleted": {
+          "type": "boolean"
+        },
+        "created_at_from": {
+          "type": "string"
+        },
+        "created_at_to": {
+          "type": "string"
+        },
+        "limit": {
+          "type": "integer"
+        },
+        "next_page_iterator": {
+          "type": "string"
+        }
+      },
+      "params": []
+    },
+    {
+      "tool": "v1_webhook_endpoint_list",
+      "version": "v1",
+      "operationId": "webhook-endpoint-list",
+      "method": "GET",
+      "path": "/webhooks/endpoints",
+      "host": "https://api.solidgate.com/api/v1",
+      "summary": "List webhook endpoints",
+      "capability": "get_webhook_config (configuracao, nao eventos)",
+      "note": null,
+      "body_required": [],
+      "body_properties": {},
+      "params": [
+        {
+          "name": "filter[id]",
+          "in": "query",
+          "required": false,
+          "type": "string"
+        },
+        {
+          "name": "pagination[limit]",
+          "in": "query",
+          "required": false,
+          "type": "integer"
+        },
+        {
+          "name": "pagination[offset]",
+          "in": "query",
+          "required": false,
+          "type": "integer"
+        }
+      ]
+    },
+    {
+      "tool": "v2_list_webhook",
+      "version": "v2",
+      "operationId": "list-webhook",
+      "method": "POST",
+      "path": "/webhooks/list",
+      "host": "https://api.solidgate.com/v2",
+      "summary": "List webhooks",
+      "capability": "get_webhook_config",
+      "note": null,
+      "body_required": [],
+      "body_properties": {
+        "pagination": {
+          "type": "object"
+        }
+      },
+      "params": []
+    },
+    {
+      "tool": "v2_get_webhook",
+      "version": "v2",
+      "operationId": "get-webhook",
+      "method": "POST",
+      "path": "/webhooks/get",
+      "host": "https://api.solidgate.com/v2",
+      "summary": "Get webhook",
+      "capability": "get_webhook_config",
+      "note": null,
+      "body_required": [
+        "id"
+      ],
+      "body_properties": {
+        "id": {
+          "type": "string"
+        }
+      },
+      "params": []
+    },
+    {
+      "tool": "v2_list_reports",
+      "version": "v2",
+      "operationId": "list-reports",
+      "method": "POST",
+      "path": "/reports/list",
+      "host": "https://api.solidgate.com/v2",
+      "summary": "List reports",
+      "capability": "get_financial_report",
+      "note": null,
+      "body_required": [],
+      "body_properties": {
+        "pagination": {
+          "type": "object"
+        },
+        "report_type": {
+          "type": "string",
+          "enum": [
+            "INVOICES",
+            "SUBSCRIPTIONS",
+            "TAX_TRANSACTIONAL",
+            "INVOICE_PAYMENTS",
+            "TAX_SUMMARY"
+          ]
+        }
+      },
+      "params": []
+    },
+    {
+      "tool": "v2_get_report",
+      "version": "v2",
+      "operationId": "get-report",
+      "method": "POST",
+      "path": "/reports/get",
+      "host": "https://api.solidgate.com/v2",
+      "summary": "Get report",
+      "capability": "get_financial_report",
+      "note": null,
+      "body_required": [
+        "id"
+      ],
+      "body_properties": {
+        "id": {
+          "type": "string"
+        }
+      },
+      "params": []
+    },
+    {
+      "tool": "v2_list_settlements",
+      "version": "v2",
+      "operationId": "list-settlements",
+      "method": "POST",
+      "path": "/settlements/list",
+      "host": "https://api.solidgate.com/v2",
+      "summary": "List settlements",
+      "capability": "get_settlement",
+      "note": null,
+      "body_required": [],
+      "body_properties": {
+        "filters": {
+          "type": "object"
+        },
+        "pagination": {
+          "type": "object"
+        }
+      },
+      "params": []
+    },
+    {
+      "tool": "v2_get_settlement",
+      "version": "v2",
+      "operationId": "get-settlement",
+      "method": "POST",
+      "path": "/settlements/get",
+      "host": "https://api.solidgate.com/v2",
+      "summary": "Get settlement",
+      "capability": "get_settlement",
+      "note": null,
+      "body_required": [
+        "id"
+      ],
+      "body_properties": {
+        "id": {
+          "type": "string"
+        }
+      },
+      "params": []
+    },
+    {
+      "tool": "v2_list_monthly_statements",
+      "version": "v2",
+      "operationId": "list-monthly-statements",
+      "method": "POST",
+      "path": "/monthly-statements/list",
+      "host": "https://api.solidgate.com/v2",
+      "summary": "List monthly statements",
+      "capability": "get_financial_report",
+      "note": null,
+      "body_required": [],
+      "body_properties": {
+        "filters": {
+          "type": "object"
+        },
+        "pagination": {
+          "type": "object"
+        }
+      },
+      "params": []
+    },
+    {
+      "tool": "v2_get_monthly_statement",
+      "version": "v2",
+      "operationId": "get-monthly-statement",
+      "method": "POST",
+      "path": "/monthly-statements/get",
+      "host": "https://api.solidgate.com/v2",
+      "summary": "Get monthly statement",
+      "capability": "get_financial_report",
+      "note": null,
+      "body_required": [
+        "id"
+      ],
+      "body_properties": {
+        "id": {
+          "type": "string"
+        }
+      },
+      "params": []
+    },
+    {
+      "tool": "v2_list_financial_invoices",
+      "version": "v2",
+      "operationId": "list-financial-invoices",
+      "method": "POST",
+      "path": "/financial-invoices/list",
+      "host": "https://api.solidgate.com/v2",
+      "summary": "List financial invoices",
+      "capability": "get_financial_report",
+      "note": null,
+      "body_required": [],
+      "body_properties": {
+        "filters": {
+          "type": "object"
+        },
+        "pagination": {
+          "type": "object"
+        }
+      },
+      "params": []
+    },
+    {
+      "tool": "v2_get_financial_invoice",
+      "version": "v2",
+      "operationId": "get-financial-invoice",
+      "method": "POST",
+      "path": "/financial-invoices/get",
+      "host": "https://api.solidgate.com/v2",
+      "summary": "Get financial invoice",
+      "capability": "get_financial_report",
+      "note": null,
+      "body_required": [
+        "id"
+      ],
+      "body_properties": {
+        "id": {
+          "type": "string"
+        }
+      },
+      "params": []
+    },
+    {
+      "tool": "v2_list_antifraud_list",
+      "version": "v2",
+      "operationId": "list-antifraud-list",
+      "method": "POST",
+      "path": "/antifraud-lists/list",
+      "host": "https://api.solidgate.com/v2",
+      "summary": "List antifraud lists",
+      "capability": "antifraud lists",
+      "note": null,
+      "body_required": [
+        "pagination"
+      ],
+      "body_properties": {
+        "filters": {
+          "type": "object"
+        },
+        "pagination": {
+          "type": "object"
+        }
+      },
+      "params": []
+    },
+    {
+      "tool": "v2_get_antifraud_list",
+      "version": "v2",
+      "operationId": "get-antifraud-list",
+      "method": "POST",
+      "path": "/antifraud-lists/get",
+      "host": "https://api.solidgate.com/v2",
+      "summary": "Get antifraud list",
+      "capability": "antifraud lists",
+      "note": null,
+      "body_required": [
+        "id"
+      ],
+      "body_properties": {
+        "id": {
+          "type": "string"
+        }
+      },
+      "params": []
+    },
+    {
+      "tool": "v2_list_item_antifraud_list",
+      "version": "v2",
+      "operationId": "list-item-antifraud-list",
+      "method": "POST",
+      "path": "/antifraud-lists/list-item",
+      "host": "https://api.solidgate.com/v2",
+      "summary": "List antifraud list items",
+      "capability": "antifraud lists",
+      "note": null,
+      "body_required": [
+        "list_id",
+        "pagination"
+      ],
+      "body_properties": {
+        "list_id": {
+          "type": "string"
+        },
+        "filters": {
+          "type": "object"
+        },
+        "pagination": {
+          "type": "object"
+        }
+      },
+      "params": []
+    },
+    {
+      "tool": "v2_list_invoices",
+      "version": "v2",
+      "operationId": "list-invoices",
+      "method": "POST",
+      "path": "/invoices/list",
+      "host": "https://api.solidgate.com/v2",
+      "summary": "List invoices",
+      "capability": "get_subscription (billing)",
+      "note": null,
+      "body_required": [],
+      "body_properties": {
+        "filters": {
+          "type": "object"
+        },
+        "pagination": {
+          "type": "object"
+        },
+        "channel_id": {
+          "type": "string"
+        }
+      },
+      "params": []
+    },
+    {
+      "tool": "v2_get_invoice",
+      "version": "v2",
+      "operationId": "get-invoice",
+      "method": "POST",
+      "path": "/invoices/get",
+      "host": "https://api.solidgate.com/v2",
+      "summary": "Get invoice",
+      "capability": "get_subscription (billing)",
+      "note": null,
+      "body_required": [
+        "id"
+      ],
+      "body_properties": {
+        "channel_id": {
+          "type": "string"
+        },
+        "id": {
+          "type": "string"
+        }
+      },
+      "params": []
+    },
+    {
+      "tool": "v2_list_subscriptions",
+      "version": "v2",
+      "operationId": "list-subscriptions",
+      "method": "POST",
+      "path": "/subscriptions/list",
+      "host": "https://api.solidgate.com/v2",
+      "summary": "List subscriptions",
+      "capability": "get_subscription",
+      "note": null,
+      "body_required": [],
+      "body_properties": {
+        "filters": {
+          "type": "object"
+        },
+        "pagination": {
+          "type": "object"
+        },
+        "channel_id": {
+          "type": "string"
+        }
+      },
+      "params": []
+    },
+    {
+      "tool": "v2_get_subscription",
+      "version": "v2",
+      "operationId": "get-subscription",
+      "method": "POST",
+      "path": "/subscriptions/get",
+      "host": "https://api.solidgate.com/v2",
+      "summary": "Get subscription",
+      "capability": "get_subscription",
+      "note": null,
+      "body_required": [
+        "id"
+      ],
+      "body_properties": {
+        "channel_id": {
+          "type": "string"
+        },
+        "id": {
+          "type": "string"
+        }
+      },
+      "params": []
+    },
+    {
+      "tool": "v2_list_routing_configs",
+      "version": "v2",
+      "operationId": "list-routing-configs",
+      "method": "POST",
+      "path": "/routing-configs/list",
+      "host": "https://api.solidgate.com/v2",
+      "summary": "List routing configurations",
+      "capability": "get_routing_config",
+      "note": null,
+      "body_required": [],
+      "body_properties": {
+        "filters": {
+          "type": "object"
+        },
+        "pagination": {
+          "type": "object"
+        },
+        "channel_id": {
+          "type": "string"
+        }
+      },
+      "params": []
+    },
+    {
+      "tool": "v2_get_routing_config",
+      "version": "v2",
+      "operationId": "get-routing-config",
+      "method": "POST",
+      "path": "/routing-configs/get",
+      "host": "https://api.solidgate.com/v2",
+      "summary": "Get routing configuration",
+      "capability": "get_routing_config",
+      "note": null,
+      "body_required": [
+        "id"
+      ],
+      "body_properties": {
+        "id": {
+          "type": "string"
+        }
+      },
+      "params": []
+    },
+    {
+      "tool": "v2_get_routing_config_version",
+      "version": "v2",
+      "operationId": "get-routing-config-version",
+      "method": "POST",
+      "path": "/routing-configs/get-version",
+      "host": "https://api.solidgate.com/v2",
+      "summary": "Get routing configuration version",
+      "capability": "get_routing_config",
+      "note": null,
+      "body_required": [
+        "id",
+        "config_id"
+      ],
+      "body_properties": {
+        "id": {
+          "type": "string"
+        },
+        "config_id": {
+          "type": "string"
+        }
+      },
+      "params": []
+    }
+  ]
+}

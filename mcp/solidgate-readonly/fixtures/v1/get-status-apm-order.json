@@ -1,0 +1,10 @@
+{
+ "_fixture": "SYNTHETIC - obviously fake data",
+ "_not_evidence": true,
+ "order": {
+  "order_id": "FAKE-APM-0001",
+  "status": "approved",
+  "amount": 500,
+  "currency": "EUR"
+ }
+}

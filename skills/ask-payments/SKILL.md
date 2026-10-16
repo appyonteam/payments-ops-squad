@@ -1,6 +1,6 @@
 ---
 name: ask-payments
-description: "Answers a general question about payments operations with Stripe, Primer or FunnelFox, such as concepts, vendor behavior, where a setting lives, or how two layers interact, by routing it to the right skill or specialist and answering with sources and dates. Use when the user asks a payments question that is not an export analysis, an incident, a decline code or a workflow review."
+description: "Answers a general question about payments operations with Stripe, Primer, FunnelFox or Solidgate, such as concepts, vendor behavior, where a setting lives, or how two layers interact, by routing it to the right skill or specialist and answering with sources and dates. Use when the user asks a payments question that is not an export analysis, an incident, a decline code or a workflow review."
 ---
 
 # Ask Payments
@@ -16,6 +16,7 @@ The question, plus any context the user gives (vendor, product, country, integra
    - Stripe account data or Stripe features: the `stripe-router` skill.
    - Primer: the `primer-core` skill (coordinator for the Primer specialists).
    - FunnelFox: the `funnelfox-core` skill (coordinator for the FunnelFox specialists).
+   - Solidgate: the `solidgate-core` skill (coordinator for the Solidgate specialists).
    - An export, an incident, a decline code or a workflow: hand over to `analyze-export`, `investigate-incident`,
      `explain-decline` or `review-workflow`.
    - Questions that cross vendors: name each layer involved and answer per layer.
@@ -64,10 +65,11 @@ Report the customer or order view first ("of N customers who tried to pay, M pai
 1. Local cache: `$PAYMENTS_OPS_KNOWLEDGE`, else `${CLAUDE_PLUGIN_DATA}/knowledge/` (plugin install), else
    `~/.claude/payments-ops-squad/knowledge/` (script install). Search it with `grep -ril <term> <cache>`; the plugin's
    `knowledge/INDEX.md` explains how the cache works.
-2. Fetch on demand with the `pay-docs` command / `tools/fetch_doc.py` (official Stripe, Primer and FunnelFox documentation
-   only) and cite the cached file's `source_url` and `fetched_at`.
+2. Fetch on demand with the `pay-docs` command / `tools/fetch_doc.py` (official Stripe, Primer, FunnelFox and Solidgate
+   documentation only) and cite the cached file's `source_url` and `fetched_at`.
 3. If the local cache is empty, go straight to the official documentation online and say so in Sources: Stripe
-   (https://docs.stripe.com), Primer (https://primer.io/docs), FunnelFox (https://funnelfox.com/docs).
+   (https://docs.stripe.com), Primer (https://primer.io/docs), FunnelFox (https://funnelfox.com/docs), Solidgate
+   (https://docs.solidgate.com and https://api-docs.solidgate.com).
 4. Other sources, explicitly marked as non-official.
 
 Cite official URLs. Never paste vendor documentation text: summarize in your own words and link the page.

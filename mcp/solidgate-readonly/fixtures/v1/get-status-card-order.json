@@ -1,0 +1,11 @@
+{
+ "_fixture": "SYNTHETIC - obviously fake data",
+ "_not_evidence": true,
+ "order": {
+  "order_id": "FAKE-ORDER-0001",
+  "status": "settle_ok",
+  "amount": 1000,
+  "currency": "USD",
+  "error_code": null
+ }
+}

@@ -1,0 +1,9 @@
+{
+ "_fixture": "SYNTHETIC - obviously fake data",
+ "_not_evidence": true,
+ "data": {
+  "id": "FAKE-RC-0001",
+  "name": "FAKE routing config",
+  "active_version_id": "FAKE-RCV-0001"
+ }
+}

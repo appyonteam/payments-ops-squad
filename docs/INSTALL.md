@@ -12,7 +12,7 @@ claude plugin marketplace add appyonteam/payments-ops-squad
 claude plugin install payments-ops-squad@payments-ops-marketplace
 ```
 
-Restart Claude Code. Check with `/agents` (21 specialists) and by typing `/payments-ops-squad:` to list the commands:
+Restart Claude Code. Check with `/agents` (29 specialists) and by typing `/payments-ops-squad:` to list the commands:
 
 | Command | Skill |
 |---|---|
@@ -44,10 +44,12 @@ Windows (PowerShell):
 
 What the script copies:
 
-- `agents/*.md` to `<dest>/agents/` (21 files)
-- every skill to `<dest>/skills/<name>/` (43 folders; the Stripe skills are flattened out of `skills/stripe/`)
+- `agents/*.md` to `<dest>/agents/` (29 files)
+- every skill to `<dest>/skills/<name>/` (47 folders; the Stripe skills are flattened out of `skills/stripe/`)
 - `commands/*.md` to `<dest>/commands/` (6 files; commands have no namespace, for example `/pay-export`)
-- `tools/fetch_doc.py`, `knowledge/INDEX.md` and `knowledge/sources.json` to `<dest>/payments-ops-squad/`
+- `tools/fetch_doc.py`, `tools/sync_solidgate.py`, `knowledge/INDEX.md`, `knowledge/sources.json` and `mcp/solidgate-readonly/`
+  to `<dest>/payments-ops-squad/`
+- `knowledge/solidgate/` (playbooks, matrix, indexes) to `<dest>/payments-ops-squad/knowledge/solidgate/`
 - an empty documentation cache at `<dest>/payments-ops-squad/knowledge/`
 
 If any target already exists, the script lists the conflicts, writes nothing and exits with code 2. Run it again with `--force`
@@ -57,8 +59,8 @@ On Windows, if `python3` is not on the PATH, run the fetcher with `python` or `p
 
 ## 3. Claude web and desktop app
 
-1. Open the latest GitHub Release of `appyonteam/payments-ops-squad` and download the zips you want (one per skill; 64 in total:
-   21 specialists, 35 Stripe skills and 8 use-case skills).
+1. Open the latest GitHub Release of `appyonteam/payments-ops-squad` and download the zips you want (one per skill; 76 in total:
+   29 specialists, 35 Stripe skills and 12 own skills).
 2. In Claude, go to **Settings > Capabilities > Skills** and upload each zip.
 3. Skills require a Pro, Max, Team or Enterprise plan with code execution enabled. On Team and Enterprise an owner may need to
    enable skills for the organization first.

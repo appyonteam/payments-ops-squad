@@ -1,6 +1,6 @@
 ---
 name: analyze-export
-description: "Analyzes payment exports (CSV or spreadsheet) from Stripe, Primer or FunnelFox: detects the origin from the header, deduplicates by id, checks daily coverage per status before computing any rate, and reports approval, declines and conversion at the right grain with numerator and denominator. Use when the user shares an export or asks for approval rate, decline breakdown or conversion from a file."
+description: "Analyzes payment exports (CSV or spreadsheet) from Stripe, Primer, FunnelFox or Solidgate: detects the origin from the header, deduplicates by id, checks daily coverage per status before computing any rate, and reports approval, declines and conversion at the right grain with numerator and denominator. Use when the user shares an export or asks for approval rate, decline breakdown or conversion from a file."
 ---
 
 # Analyze Export
@@ -15,7 +15,8 @@ description: "Analyzes payment exports (CSV or spreadsheet) from Stripe, Primer 
 
 1. **Detect the origin from the header.** Typical signals: Primer exports carry fields such as `paymentInstrumentType` and
    `declineReasons` (names vary by export type and version: confirm against the header and the Primer docs); Stripe dashboard exports carry a `Status` column and a decline column whose exact name depends on the export
-   type and version; for FunnelFox, compare against the columns described in the FunnelFox documentation. The safest discriminator is the format
+   type and version; for FunnelFox, compare against the columns described in the FunnelFox documentation; for Solidgate, compare against the
+   reports documentation and the fields of the API version in use (v1 or v2). The safest discriminator is the format
    of the id values (for example `pi_`, `ch_` or `in_` prefixes in Stripe). If the origin is not certain, say which columns you used and ask, or state the assumption. Never guess a column's meaning.
 2. **Inventory.** Count files, rows, columns; print the min and max timestamp and the timezone of the timestamp column.
 3. **Deduplicate by id.** Union all files, drop exact duplicate ids and report how many rows were removed. Deduplicate within the
@@ -37,7 +38,9 @@ description: "Analyzes payment exports (CSV or spreadsheet) from Stripe, Primer 
 
 ## Specialists to consult
 
-`primer-performance`, `funnelfox-performance`, and the Stripe skills `payment-failure-audit`, `card-funding-risk` and
+`primer-performance`, `funnelfox-performance`, `solidgate-core` (coordinator, used whenever Solidgate is mentioned; for
+Solidgate exports, `solidgate-payment-performance` and `solidgate-reconciliation`), and the Stripe skills
+`payment-failure-audit`, `card-funding-risk` and
 `dispute-refund-audit` for Stripe-specific views.
 
 ## Grain rules
@@ -79,10 +82,11 @@ Report the customer or order view first ("of N customers who tried to pay, M pai
 1. Local cache: `$PAYMENTS_OPS_KNOWLEDGE`, else `${CLAUDE_PLUGIN_DATA}/knowledge/` (plugin install), else
    `~/.claude/payments-ops-squad/knowledge/` (script install). Search it with `grep -ril <term> <cache>`; the plugin's
    `knowledge/INDEX.md` explains how the cache works.
-2. Fetch on demand with the `pay-docs` command / `tools/fetch_doc.py` (official Stripe, Primer and FunnelFox documentation
-   only) and cite the cached file's `source_url` and `fetched_at`.
+2. Fetch on demand with the `pay-docs` command / `tools/fetch_doc.py` (official Stripe, Primer, FunnelFox and Solidgate
+   documentation only) and cite the cached file's `source_url` and `fetched_at`.
 3. If the local cache is empty, go straight to the official documentation online and say so in Sources: Stripe
-   (https://docs.stripe.com), Primer (https://primer.io/docs), FunnelFox (https://funnelfox.com/docs).
+   (https://docs.stripe.com), Primer (https://primer.io/docs), FunnelFox (https://funnelfox.com/docs), Solidgate
+   (https://docs.solidgate.com and https://api-docs.solidgate.com).
 4. Other sources, explicitly marked as non-official.
 
 Cite official URLs. Never paste vendor documentation text: summarize in your own words and link the page.

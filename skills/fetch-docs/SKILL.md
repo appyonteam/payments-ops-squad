@@ -1,14 +1,15 @@
 ---
 name: fetch-docs
-description: "Fetches an official Stripe, Primer or FunnelFox documentation page (or a vendor llms.txt index) into the local knowledge cache and returns it with its source URL and fetch date, so answers can cite current documentation without downloading it again. Use when an answer needs a documentation page that is not in the cache or is older than 14 days."
+description: "Fetches an official Stripe, Primer, FunnelFox or Solidgate documentation page (or a vendor llms.txt index) into the local knowledge cache and returns it with its source URL and fetch date, so answers can cite current documentation without downloading it again. Use when an answer needs a documentation page that is not in the cache or is older than 14 days."
 ---
 
 # Fetch Docs
 
 ## Inputs
 
-- A documentation URL under `https://docs.stripe.com/`, `https://primer.io/docs/` or `https://funnelfox.com/docs/`, or a vendor
-  name to fetch its index (`stripe`, `primer`, `funnelfox`).
+- A documentation URL under `https://docs.stripe.com/`, `https://primer.io/docs/`, `https://funnelfox.com/docs/`,
+  `https://docs.solidgate.com/` or `https://api-docs.solidgate.com/`, or a vendor name to fetch its index (`stripe`, `primer`,
+  `funnelfox`, `solidgate`). For the Solidgate guides (no `llms.txt`), use `tools/sync_solidgate.py` to fetch them in bulk.
 - Optional: `--refresh` to ignore the cached copy, `--max-age-days N` to change the 14-day TTL.
 
 ## Steps
@@ -16,8 +17,9 @@ description: "Fetches an official Stripe, Primer or FunnelFox documentation page
 1. **Search the cache first** with `grep -ril "<term>" <cache>` (see Knowledge lookup order for the cache location). If a fresh
    copy exists, use it.
 2. **Validate the input before running anything.** Accept only: one URL matching `^https://\S+$` that starts with
-   `https://docs.stripe.com/`, `https://primer.io/docs/` or `https://funnelfox.com/docs/`; or `--index` with exactly one of
-   `stripe`, `primer`, `funnelfox`; plus optionally `--refresh` and `--max-age-days N` (N a positive number). Refuse anything
+   `https://docs.stripe.com/`, `https://primer.io/docs/`, `https://funnelfox.com/docs/`, `https://docs.solidgate.com/` or
+   `https://api-docs.solidgate.com/`; or `--index` with exactly one of `stripe`, `primer`, `funnelfox`, `solidgate`; plus
+   optionally `--refresh` and `--max-age-days N` (N a positive number). Refuse anything
    else (shell characters such as `;`, `|`, `&`, `$`, backticks, quotes, redirections or newlines, other flags, other hosts),
    say which token was refused and stop.
 3. **Find the page.** If you do not know the URL, fetch the vendor index:
@@ -56,10 +58,11 @@ In Claude web or app, where the script cannot run, read the official page online
 1. Local cache: `$PAYMENTS_OPS_KNOWLEDGE`, else `${CLAUDE_PLUGIN_DATA}/knowledge/` (plugin install), else
    `~/.claude/payments-ops-squad/knowledge/` (script install). Search it with `grep -ril <term> <cache>`; the plugin's
    `knowledge/INDEX.md` explains how the cache works.
-2. Fetch on demand with the `pay-docs` command / `tools/fetch_doc.py` (official Stripe, Primer and FunnelFox documentation
+2. Fetch on demand with the `pay-docs` command / `tools/fetch_doc.py` (official Stripe, Primer, FunnelFox and Solidgate documentation
    only) and cite the cached file's `source_url` and `fetched_at`.
 3. If the local cache is empty, go straight to the official documentation online and say so in Sources: Stripe
-   (https://docs.stripe.com), Primer (https://primer.io/docs), FunnelFox (https://funnelfox.com/docs).
+   (https://docs.stripe.com), Primer (https://primer.io/docs), FunnelFox (https://funnelfox.com/docs), Solidgate
+   (https://docs.solidgate.com, https://api-docs.solidgate.com).
 4. Other sources, explicitly marked as non-official.
 
 Cite official URLs. Never paste vendor documentation text: summarize in your own words and link the page.

@@ -1,0 +1,11 @@
+{
+ "_fixture": "SYNTHETIC - obviously fake data",
+ "_not_evidence": true,
+ "data": [
+  {
+   "id": "FAKE-AFL-0001",
+   "name": "FAKE list",
+   "type": "block"
+  }
+ ]
+}

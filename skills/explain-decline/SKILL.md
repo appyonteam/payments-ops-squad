@@ -1,13 +1,13 @@
 ---
 name: explain-decline
-description: "Explains a payment decline or error code from Stripe, Primer, a processor, a card network or 3DS: identifies which code namespace it belongs to, paraphrases the official meaning with the source URL and date, says whether the source treats it as soft or hard, who owns it, what to check and what the source says about retrying and about the message shown to the customer. Use when the user asks what a decline code means or whether to retry it."
+description: "Explains a payment decline or error code from Stripe, Primer, FunnelFox, Solidgate, a processor, a card network or 3DS: identifies which code namespace it belongs to, paraphrases the official meaning with the source URL and date, says whether the source treats it as soft or hard, who owns it, what to check and what the source says about retrying and about the message shown to the customer. Use when the user asks what a decline code means or whether to retry it."
 ---
 
 # Explain Decline
 
 ## Inputs
 
-- The code and message exactly as received, and where they came from (Stripe, Primer, FunnelFox, a processor, a 3DS result).
+- The code and message exactly as received, and where they came from (Stripe, Primer, FunnelFox, Solidgate, a processor, a 3DS result).
 - Context if available: card network, first payment vs recurring (CIT/MIT), whether 3DS ran, retry number.
 
 ## Steps
@@ -17,7 +17,9 @@ description: "Explains a payment decline or error code from Stripe, Primer, a pr
    passed through by a processor; a 3DS transaction status or reason code. Say which one you are looking at.
 2. **Look it up in the official source**, local cache first: for Stripe, the decline codes page
    (https://docs.stripe.com/declines/codes) and the error codes page (https://docs.stripe.com/error-codes); for Primer, the Primer
-   documentation on declines and payment statuses (https://primer.io/docs); for 3DS codes, the processor or 3DS provider
+   documentation on declines and payment statuses (https://primer.io/docs); for Solidgate, the error codes documentation at
+   https://docs.solidgate.com (confirm the page and the API version, v1 or v2, because code tables differ between sources);
+   for 3DS codes, the processor or 3DS provider
    documentation. Paraphrase; do not paste vendor text.
 3. **Soft or hard**, only as the source classifies it. If the source does not say, write "not stated by <source>".
 4. **Owner and checks.** Issuer, network, processor, fraud rules, 3DS or integration, and what to check next.
@@ -32,7 +34,8 @@ If the code is not found in any official source, say so plainly. Do not infer a 
 
 ## Specialists to consult
 
-`funnelfox-payments`, `funnelfox-retries`, `primer-payments`, `primer-3ds` / `funnelfox-3ds`, and the Stripe skill
+`funnelfox-payments`, `funnelfox-retries`, `primer-payments`, `primer-3ds` / `funnelfox-3ds`, `solidgate-core` (coordinator,
+used whenever Solidgate is mentioned; for a Solidgate code, `solidgate-payment-performance`), and the Stripe skill
 `payment-failure-audit`.
 
 ## Extra output table
@@ -82,10 +85,11 @@ Report the customer or order view first ("of N customers who tried to pay, M pai
 1. Local cache: `$PAYMENTS_OPS_KNOWLEDGE`, else `${CLAUDE_PLUGIN_DATA}/knowledge/` (plugin install), else
    `~/.claude/payments-ops-squad/knowledge/` (script install). Search it with `grep -ril <term> <cache>`; the plugin's
    `knowledge/INDEX.md` explains how the cache works.
-2. Fetch on demand with the `pay-docs` command / `tools/fetch_doc.py` (official Stripe, Primer and FunnelFox documentation
-   only) and cite the cached file's `source_url` and `fetched_at`.
+2. Fetch on demand with the `pay-docs` command / `tools/fetch_doc.py` (official Stripe, Primer, FunnelFox and Solidgate
+   documentation only) and cite the cached file's `source_url` and `fetched_at`.
 3. If the local cache is empty, go straight to the official documentation online and say so in Sources: Stripe
-   (https://docs.stripe.com), Primer (https://primer.io/docs), FunnelFox (https://funnelfox.com/docs).
+   (https://docs.stripe.com), Primer (https://primer.io/docs), FunnelFox (https://funnelfox.com/docs), Solidgate
+   (https://docs.solidgate.com and https://api-docs.solidgate.com).
 4. Other sources, explicitly marked as non-official.
 
 Cite official URLs. Never paste vendor documentation text: summarize in your own words and link the page.

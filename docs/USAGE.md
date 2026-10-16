@@ -8,7 +8,7 @@ recommendations for a human to approve.
 
 ## /payments-ops-squad:pay-export
 
-Analyze a Stripe, Primer or FunnelFox export. Arguments: `<file(s)> [question]`.
+Analyze a Stripe, Primer, FunnelFox or Solidgate export. Arguments: `<file(s)> [question]`.
 
 ```text
 /payments-ops-squad:pay-export exports/payments-part1.csv exports/payments-part2.csv Approval by card brand, per customer and per attempt
@@ -80,4 +80,6 @@ authorization failures in this export" or "Use funnelfox-retries to check whethe
 Primer investigations start with `primer-squad`; for FunnelFox start with the `funnelfox-core` skill; for Stripe account questions
 start with the `stripe-router` skill, which names the owning agent (`stripe-payments`, `stripe-risk`, `stripe-disputes`,
 `stripe-billing` or `stripe-finance`). You can also ask for one of them directly, for example: "Use stripe-billing to explain why
-MRR dropped".
+MRR dropped". For Solidgate start with the `solidgate-core` skill, which names the specialist (for example
+"Use solidgate-routing to compare Solidgate cascading with our Primer Workflows fallback"). Build the local Solidgate base once
+with `python3 tools/sync_solidgate.py`.

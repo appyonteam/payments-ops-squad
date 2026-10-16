@@ -1,0 +1,9 @@
+{
+ "_fixture": "SYNTHETIC - obviously fake data",
+ "_not_evidence": true,
+ "subscription": {
+  "id": "FAKE-SUB-0001",
+  "status": "active",
+  "product_id": "FAKE-PROD-0001"
+ }
+}

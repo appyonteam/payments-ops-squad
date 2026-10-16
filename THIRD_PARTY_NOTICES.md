@@ -85,6 +85,15 @@ OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
 SOFTWARE.
 ```
 
+## Original work that refers to Solidgate
+
+The skills `solidgate-core`, `solidgate-payment-form`, `solidgate-h2h` and `solidgate-chargebacks-alerts`, the `solidgate-*`
+agents, the playbooks and indexes in `knowledge/solidgate/`, `tools/sync_solidgate.py` and the `mcp/solidgate-readonly/` server
+are original work of this project, released under the MIT License. They were written from Solidgate's public documentation and
+API reference. No text, OpenAPI file, example or skill published by Solidgate is included in this repository or in its release
+packages, and no Solidgate skill package was used as a base. The skills paraphrase, cite the official URL and state the date
+the page was read. The indexes in `knowledge/solidgate/indexes/` hold metadata only (URL, title, operation id, path, date).
+
 ## Not redistributed (fetched from official sources on demand)
 
 The following material is never versioned in this repository nor included in the release packages. Documentation pages are
@@ -102,6 +111,14 @@ downloaded automatically. Agents and skills cite the official URL instead of cop
 | primer-io/sdk-android | https://github.com/primer-io/sdk-android | BSD-3-Clause |
 | primer-io/example-web-checkout | https://github.com/primer-io/example-web-checkout | No license (archived repository); not redistributed |
 | adaptyteam/funnelfox-billing-js | https://github.com/adaptyteam/funnelfox-billing-js | MIT, Copyright (c) 2024 Funnelfox |
+| Solidgate documentation | https://docs.solidgate.com | Solidgate terms; not redistributed |
+| Solidgate API reference and OpenAPI files (v1, v2) | https://api-docs.solidgate.com | Solidgate terms; not redistributed |
 
-Stripe, Primer and FunnelFox are trademarks of their respective owners. This is an independent project, not affiliated
-with, endorsed by or sponsored by Stripe, Primer or FunnelFox.
+Solidgate documentation and OpenAPI files are downloaded by the user, on the user's own machine, with `tools/sync_solidgate.py`
+or `tools/fetch_doc.py` (the `pay-docs` command). Each user is responsible for using the downloaded material under Solidgate's
+terms of use and the `robots.txt` of each host: the tools identify themselves, honor `robots.txt` (which for
+https://docs.solidgate.com disallows `/api/`) and write only to the local knowledge cache. The cache is never committed to
+this repository and never included in a release package.
+
+Stripe, Primer, FunnelFox and Solidgate are trademarks of their respective owners. This is an independent project, not
+affiliated with, endorsed by or sponsored by Stripe, Primer, FunnelFox or Solidgate.

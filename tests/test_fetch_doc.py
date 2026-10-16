@@ -162,6 +162,27 @@ class FetchDocTest(unittest.TestCase):
         self.assertFalse(fetch_doc.is_allowed("https://primer.io/blog/post"))
         self.assertFalse(fetch_doc.is_allowed("https://user:pw" + "@docs.stripe.com/x"))
 
+    def test_solidgate_hosts_are_allowed_and_nothing_near_them(self):
+        fetch_doc.ALLOWED_PREFIXES = self._saved[0]
+        for url in ["https://docs.solidgate.com/payments/integrate", "https://docs.solidgate.com/sitemap.xml",
+                    "https://api-docs.solidgate.com/llms.txt",
+                    "https://api-docs.solidgate.com/_bundle/api/@v2/index.yaml?download"]:
+            self.assertTrue(fetch_doc.is_allowed(url), url)
+        for url in ["https://docs.solidgate.com.evil.com/", "https://docs.solidgate.com.evil.com/payments",
+                    "https://api-docs.solidgate.com.evil.com/llms.txt", "https://evil.com/docs.solidgate.com/",
+                    "http://docs.solidgate.com/payments", "http://api-docs.solidgate.com/llms.txt",
+                    "https://solidgate.com/docs/", "https://pay.solidgate.com/api/v1/status",
+                    "https://docs.solidgate.com" + "@evil.com/", "https://user:pw" + "@docs.solidgate.com/x",
+                    "https://docs.solidgate.com/a/../b", "https://docs.solidgate.com/x#frag",
+                    "https://example.com/docs/guide"]:
+            self.assertFalse(fetch_doc.is_allowed(url), url)
+
+    def test_solidgate_index_is_registered(self):
+        fetch_doc.ALLOWED_PREFIXES = self._saved[0]
+        index = self._saved[1]["solidgate"]
+        self.assertEqual(index, "https://api-docs.solidgate.com/llms.txt")
+        self.assertTrue(fetch_doc.is_allowed(index))
+
     def test_redirect_outside_allowlist_refused_before_request(self):
         Handler.redirects = {"/docs/moved.md": self.outside_base + "/docs/moved.md"}
         code, _, err = self.run_main([self.base + "/docs/moved"])

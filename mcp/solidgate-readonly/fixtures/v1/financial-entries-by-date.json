@@ -1,0 +1,5 @@
+{
+ "_fixture": "SYNTHETIC - obviously fake data",
+ "_not_evidence": true,
+ "report_url": "https://reports.solidgate.com/fake/finance.csv?X-Signature=FAKEFAKEFAKE"
+}

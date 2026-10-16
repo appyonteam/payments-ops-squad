@@ -1,6 +1,6 @@
 ---
 name: investigate-incident
-description: "Investigates a payments incident such as an approval drop, a spike in declines or errors, failed captures or webhooks, or 3DS failures: frames the symptom against a baseline, confirms it is real, builds the change timeline, isolates the failing layer across app, FunnelFox, Primer, processor, 3DS, network and issuer, and ranks hypotheses with validation steps. Use when something changed in payment performance and the cause is unknown."
+description: "Investigates a payments incident such as an approval drop, a spike in declines or errors, failed captures or webhooks, or 3DS failures: frames the symptom against a baseline, confirms it is real, builds the change timeline, isolates the failing layer across app, FunnelFox, Primer, Solidgate, processor, 3DS, network and issuer, and ranks hypotheses with validation steps. Use when something changed in payment performance and the cause is unknown."
 ---
 
 # Investigate Incident
@@ -28,7 +28,8 @@ description: "Investigates a payments incident such as an approval drop, a spike
 
 ## Specialists to consult
 
-`primer-squad` (coordinator), `funnelfox-core` (coordinator), `primer-3ds` / `funnelfox-3ds`, `primer-workflows` /
+`primer-squad` (coordinator), `funnelfox-core` (coordinator), `solidgate-core` (coordinator, used whenever Solidgate is
+mentioned; for a Solidgate incident, `solidgate-incident-investigator`), `primer-3ds` / `funnelfox-3ds`, `primer-workflows` /
 `funnelfox-orchestration`, `funnelfox-retries`, and the Stripe skills `stripe-router`, `payment-failure-audit`,
 `radar-fraud-rules` and `webhook-reliability`.
 
@@ -75,10 +76,11 @@ Report the customer or order view first ("of N customers who tried to pay, M pai
 1. Local cache: `$PAYMENTS_OPS_KNOWLEDGE`, else `${CLAUDE_PLUGIN_DATA}/knowledge/` (plugin install), else
    `~/.claude/payments-ops-squad/knowledge/` (script install). Search it with `grep -ril <term> <cache>`; the plugin's
    `knowledge/INDEX.md` explains how the cache works.
-2. Fetch on demand with the `pay-docs` command / `tools/fetch_doc.py` (official Stripe, Primer and FunnelFox documentation
-   only) and cite the cached file's `source_url` and `fetched_at`.
+2. Fetch on demand with the `pay-docs` command / `tools/fetch_doc.py` (official Stripe, Primer, FunnelFox and Solidgate
+   documentation only) and cite the cached file's `source_url` and `fetched_at`.
 3. If the local cache is empty, go straight to the official documentation online and say so in Sources: Stripe
-   (https://docs.stripe.com), Primer (https://primer.io/docs), FunnelFox (https://funnelfox.com/docs).
+   (https://docs.stripe.com), Primer (https://primer.io/docs), FunnelFox (https://funnelfox.com/docs), Solidgate
+   (https://docs.solidgate.com and https://api-docs.solidgate.com).
 4. Other sources, explicitly marked as non-official.
 
 Cite official URLs. Never paste vendor documentation text: summarize in your own words and link the page.

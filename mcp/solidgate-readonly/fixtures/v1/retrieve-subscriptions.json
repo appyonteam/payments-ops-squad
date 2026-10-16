@@ -1,0 +1,14 @@
+{
+ "_fixture": "SYNTHETIC - obviously fake data",
+ "_not_evidence": true,
+ "subscriptions": [
+  {
+   "id": "FAKE-SUB-0001",
+   "status": "active"
+  }
+ ],
+ "metadata": {
+  "next_page_iterator": null,
+  "count": 1
+ }
+}

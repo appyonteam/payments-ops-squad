@@ -1,0 +1,13 @@
+{
+ "_fixture": "SYNTHETIC - obviously fake data",
+ "_not_evidence": true,
+ "data": [
+  {
+   "id": "FAKE-SUB-V2-0001",
+   "status": "active"
+  }
+ ],
+ "pagination": {
+  "next_cursor": null
+ }
+}

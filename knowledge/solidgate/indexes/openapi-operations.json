@@ -1,0 +1,2141 @@
+{
+ "description": "Operations extracted from the official Solidgate OpenAPI files, used to build the read-only MCP allowlist. v1 and v2 are different contracts: never mix them. 'semantics' is a HEURISTIC; v1 has reads done through POST (requires_review=true). An operation marked write or indeterminate never enters the allowlist without a human decision.",
+ "generated_by": "knowledge/solidgate/indexes/build_index.py",
+ "base_date": "2026-10-09",
+ "versions": {
+  "v1": {
+   "openapi": "3.0.3",
+   "file": "openapi/v1.yaml",
+   "default_server": "https://pay.solidgate.com/api/v1",
+   "operations": [
+    {
+     "method": "POST",
+     "path": "/init",
+     "operationId": "create-payment-page",
+     "tags": [
+      "Payment page"
+     ],
+     "summary": "Create page",
+     "host": "https://payment-page.solidgate.com/api/v1",
+     "semantics": "write",
+     "requires_review": false,
+     "classification_basis": "heuristic by operationId/method (not verified against the live API)"
+    },
+    {
+     "method": "POST",
+     "path": "/deactivate",
+     "operationId": "deactivate-payment-page",
+     "tags": [
+      "Payment page"
+     ],
+     "summary": "Deactivate page",
+     "host": "https://payment-page.solidgate.com/api/v1",
+     "semantics": "write",
+     "requires_review": false,
+     "classification_basis": "heuristic by operationId/method (not verified against the live API)"
+    },
+    {
+     "method": "POST",
+     "path": "/link/init",
+     "operationId": "create-payment-link",
+     "tags": [
+      "Payment link"
+     ],
+     "summary": "Create link",
+     "host": "https://payment-page.solidgate.com/api/v1",
+     "semantics": "write",
+     "requires_review": false,
+     "classification_basis": "heuristic by operationId/method (not verified against the live API)"
+    },
+    {
+     "method": "POST",
+     "path": "/link/deactivate",
+     "operationId": "deactivate-payment-link",
+     "tags": [
+      "Payment link"
+     ],
+     "summary": "Deactivate link",
+     "host": "https://payment-page.solidgate.com/api/v1",
+     "semantics": "write",
+     "requires_review": false,
+     "classification_basis": "heuristic by operationId/method (not verified against the live API)"
+    },
+    {
+     "method": "POST",
+     "path": "/charge",
+     "operationId": "make-card-charge",
+     "tags": [
+      "Card payments"
+     ],
+     "summary": "Charge",
+     "host": "https://pay.solidgate.com/api/v1",
+     "semantics": "write",
+     "requires_review": false,
+     "classification_basis": "heuristic by operationId/method (not verified against the live API)"
+    },
+    {
+     "method": "POST",
+     "path": "/google-pay",
+     "operationId": "make-google-pay",
+     "tags": [
+      "Card payments"
+     ],
+     "summary": "Google Pay",
+     "host": "https://pay.solidgate.com/api/v1",
+     "semantics": "write",
+     "requires_review": false,
+     "classification_basis": "heuristic by operationId/method (not verified against the live API)"
+    },
+    {
+     "method": "POST",
+     "path": "/apple-pay",
+     "operationId": "make-apple-pay",
+     "tags": [
+      "Card payments"
+     ],
+     "summary": "Apple Pay",
+     "host": "https://pay.solidgate.com/api/v1",
+     "semantics": "write",
+     "requires_review": false,
+     "classification_basis": "heuristic by operationId/method (not verified against the live API)"
+    },
+    {
+     "method": "POST",
+     "path": "/increment",
+     "operationId": "increment-card-auth",
+     "tags": [
+      "Card payments"
+     ],
+     "summary": "Incremental auth",
+     "host": "https://pay.solidgate.com/api/v1",
+     "semantics": "write",
+     "requires_review": false,
+     "classification_basis": "heuristic by operationId/method (not verified against the live API)"
+    },
+    {
+     "method": "POST",
+     "path": "/recurring",
+     "operationId": "make-card-recurring",
+     "tags": [
+      "Card payments"
+     ],
+     "summary": "Recurring",
+     "host": "https://pay.solidgate.com/api/v1",
+     "semantics": "write",
+     "requires_review": false,
+     "classification_basis": "heuristic by operationId/method (not verified against the live API)"
+    },
+    {
+     "method": "POST",
+     "path": "/resign",
+     "operationId": "make-card-resign",
+     "tags": [
+      "Card payments"
+     ],
+     "summary": "Resign",
+     "host": "https://pay.solidgate.com/api/v1",
+     "semantics": "write",
+     "requires_review": false,
+     "classification_basis": "heuristic by operationId/method (not verified against the live API)"
+    },
+    {
+     "method": "POST",
+     "path": "/refund",
+     "operationId": "refund-card-order",
+     "tags": [
+      "Card payments"
+     ],
+     "summary": "Refund",
+     "host": "https://pay.solidgate.com/api/v1",
+     "semantics": "write",
+     "requires_review": false,
+     "classification_basis": "heuristic by operationId/method (not verified against the live API)"
+    },
+    {
+     "method": "POST",
+     "path": "/void",
+     "operationId": "void-card-order",
+     "tags": [
+      "Card payments"
+     ],
+     "summary": "Void",
+     "host": "https://pay.solidgate.com/api/v1",
+     "semantics": "write",
+     "requires_review": false,
+     "classification_basis": "heuristic by operationId/method (not verified against the live API)"
+    },
+    {
+     "method": "POST",
+     "path": "/settle",
+     "operationId": "settle-card-order",
+     "tags": [
+      "Card payments"
+     ],
+     "summary": "Settle",
+     "host": "https://pay.solidgate.com/api/v1",
+     "semantics": "write",
+     "requires_review": false,
+     "classification_basis": "heuristic by operationId/method (not verified against the live API)"
+    },
+    {
+     "method": "POST",
+     "path": "/status",
+     "operationId": "get-status-card-order",
+     "tags": [
+      "Card payments"
+     ],
+     "summary": "Check order status",
+     "host": "https://pay.solidgate.com/api/v1",
+     "semantics": "read",
+     "requires_review": true,
+     "classification_basis": "heuristic by operationId/method (not verified against the live API)"
+    },
+    {
+     "method": "POST",
+     "path": "/arn-code",
+     "operationId": "get-arn-codes",
+     "tags": [
+      "Card payments"
+     ],
+     "summary": "Get ARN codes",
+     "host": "https://pay.solidgate.com/api/v1",
+     "semantics": "read",
+     "requires_review": true,
+     "classification_basis": "heuristic by operationId/method (not verified against the live API)"
+    },
+    {
+     "method": "POST",
+     "path": "/init-payment",
+     "operationId": "create-apm-init-payment",
+     "tags": [
+      "Alternative payment methods"
+     ],
+     "summary": "Init payment",
+     "host": "https://gate.solidgate.com/api/v1",
+     "semantics": "write",
+     "requires_review": false,
+     "classification_basis": "heuristic by operationId/method (not verified against the live API)"
+    },
+    {
+     "method": "POST",
+     "path": "/v1/recurring",
+     "operationId": "make-apm-recurring",
+     "tags": [
+      "Alternative payment methods"
+     ],
+     "summary": "Recurring",
+     "host": "https://gate.solidgate.com/api",
+     "semantics": "write",
+     "requires_review": false,
+     "classification_basis": "heuristic by operationId/method (not verified against the live API)"
+    },
+    {
+     "method": "POST",
+     "path": "/v1/recurring-token/cancel",
+     "operationId": "revoke-apm-recurring-token",
+     "tags": [
+      "Alternative payment methods"
+     ],
+     "summary": "Revoke token",
+     "host": "https://gate.solidgate.com/api",
+     "semantics": "write",
+     "requires_review": false,
+     "classification_basis": "heuristic by operationId/method (not verified against the live API)"
+    },
+    {
+     "method": "POST",
+     "path": "/v1/refund",
+     "operationId": "refund-apm-order",
+     "tags": [
+      "Alternative payment methods"
+     ],
+     "summary": "Refund",
+     "host": "https://gate.solidgate.com/api",
+     "semantics": "write",
+     "requires_review": false,
+     "classification_basis": "heuristic by operationId/method (not verified against the live API)"
+    },
+    {
+     "method": "POST",
+     "path": "/v1/status",
+     "operationId": "get-status-apm-order",
+     "tags": [
+      "Alternative payment methods"
+     ],
+     "summary": "Check order status",
+     "host": "https://gate.solidgate.com/api",
+     "semantics": "read",
+     "requires_review": true,
+     "classification_basis": "heuristic by operationId/method (not verified against the live API)"
+    },
+    {
+     "method": "POST",
+     "path": "/products",
+     "operationId": "create-product",
+     "tags": [
+      "Products and prices"
+     ],
+     "summary": "Create product",
+     "host": "https://subscriptions.solidgate.com/api/v1",
+     "semantics": "write",
+     "requires_review": false,
+     "classification_basis": "heuristic by operationId/method (not verified against the live API)"
+    },
+    {
+     "method": "GET",
+     "path": "/products",
+     "operationId": "get-products",
+     "tags": [
+      "Products and prices"
+     ],
+     "summary": "Get product list",
+     "host": "https://subscriptions.solidgate.com/api/v1",
+     "semantics": "read",
+     "requires_review": false,
+     "classification_basis": "heuristic by operationId/method (not verified against the live API)"
+    },
+    {
+     "method": "PATCH",
+     "path": "/products/{product_id}",
+     "operationId": "update-product",
+     "tags": [
+      "Products and prices"
+     ],
+     "summary": "Update product",
+     "host": "https://subscriptions.solidgate.com/api/v1",
+     "semantics": "write",
+     "requires_review": false,
+     "classification_basis": "heuristic by operationId/method (not verified against the live API)"
+    },
+    {
+     "method": "GET",
+     "path": "/products/{product_id}",
+     "operationId": "get-product-by-id",
+     "tags": [
+      "Products and prices"
+     ],
+     "summary": "Get product by ID",
+     "host": "https://subscriptions.solidgate.com/api/v1",
+     "semantics": "read",
+     "requires_review": false,
+     "classification_basis": "heuristic by operationId/method (not verified against the live API)"
+    },
+    {
+     "method": "POST",
+     "path": "/products/{product_id}/archive",
+     "operationId": "archive-product",
+     "tags": [
+      "Products and prices"
+     ],
+     "summary": "Archive product",
+     "host": "https://subscriptions.solidgate.com/api/v1",
+     "semantics": "write",
+     "requires_review": false,
+     "classification_basis": "heuristic by operationId/method (not verified against the live API)"
+    },
+    {
+     "method": "POST",
+     "path": "/products/{product_id}/prices",
+     "operationId": "create-product-price",
+     "tags": [
+      "Products and prices"
+     ],
+     "summary": "Create product price",
+     "host": "https://subscriptions.solidgate.com/api/v1",
+     "semantics": "write",
+     "requires_review": false,
+     "classification_basis": "heuristic by operationId/method (not verified against the live API)"
+    },
+    {
+     "method": "GET",
+     "path": "/products/{product_id}/prices",
+     "operationId": "get-product-prices",
+     "tags": [
+      "Products and prices"
+     ],
+     "summary": "Get product prices",
+     "host": "https://subscriptions.solidgate.com/api/v1",
+     "semantics": "read",
+     "requires_review": false,
+     "classification_basis": "heuristic by operationId/method (not verified against the live API)"
+    },
+    {
+     "method": "POST",
+     "path": "/products/prices/list",
+     "operationId": "find-prices",
+     "tags": [
+      "Products and prices"
+     ],
+     "summary": "Retrieve prices",
+     "host": "https://subscriptions.solidgate.com/api/v1",
+     "semantics": "read",
+     "requires_review": true,
+     "classification_basis": "heuristic by operationId/method (not verified against the live API)"
+    },
+    {
+     "method": "PATCH",
+     "path": "/products/{product_id}/prices/{product_price_id}",
+     "operationId": "update-product-price",
+     "tags": [
+      "Products and prices"
+     ],
+     "summary": "Update product price",
+     "host": "https://subscriptions.solidgate.com/api/v1",
+     "semantics": "write",
+     "requires_review": false,
+     "classification_basis": "heuristic by operationId/method (not verified against the live API)"
+    },
+    {
+     "method": "POST",
+     "path": "/products/{product_id}/prices/{product_price_id}/archive",
+     "operationId": "archive-product-price",
+     "tags": [
+      "Products and prices"
+     ],
+     "summary": "Archive product price",
+     "host": "https://subscriptions.solidgate.com/api/v1",
+     "semantics": "write",
+     "requires_review": false,
+     "classification_basis": "heuristic by operationId/method (not verified against the live API)"
+    },
+    {
+     "method": "POST",
+     "path": "/transactional",
+     "operationId": "tax-transactional",
+     "tags": [
+      "Taxes"
+     ],
+     "summary": "Transactional tax",
+     "host": "https://reports.solidgate.com/api/v1/tax",
+     "semantics": "indeterminate",
+     "requires_review": true,
+     "classification_basis": "heuristic by operationId/method (not verified against the live API)"
+    },
+    {
+     "method": "GET",
+     "path": "/transactional/report/{report_id}/download",
+     "operationId": "download-tax-transactional",
+     "tags": [
+      "Taxes"
+     ],
+     "summary": "Download transactional tax",
+     "host": "https://reports.solidgate.com/api/v1/tax",
+     "semantics": "read",
+     "requires_review": false,
+     "classification_basis": "heuristic by operationId/method (not verified against the live API)"
+    },
+    {
+     "method": "POST",
+     "path": "/summary",
+     "operationId": "tax-summary",
+     "tags": [
+      "Taxes"
+     ],
+     "summary": "Summary tax",
+     "host": "https://reports.solidgate.com/api/v1/tax",
+     "semantics": "read",
+     "requires_review": true,
+     "classification_basis": "heuristic by operationId/method (not verified against the live API)"
+    },
+    {
+     "method": "GET",
+     "path": "/summary/report/{report_id}/download",
+     "operationId": "download-tax-summary",
+     "tags": [
+      "Taxes"
+     ],
+     "summary": "Download summary tax",
+     "host": "https://reports.solidgate.com/api/v1/tax",
+     "semantics": "read",
+     "requires_review": false,
+     "classification_basis": "heuristic by operationId/method (not verified against the live API)"
+    },
+    {
+     "method": "POST",
+     "path": "/products/calculatePrice",
+     "operationId": "calculate-product-price",
+     "tags": [
+      "Products and prices"
+     ],
+     "summary": "Calculate product price",
+     "host": "https://subscriptions.solidgate.com/api/v1",
+     "semantics": "indeterminate",
+     "requires_review": true,
+     "classification_basis": "heuristic by operationId/method (not verified against the live API)"
+    },
+    {
+     "method": "POST",
+     "path": "/subscription/update",
+     "operationId": "update-subscription",
+     "tags": [
+      "Manage subscriptions"
+     ],
+     "summary": "Update subscription",
+     "host": "https://subscriptions.solidgate.com/api/v1",
+     "semantics": "write",
+     "requires_review": false,
+     "classification_basis": "heuristic by operationId/method (not verified against the live API)"
+    },
+    {
+     "method": "POST",
+     "path": "/subscription/switch-subscription-product",
+     "operationId": "switch-subscription-product",
+     "tags": [
+      "Manage subscriptions"
+     ],
+     "summary": "Switch product",
+     "host": "https://subscriptions.solidgate.com/api/v1",
+     "semantics": "write",
+     "requires_review": false,
+     "classification_basis": "heuristic by operationId/method (not verified against the live API)"
+    },
+    {
+     "method": "POST",
+     "path": "/subscription/status",
+     "operationId": "get-subscription-status",
+     "tags": [
+      "Retrieve subscription data"
+     ],
+     "summary": "Get subscription status",
+     "host": "https://subscriptions.solidgate.com/api/v1",
+     "semantics": "read",
+     "requires_review": true,
+     "classification_basis": "heuristic by operationId/method (not verified against the live API)"
+    },
+    {
+     "method": "POST",
+     "path": "/subscription/list",
+     "operationId": "retrieve-subscriptions-by-customer",
+     "tags": [
+      "Retrieve subscription data"
+     ],
+     "summary": "Retrieve subscriptions by customer",
+     "host": "https://subscriptions.solidgate.com/api/v1",
+     "semantics": "read",
+     "requires_review": true,
+     "classification_basis": "heuristic by operationId/method (not verified against the live API)"
+    },
+    {
+     "method": "POST",
+     "path": "/subscription/invoice/list",
+     "operationId": "list-invoices-by-subscription-id",
+     "tags": [
+      "Retrieve subscription data"
+     ],
+     "summary": "List invoices by subscription",
+     "host": "https://subscriptions.solidgate.com/api/v1",
+     "semantics": "read",
+     "requires_review": true,
+     "classification_basis": "heuristic by operationId/method (not verified against the live API)"
+    },
+    {
+     "method": "POST",
+     "path": "/subscription/order/list",
+     "operationId": "list-orders-by-invoice-id",
+     "tags": [
+      "Retrieve subscription data"
+     ],
+     "summary": "List orders by invoice",
+     "host": "https://subscriptions.solidgate.com/api/v1",
+     "semantics": "read",
+     "requires_review": true,
+     "classification_basis": "heuristic by operationId/method (not verified against the live API)"
+    },
+    {
+     "method": "POST",
+     "path": "/subscription/update-token",
+     "operationId": "update-subscription-token",
+     "tags": [
+      "Manage subscriptions"
+     ],
+     "summary": "Update subscription token",
+     "host": "https://subscriptions.solidgate.com/api/v1",
+     "semantics": "write",
+     "requires_review": false,
+     "classification_basis": "heuristic by operationId/method (not verified against the live API)"
+    },
+    {
+     "method": "POST",
+     "path": "/subscriptions/{subscription_id}/pause-schedule",
+     "operationId": "create-subscription-pause",
+     "tags": [
+      "Manage subscriptions"
+     ],
+     "summary": "Create subscription pause",
+     "host": "https://subscriptions.solidgate.com/api/v1",
+     "semantics": "write",
+     "requires_review": false,
+     "classification_basis": "heuristic by operationId/method (not verified against the live API)"
+    },
+    {
+     "method": "PATCH",
+     "path": "/subscriptions/{subscription_id}/pause-schedule",
+     "operationId": "update-subscription-pause",
+     "tags": [
+      "Manage subscriptions"
+     ],
+     "summary": "Update subscription pause",
+     "host": "https://subscriptions.solidgate.com/api/v1",
+     "semantics": "write",
+     "requires_review": false,
+     "classification_basis": "heuristic by operationId/method (not verified against the live API)"
+    },
+    {
+     "method": "DELETE",
+     "path": "/subscriptions/{subscription_id}/pause-schedule",
+     "operationId": "delete-subscription-pause",
+     "tags": [
+      "Manage subscriptions"
+     ],
+     "summary": "Remove subscription pause",
+     "host": "https://subscriptions.solidgate.com/api/v1",
+     "semantics": "write",
+     "requires_review": false,
+     "classification_basis": "heuristic by operationId/method (not verified against the live API)"
+    },
+    {
+     "method": "POST",
+     "path": "/subscription/cancel",
+     "operationId": "cancel-subscription",
+     "tags": [
+      "Manage subscriptions"
+     ],
+     "summary": "Cancel subscription",
+     "host": "https://subscriptions.solidgate.com/api/v1",
+     "semantics": "write",
+     "requires_review": false,
+     "classification_basis": "heuristic by operationId/method (not verified against the live API)"
+    },
+    {
+     "method": "POST",
+     "path": "/subscription/cancel-by-customer",
+     "operationId": "cancel-subscriptions-by-customer",
+     "tags": [
+      "Manage subscriptions"
+     ],
+     "summary": "Cancel subscriptions by customer",
+     "host": "https://subscriptions.solidgate.com/api/v1",
+     "semantics": "write",
+     "requires_review": false,
+     "classification_basis": "heuristic by operationId/method (not verified against the live API)"
+    },
+    {
+     "method": "POST",
+     "path": "/subscription/restore",
+     "operationId": "restore-subscription",
+     "tags": [
+      "Manage subscriptions"
+     ],
+     "summary": "Restore subscription",
+     "host": "https://subscriptions.solidgate.com/api/v1",
+     "semantics": "write",
+     "requires_review": false,
+     "classification_basis": "heuristic by operationId/method (not verified against the live API)"
+    },
+    {
+     "method": "POST",
+     "path": "/card-orders",
+     "operationId": "retrieve-card-orders",
+     "tags": [
+      "Reports"
+     ],
+     "summary": "Card orders",
+     "host": "https://reports.solidgate.com/api/v1",
+     "semantics": "read",
+     "requires_review": true,
+     "classification_basis": "heuristic by operationId/method (not verified against the live API)"
+    },
+    {
+     "method": "POST",
+     "path": "/apm-orders",
+     "operationId": "retrieve-apm-orders",
+     "tags": [
+      "Reports"
+     ],
+     "summary": "APM orders",
+     "host": "https://reports.solidgate.com/api/v1",
+     "semantics": "read",
+     "requires_review": true,
+     "classification_basis": "heuristic by operationId/method (not verified against the live API)"
+    },
+    {
+     "method": "POST",
+     "path": "/subscriptions",
+     "operationId": "retrieve-subscriptions",
+     "tags": [
+      "Reports"
+     ],
+     "summary": "Subscriptions",
+     "host": "https://reports.solidgate.com/api/v1",
+     "semantics": "read",
+     "requires_review": true,
+     "classification_basis": "heuristic by operationId/method (not verified against the live API)"
+    },
+    {
+     "method": "POST",
+     "path": "/card-orders/chargebacks",
+     "operationId": "retrieve-card-chargebacks",
+     "tags": [
+      "Reports"
+     ],
+     "summary": "Chargebacks",
+     "host": "https://reports.solidgate.com/api/v1",
+     "semantics": "read",
+     "requires_review": true,
+     "classification_basis": "heuristic by operationId/method (not verified against the live API)"
+    },
+    {
+     "method": "POST",
+     "path": "/apm-orders/paypal-disputes",
+     "operationId": "retrieve-apm-paypal-disputes",
+     "tags": [
+      "Reports"
+     ],
+     "summary": "PayPal disputes",
+     "host": "https://reports.solidgate.com/api/v1",
+     "semantics": "read",
+     "requires_review": true,
+     "classification_basis": "heuristic by operationId/method (not verified against the live API)"
+    },
+    {
+     "method": "POST",
+     "path": "/prevention_alerts",
+     "operationId": "prevention-alerts-by-date",
+     "tags": [
+      "Reports"
+     ],
+     "summary": "Prevention alerts",
+     "host": "https://reports.solidgate.com/api/v1",
+     "semantics": "indeterminate",
+     "requires_review": true,
+     "classification_basis": "heuristic by operationId/method (not verified against the live API)"
+    },
+    {
+     "method": "GET",
+     "path": "/prevention_alerts/report/{report_id}/download",
+     "operationId": "download-prevention-alerts",
+     "tags": [
+      "Reports"
+     ],
+     "summary": "Download prevention alerts",
+     "host": "https://reports.solidgate.com/api/v1",
+     "semantics": "read",
+     "requires_review": false,
+     "classification_basis": "heuristic by operationId/method (not verified against the live API)"
+    },
+    {
+     "method": "POST",
+     "path": "/card-orders/fraud-alerts",
+     "operationId": "retrieve-card-fraud-alerts",
+     "tags": [
+      "Reports"
+     ],
+     "summary": "Card fraud alerts",
+     "host": "https://reports.solidgate.com/api/v1",
+     "semantics": "read",
+     "requires_review": true,
+     "classification_basis": "heuristic by operationId/method (not verified against the live API)"
+    },
+    {
+     "method": "POST",
+     "path": "/financial_entries",
+     "operationId": "financial-entries-by-date",
+     "tags": [
+      "Reports"
+     ],
+     "summary": "Financial entries by date range",
+     "host": "https://reports.solidgate.com/api/v1/finance",
+     "semantics": "indeterminate",
+     "requires_review": true,
+     "classification_basis": "heuristic by operationId/method (not verified against the live API)"
+    },
+    {
+     "method": "GET",
+     "path": "/financial_entries/report/{report_id}/download",
+     "operationId": "download-financial-entries",
+     "tags": [
+      "Reports"
+     ],
+     "summary": "Download financial entries",
+     "host": "https://reports.solidgate.com/api/v1/finance",
+     "semantics": "read",
+     "requires_review": false,
+     "classification_basis": "heuristic by operationId/method (not verified against the live API)"
+    },
+    {
+     "method": "POST",
+     "path": "/routing/events",
+     "operationId": "routing-events-by-date",
+     "tags": [
+      "Reports"
+     ],
+     "summary": "Routing events",
+     "host": "https://reports.solidgate.com/api/v1",
+     "semantics": "indeterminate",
+     "requires_review": true,
+     "classification_basis": "heuristic by operationId/method (not verified against the live API)"
+    },
+    {
+     "method": "GET",
+     "path": "/routing/events/report/{report_id}/download",
+     "operationId": "download-routing-events",
+     "tags": [
+      "Reports"
+     ],
+     "summary": "Download routing events",
+     "host": "https://reports.solidgate.com/api/v1",
+     "semantics": "read",
+     "requires_review": false,
+     "classification_basis": "heuristic by operationId/method (not verified against the live API)"
+    },
+    {
+     "method": "POST",
+     "path": "/fraud-prevention-list-items/create",
+     "operationId": "fraud-prevention-list-items-create",
+     "tags": [
+      "Fraud prevention"
+     ],
+     "summary": "Create fraud prevention list items",
+     "host": "https://risks.solidgate.com/api/v1",
+     "semantics": "write",
+     "requires_review": false,
+     "classification_basis": "heuristic by operationId/method (not verified against the live API)"
+    },
+    {
+     "method": "POST",
+     "path": "/fraud-prevention-list-items/list",
+     "operationId": "fraud-prevention-list-items-list",
+     "tags": [
+      "Fraud prevention"
+     ],
+     "summary": "List fraud prevention list items",
+     "host": "https://risks.solidgate.com/api/v1",
+     "semantics": "read",
+     "requires_review": true,
+     "classification_basis": "heuristic by operationId/method (not verified against the live API)"
+    },
+    {
+     "method": "DELETE",
+     "path": "/fraud-prevention-list-items/{id}",
+     "operationId": "fraud-prevention-list-items-delete",
+     "tags": [
+      "Fraud prevention"
+     ],
+     "summary": "Delete fraud prevention list item",
+     "host": "https://risks.solidgate.com/api/v1",
+     "semantics": "write",
+     "requires_review": false,
+     "classification_basis": "heuristic by operationId/method (not verified against the live API)"
+    },
+    {
+     "method": "POST",
+     "path": "/dispute-representments/create",
+     "operationId": "dispute-representments-create",
+     "tags": [
+      "Dispute representment"
+     ],
+     "summary": "Create dispute representment",
+     "host": "https://risks.solidgate.com/api/v1",
+     "semantics": "write",
+     "requires_review": false,
+     "classification_basis": "heuristic by operationId/method (not verified against the live API)"
+    },
+    {
+     "method": "POST",
+     "path": "/dispute-representments/enrich",
+     "operationId": "dispute-representments-enrich",
+     "tags": [
+      "Dispute representment"
+     ],
+     "summary": "Enrich dispute representment",
+     "host": "https://risks.solidgate.com/api/v1",
+     "semantics": "indeterminate",
+     "requires_review": true,
+     "classification_basis": "heuristic by operationId/method (not verified against the live API)"
+    },
+    {
+     "method": "POST",
+     "path": "/file/get-upload-url",
+     "operationId": "create-upload-url",
+     "tags": [
+      "Files upload"
+     ],
+     "summary": "Create file",
+     "host": "https://api.solidgate.com/api/v1",
+     "semantics": "write",
+     "requires_review": false,
+     "classification_basis": "heuristic by operationId/method (not verified against the live API)"
+    },
+    {
+     "method": "POST",
+     "path": "/webhooks/endpoints",
+     "operationId": "webhook-endpoint-create",
+     "tags": [
+      "Manage webhooks"
+     ],
+     "summary": "Create webhook endpoint",
+     "host": "https://api.solidgate.com/api/v1",
+     "semantics": "write",
+     "requires_review": false,
+     "classification_basis": "heuristic by operationId/method (not verified against the live API)"
+    },
+    {
+     "method": "GET",
+     "path": "/webhooks/endpoints",
+     "operationId": "webhook-endpoint-list",
+     "tags": [
+      "Manage webhooks"
+     ],
+     "summary": "List webhook endpoints",
+     "host": "https://api.solidgate.com/api/v1",
+     "semantics": "read",
+     "requires_review": false,
+     "classification_basis": "heuristic by operationId/method (not verified against the live API)"
+    },
+    {
+     "method": "PATCH",
+     "path": "/webhooks/endpoints/{id}",
+     "operationId": "webhook-endpoint-update",
+     "tags": [
+      "Manage webhooks"
+     ],
+     "summary": "Update webhook endpoint",
+     "host": "https://api.solidgate.com/api/v1",
+     "semantics": "write",
+     "requires_review": false,
+     "classification_basis": "heuristic by operationId/method (not verified against the live API)"
+    },
+    {
+     "method": "DELETE",
+     "path": "/webhooks/endpoints/{id}",
+     "operationId": "webhook-endpoint-delete",
+     "tags": [
+      "Manage webhooks"
+     ],
+     "summary": "Delete webhook endpoint",
+     "host": "https://api.solidgate.com/api/v1",
+     "semantics": "write",
+     "requires_review": false,
+     "classification_basis": "heuristic by operationId/method (not verified against the live API)"
+    }
+   ],
+   "webhooks": [
+    {
+     "method": "POST",
+     "path": "CardsOrderStatus",
+     "operationId": "webhook-card-order-status",
+     "tags": [
+      "Card payments"
+     ],
+     "summary": "Updated card order",
+     "host": "https://pay.solidgate.com/api/v1",
+     "semantics": "event_received",
+     "requires_review": false
+    },
+    {
+     "method": "POST",
+     "path": "NetworkTokenCreated",
+     "operationId": "webhook-network-token-created",
+     "tags": [
+      "Card payments"
+     ],
+     "summary": "Created network token",
+     "host": "https://pay.solidgate.com/api/v1",
+     "semantics": "event_received",
+     "requires_review": false
+    },
+    {
+     "method": "POST",
+     "path": "NetworkTokenUpdated",
+     "operationId": "webhook-network-token-updated",
+     "tags": [
+      "Card payments"
+     ],
+     "summary": "Updated network token",
+     "host": "https://pay.solidgate.com/api/v1",
+     "semantics": "event_received",
+     "requires_review": false
+    },
+    {
+     "method": "POST",
+     "path": "Chargeback",
+     "operationId": "webhook-chargeback",
+     "tags": [
+      "Card payments"
+     ],
+     "summary": "Received dispute",
+     "host": "https://pay.solidgate.com/api/v1",
+     "semantics": "event_received",
+     "requires_review": false
+    },
+    {
+     "method": "POST",
+     "path": "CardPreventAlert",
+     "operationId": "webhook-alert-prevent",
+     "tags": [
+      "Card payments"
+     ],
+     "summary": "Received prevention alert",
+     "host": "https://pay.solidgate.com/api/v1",
+     "semantics": "event_received",
+     "requires_review": false
+    },
+    {
+     "method": "POST",
+     "path": "FraudAlert",
+     "operationId": "webhook-fraud-alert",
+     "tags": [
+      "Card payments"
+     ],
+     "summary": "Received fraud alert",
+     "host": "https://pay.solidgate.com/api/v1",
+     "semantics": "event_received",
+     "requires_review": false
+    },
+    {
+     "method": "POST",
+     "path": "CalculatedTax",
+     "operationId": "webhook-calculated-tax",
+     "tags": [
+      "Taxes"
+     ],
+     "summary": "Calculated tax",
+     "host": "https://pay.solidgate.com/api/v1",
+     "semantics": "event_received",
+     "requires_review": false
+    },
+    {
+     "method": "POST",
+     "path": "APMOrderStatus",
+     "operationId": "webhook-apm-order-status",
+     "tags": [
+      "Alternative payment methods"
+     ],
+     "summary": "Updated alternative order",
+     "host": "https://pay.solidgate.com/api/v1",
+     "semantics": "event_received",
+     "requires_review": false
+    },
+    {
+     "method": "POST",
+     "path": "PayPalDispute",
+     "operationId": "webhook-paypal-dispute",
+     "tags": [
+      "Alternative payment methods"
+     ],
+     "summary": "Received PayPal dispute",
+     "host": "https://pay.solidgate.com/api/v1",
+     "semantics": "event_received",
+     "requires_review": false
+    },
+    {
+     "method": "POST",
+     "path": "APMPreventAlert",
+     "operationId": "webhook-apm-alert-prevent",
+     "tags": [
+      "Alternative payment methods"
+     ],
+     "summary": "Received prevention alert",
+     "host": "https://pay.solidgate.com/api/v1",
+     "semantics": "event_received",
+     "requires_review": false
+    },
+    {
+     "method": "POST",
+     "path": "APMRevokedRecurringToken",
+     "operationId": "webhook-apm-revoked-recurring-token",
+     "tags": [
+      "Alternative payment methods"
+     ],
+     "summary": "Revoked recurring token",
+     "host": "https://pay.solidgate.com/api/v1",
+     "semantics": "event_received",
+     "requires_review": false
+    },
+    {
+     "method": "POST",
+     "path": "Billing",
+     "operationId": "webhook-subscription-status",
+     "tags": [
+      "Manage subscriptions"
+     ],
+     "summary": "Subscription payment updates",
+     "host": "https://pay.solidgate.com/api/v1",
+     "semantics": "event_received",
+     "requires_review": false
+    }
+   ]
+  },
+  "v2": {
+   "openapi": "3.1.1",
+   "file": "openapi/v2.yaml",
+   "default_server": "https://api.solidgate.com/v2",
+   "operations": [
+    {
+     "method": "POST",
+     "path": "/webhooks/create",
+     "operationId": "create-webhook",
+     "tags": [
+      "Webhooks"
+     ],
+     "summary": "Create webhook",
+     "host": "https://api.solidgate.com/v2",
+     "semantics": "write",
+     "requires_review": false,
+     "classification_basis": "heuristic by operationId/method (not verified against the live API)"
+    },
+    {
+     "method": "POST",
+     "path": "/webhooks/list",
+     "operationId": "list-webhook",
+     "tags": [
+      "Webhooks"
+     ],
+     "summary": "List webhooks",
+     "host": "https://api.solidgate.com/v2",
+     "semantics": "read",
+     "requires_review": true,
+     "classification_basis": "heuristic by operationId/method (not verified against the live API)"
+    },
+    {
+     "method": "POST",
+     "path": "/webhooks/get",
+     "operationId": "get-webhook",
+     "tags": [
+      "Webhooks"
+     ],
+     "summary": "Get webhook",
+     "host": "https://api.solidgate.com/v2",
+     "semantics": "read",
+     "requires_review": true,
+     "classification_basis": "heuristic by operationId/method (not verified against the live API)"
+    },
+    {
+     "method": "POST",
+     "path": "/webhooks/patch",
+     "operationId": "patch-webhook",
+     "tags": [
+      "Webhooks"
+     ],
+     "summary": "Patch webhook",
+     "host": "https://api.solidgate.com/v2",
+     "semantics": "write",
+     "requires_review": false,
+     "classification_basis": "heuristic by operationId/method (not verified against the live API)"
+    },
+    {
+     "method": "POST",
+     "path": "/webhooks/delete",
+     "operationId": "delete-webhook",
+     "tags": [
+      "Webhooks"
+     ],
+     "summary": "Delete webhook",
+     "host": "https://api.solidgate.com/v2",
+     "semantics": "write",
+     "requires_review": false,
+     "classification_basis": "heuristic by operationId/method (not verified against the live API)"
+    },
+    {
+     "method": "POST",
+     "path": "/webhooks/rotate-key",
+     "operationId": "rotate-webhook-key",
+     "tags": [
+      "Webhooks"
+     ],
+     "summary": "Rotate webhook key",
+     "host": "https://api.solidgate.com/v2",
+     "semantics": "write",
+     "requires_review": false,
+     "classification_basis": "heuristic by operationId/method (not verified against the live API)"
+    },
+    {
+     "method": "POST",
+     "path": "/api-keys/create",
+     "operationId": "create-api-key",
+     "tags": [
+      "API keys"
+     ],
+     "summary": "Create API key",
+     "host": "https://api.solidgate.com/v2",
+     "semantics": "write",
+     "requires_review": false,
+     "classification_basis": "heuristic by operationId/method (not verified against the live API)"
+    },
+    {
+     "method": "POST",
+     "path": "/api-keys/list",
+     "operationId": "list-api-key",
+     "tags": [
+      "API keys"
+     ],
+     "summary": "List API keys",
+     "host": "https://api.solidgate.com/v2",
+     "semantics": "read",
+     "requires_review": true,
+     "classification_basis": "heuristic by operationId/method (not verified against the live API)"
+    },
+    {
+     "method": "POST",
+     "path": "/api-keys/get",
+     "operationId": "get-api-key",
+     "tags": [
+      "API keys"
+     ],
+     "summary": "Get API key",
+     "host": "https://api.solidgate.com/v2",
+     "semantics": "read",
+     "requires_review": true,
+     "classification_basis": "heuristic by operationId/method (not verified against the live API)"
+    },
+    {
+     "method": "POST",
+     "path": "/api-keys/rotate",
+     "operationId": "rotate-api-key",
+     "tags": [
+      "API keys"
+     ],
+     "summary": "Rotate API key",
+     "host": "https://api.solidgate.com/v2",
+     "semantics": "write",
+     "requires_review": false,
+     "classification_basis": "heuristic by operationId/method (not verified against the live API)"
+    },
+    {
+     "method": "POST",
+     "path": "/channels/list",
+     "operationId": "list-channel",
+     "tags": [
+      "Channels"
+     ],
+     "summary": "List channels",
+     "host": "https://api.solidgate.com/v2",
+     "semantics": "read",
+     "requires_review": true,
+     "classification_basis": "heuristic by operationId/method (not verified against the live API)"
+    },
+    {
+     "method": "POST",
+     "path": "/legal-entities/list",
+     "operationId": "list-legal-entities",
+     "tags": [
+      "Legal entities"
+     ],
+     "summary": "List legal entities",
+     "host": "https://api.solidgate.com/v2",
+     "semantics": "read",
+     "requires_review": true,
+     "classification_basis": "heuristic by operationId/method (not verified against the live API)"
+    },
+    {
+     "method": "POST",
+     "path": "/legal-entities/get",
+     "operationId": "get-legal-entity",
+     "tags": [
+      "Legal entities"
+     ],
+     "summary": "Get legal entity",
+     "host": "https://api.solidgate.com/v2",
+     "semantics": "read",
+     "requires_review": true,
+     "classification_basis": "heuristic by operationId/method (not verified against the live API)"
+    },
+    {
+     "method": "POST",
+     "path": "/customers/create",
+     "operationId": "create-customer",
+     "tags": [
+      "Customers"
+     ],
+     "summary": "Create customer",
+     "host": "https://api.solidgate.com/v2",
+     "semantics": "write",
+     "requires_review": false,
+     "classification_basis": "heuristic by operationId/method (not verified against the live API)"
+    },
+    {
+     "method": "POST",
+     "path": "/customers/update",
+     "operationId": "update-customer",
+     "tags": [
+      "Customers"
+     ],
+     "summary": "Update customer",
+     "host": "https://api.solidgate.com/v2",
+     "semantics": "write",
+     "requires_review": false,
+     "classification_basis": "heuristic by operationId/method (not verified against the live API)"
+    },
+    {
+     "method": "POST",
+     "path": "/customers/get",
+     "operationId": "get-customer",
+     "tags": [
+      "Customers"
+     ],
+     "summary": "Get customer",
+     "host": "https://api.solidgate.com/v2",
+     "semantics": "read",
+     "requires_review": true,
+     "classification_basis": "heuristic by operationId/method (not verified against the live API)"
+    },
+    {
+     "method": "POST",
+     "path": "/customers/list",
+     "operationId": "list-customers",
+     "tags": [
+      "Customers"
+     ],
+     "summary": "List customers",
+     "host": "https://api.solidgate.com/v2",
+     "semantics": "read",
+     "requires_review": true,
+     "classification_basis": "heuristic by operationId/method (not verified against the live API)"
+    },
+    {
+     "method": "POST",
+     "path": "/payment-instruments/get",
+     "operationId": "get-payment-instrument",
+     "tags": [
+      "Payment instruments"
+     ],
+     "summary": "Get payment instrument",
+     "host": "https://api.solidgate.com/v2",
+     "semantics": "read",
+     "requires_review": true,
+     "classification_basis": "heuristic by operationId/method (not verified against the live API)"
+    },
+    {
+     "method": "POST",
+     "path": "/payment-instruments/list",
+     "operationId": "list-payment-instruments",
+     "tags": [
+      "Payment instruments"
+     ],
+     "summary": "List payment instruments",
+     "host": "https://api.solidgate.com/v2",
+     "semantics": "read",
+     "requires_review": true,
+     "classification_basis": "heuristic by operationId/method (not verified against the live API)"
+    },
+    {
+     "method": "POST",
+     "path": "/payment-instruments/revoke",
+     "operationId": "revoke-payment-instrument",
+     "tags": [
+      "Payment instruments"
+     ],
+     "summary": "Revoke payment instrument",
+     "host": "https://api.solidgate.com/v2",
+     "semantics": "write",
+     "requires_review": false,
+     "classification_basis": "heuristic by operationId/method (not verified against the live API)"
+    },
+    {
+     "method": "POST",
+     "path": "/reports/create",
+     "operationId": "create-report",
+     "tags": [
+      "Reports"
+     ],
+     "summary": "Create report",
+     "host": "https://api.solidgate.com/v2",
+     "semantics": "write",
+     "requires_review": false,
+     "classification_basis": "heuristic by operationId/method (not verified against the live API)"
+    },
+    {
+     "method": "POST",
+     "path": "/reports/get",
+     "operationId": "get-report",
+     "tags": [
+      "Reports"
+     ],
+     "summary": "Get report",
+     "host": "https://api.solidgate.com/v2",
+     "semantics": "read",
+     "requires_review": true,
+     "classification_basis": "heuristic by operationId/method (not verified against the live API)"
+    },
+    {
+     "method": "POST",
+     "path": "/reports/download",
+     "operationId": "download-report",
+     "tags": [
+      "Reports"
+     ],
+     "summary": "Download report",
+     "host": "https://api.solidgate.com/v2",
+     "semantics": "read",
+     "requires_review": true,
+     "classification_basis": "heuristic by operationId/method (not verified against the live API)"
+    },
+    {
+     "method": "POST",
+     "path": "/reports/list",
+     "operationId": "list-reports",
+     "tags": [
+      "Reports"
+     ],
+     "summary": "List reports",
+     "host": "https://api.solidgate.com/v2",
+     "semantics": "read",
+     "requires_review": true,
+     "classification_basis": "heuristic by operationId/method (not verified against the live API)"
+    },
+    {
+     "method": "POST",
+     "path": "/settlements/list",
+     "operationId": "list-settlements",
+     "tags": [
+      "Settlements"
+     ],
+     "summary": "List settlements",
+     "host": "https://api.solidgate.com/v2",
+     "semantics": "read",
+     "requires_review": true,
+     "classification_basis": "heuristic by operationId/method (not verified against the live API)"
+    },
+    {
+     "method": "POST",
+     "path": "/settlements/get",
+     "operationId": "get-settlement",
+     "tags": [
+      "Settlements"
+     ],
+     "summary": "Get settlement",
+     "host": "https://api.solidgate.com/v2",
+     "semantics": "read",
+     "requires_review": true,
+     "classification_basis": "heuristic by operationId/method (not verified against the live API)"
+    },
+    {
+     "method": "POST",
+     "path": "/monthly-statements/list",
+     "operationId": "list-monthly-statements",
+     "tags": [
+      "Monthly statements"
+     ],
+     "summary": "List monthly statements",
+     "host": "https://api.solidgate.com/v2",
+     "semantics": "read",
+     "requires_review": true,
+     "classification_basis": "heuristic by operationId/method (not verified against the live API)"
+    },
+    {
+     "method": "POST",
+     "path": "/monthly-statements/get",
+     "operationId": "get-monthly-statement",
+     "tags": [
+      "Monthly statements"
+     ],
+     "summary": "Get monthly statement",
+     "host": "https://api.solidgate.com/v2",
+     "semantics": "read",
+     "requires_review": true,
+     "classification_basis": "heuristic by operationId/method (not verified against the live API)"
+    },
+    {
+     "method": "POST",
+     "path": "/financial-invoices/list",
+     "operationId": "list-financial-invoices",
+     "tags": [
+      "Financial invoices"
+     ],
+     "summary": "List financial invoices",
+     "host": "https://api.solidgate.com/v2",
+     "semantics": "read",
+     "requires_review": true,
+     "classification_basis": "heuristic by operationId/method (not verified against the live API)"
+    },
+    {
+     "method": "POST",
+     "path": "/financial-invoices/get",
+     "operationId": "get-financial-invoice",
+     "tags": [
+      "Financial invoices"
+     ],
+     "summary": "Get financial invoice",
+     "host": "https://api.solidgate.com/v2",
+     "semantics": "read",
+     "requires_review": true,
+     "classification_basis": "heuristic by operationId/method (not verified against the live API)"
+    },
+    {
+     "method": "POST",
+     "path": "/antifraud-lists/create",
+     "operationId": "create-antifraud-list",
+     "tags": [
+      "Antifraud lists"
+     ],
+     "summary": "Create antifraud list",
+     "host": "https://api.solidgate.com/v2",
+     "semantics": "write",
+     "requires_review": false,
+     "classification_basis": "heuristic by operationId/method (not verified against the live API)"
+    },
+    {
+     "method": "POST",
+     "path": "/antifraud-lists/update",
+     "operationId": "update-antifraud-list",
+     "tags": [
+      "Antifraud lists"
+     ],
+     "summary": "Update antifraud list",
+     "host": "https://api.solidgate.com/v2",
+     "semantics": "write",
+     "requires_review": false,
+     "classification_basis": "heuristic by operationId/method (not verified against the live API)"
+    },
+    {
+     "method": "POST",
+     "path": "/antifraud-lists/list",
+     "operationId": "list-antifraud-list",
+     "tags": [
+      "Antifraud lists"
+     ],
+     "summary": "List antifraud lists",
+     "host": "https://api.solidgate.com/v2",
+     "semantics": "read",
+     "requires_review": true,
+     "classification_basis": "heuristic by operationId/method (not verified against the live API)"
+    },
+    {
+     "method": "POST",
+     "path": "/antifraud-lists/get",
+     "operationId": "get-antifraud-list",
+     "tags": [
+      "Antifraud lists"
+     ],
+     "summary": "Get antifraud list",
+     "host": "https://api.solidgate.com/v2",
+     "semantics": "read",
+     "requires_review": true,
+     "classification_basis": "heuristic by operationId/method (not verified against the live API)"
+    },
+    {
+     "method": "POST",
+     "path": "/antifraud-lists/create-item",
+     "operationId": "create-item-antifraud-list",
+     "tags": [
+      "Antifraud lists"
+     ],
+     "summary": "Create antifraud list item",
+     "host": "https://api.solidgate.com/v2",
+     "semantics": "write",
+     "requires_review": false,
+     "classification_basis": "heuristic by operationId/method (not verified against the live API)"
+    },
+    {
+     "method": "POST",
+     "path": "/antifraud-lists/delete-item",
+     "operationId": "delete-item-antifraud-list",
+     "tags": [
+      "Antifraud lists"
+     ],
+     "summary": "Delete antifraud list item",
+     "host": "https://api.solidgate.com/v2",
+     "semantics": "write",
+     "requires_review": false,
+     "classification_basis": "heuristic by operationId/method (not verified against the live API)"
+    },
+    {
+     "method": "POST",
+     "path": "/antifraud-lists/list-item",
+     "operationId": "list-item-antifraud-list",
+     "tags": [
+      "Antifraud lists"
+     ],
+     "summary": "List antifraud list items",
+     "host": "https://api.solidgate.com/v2",
+     "semantics": "read",
+     "requires_review": true,
+     "classification_basis": "heuristic by operationId/method (not verified against the live API)"
+    },
+    {
+     "method": "POST",
+     "path": "/invoices/create",
+     "operationId": "create-invoice",
+     "tags": [
+      "Invoices"
+     ],
+     "summary": "Create invoice",
+     "host": "https://api.solidgate.com/v2",
+     "semantics": "write",
+     "requires_review": false,
+     "classification_basis": "heuristic by operationId/method (not verified against the live API)"
+    },
+    {
+     "method": "POST",
+     "path": "/invoices/update",
+     "operationId": "update-invoice",
+     "tags": [
+      "Invoices"
+     ],
+     "summary": "Update invoice",
+     "host": "https://api.solidgate.com/v2",
+     "semantics": "write",
+     "requires_review": false,
+     "classification_basis": "heuristic by operationId/method (not verified against the live API)"
+    },
+    {
+     "method": "POST",
+     "path": "/invoices/finalize",
+     "operationId": "finalize-invoice",
+     "tags": [
+      "Invoices"
+     ],
+     "summary": "Finalize invoice",
+     "host": "https://api.solidgate.com/v2",
+     "semantics": "write",
+     "requires_review": false,
+     "classification_basis": "heuristic by operationId/method (not verified against the live API)"
+    },
+    {
+     "method": "POST",
+     "path": "/invoices/void",
+     "operationId": "void-invoice",
+     "tags": [
+      "Invoices"
+     ],
+     "summary": "Void invoice",
+     "host": "https://api.solidgate.com/v2",
+     "semantics": "write",
+     "requires_review": false,
+     "classification_basis": "heuristic by operationId/method (not verified against the live API)"
+    },
+    {
+     "method": "POST",
+     "path": "/invoices/delete",
+     "operationId": "delete-invoice",
+     "tags": [
+      "Invoices"
+     ],
+     "summary": "Delete invoice",
+     "host": "https://api.solidgate.com/v2",
+     "semantics": "write",
+     "requires_review": false,
+     "classification_basis": "heuristic by operationId/method (not verified against the live API)"
+    },
+    {
+     "method": "POST",
+     "path": "/invoices/get",
+     "operationId": "get-invoice",
+     "tags": [
+      "Invoices"
+     ],
+     "summary": "Get invoice",
+     "host": "https://api.solidgate.com/v2",
+     "semantics": "read",
+     "requires_review": true,
+     "classification_basis": "heuristic by operationId/method (not verified against the live API)"
+    },
+    {
+     "method": "POST",
+     "path": "/invoices/list",
+     "operationId": "list-invoices",
+     "tags": [
+      "Invoices"
+     ],
+     "summary": "List invoices",
+     "host": "https://api.solidgate.com/v2",
+     "semantics": "read",
+     "requires_review": true,
+     "classification_basis": "heuristic by operationId/method (not verified against the live API)"
+    },
+    {
+     "method": "POST",
+     "path": "/invoices/pay",
+     "operationId": "pay-invoice",
+     "tags": [
+      "Invoices"
+     ],
+     "summary": "Pay invoice",
+     "host": "https://api.solidgate.com/v2",
+     "semantics": "write",
+     "requires_review": false,
+     "classification_basis": "heuristic by operationId/method (not verified against the live API)"
+    },
+    {
+     "method": "POST",
+     "path": "/subscriptions/create",
+     "operationId": "create-subscription",
+     "tags": [
+      "Subscriptions"
+     ],
+     "summary": "Create subscription",
+     "host": "https://api.solidgate.com/v2",
+     "semantics": "write",
+     "requires_review": false,
+     "classification_basis": "heuristic by operationId/method (not verified against the live API)"
+    },
+    {
+     "method": "POST",
+     "path": "/subscriptions/get",
+     "operationId": "get-subscription",
+     "tags": [
+      "Subscriptions"
+     ],
+     "summary": "Get subscription",
+     "host": "https://api.solidgate.com/v2",
+     "semantics": "read",
+     "requires_review": true,
+     "classification_basis": "heuristic by operationId/method (not verified against the live API)"
+    },
+    {
+     "method": "POST",
+     "path": "/subscriptions/list",
+     "operationId": "list-subscriptions",
+     "tags": [
+      "Subscriptions"
+     ],
+     "summary": "List subscriptions",
+     "host": "https://api.solidgate.com/v2",
+     "semantics": "read",
+     "requires_review": true,
+     "classification_basis": "heuristic by operationId/method (not verified against the live API)"
+    },
+    {
+     "method": "POST",
+     "path": "/subscriptions/cancel",
+     "operationId": "cancel-subscription",
+     "tags": [
+      "Subscriptions"
+     ],
+     "summary": "Cancel subscription",
+     "host": "https://api.solidgate.com/v2",
+     "semantics": "write",
+     "requires_review": false,
+     "classification_basis": "heuristic by operationId/method (not verified against the live API)"
+    },
+    {
+     "method": "POST",
+     "path": "/subscriptions/delete-cancellation",
+     "operationId": "delete-subscription-cancellation",
+     "tags": [
+      "Subscriptions"
+     ],
+     "summary": "Delete subscription cancellation",
+     "host": "https://api.solidgate.com/v2",
+     "semantics": "write",
+     "requires_review": false,
+     "classification_basis": "heuristic by operationId/method (not verified against the live API)"
+    },
+    {
+     "method": "POST",
+     "path": "/subscriptions/update",
+     "operationId": "update-subscription",
+     "tags": [
+      "Subscriptions"
+     ],
+     "summary": "Update subscription",
+     "host": "https://api.solidgate.com/v2",
+     "semantics": "write",
+     "requires_review": false,
+     "classification_basis": "heuristic by operationId/method (not verified against the live API)"
+    },
+    {
+     "method": "POST",
+     "path": "/routing-configs/get",
+     "operationId": "get-routing-config",
+     "tags": [
+      "Routing"
+     ],
+     "summary": "Get routing configuration",
+     "host": "https://api.solidgate.com/v2",
+     "semantics": "read",
+     "requires_review": true,
+     "classification_basis": "heuristic by operationId/method (not verified against the live API)"
+    },
+    {
+     "method": "POST",
+     "path": "/routing-configs/get-version",
+     "operationId": "get-routing-config-version",
+     "tags": [
+      "Routing"
+     ],
+     "summary": "Get routing configuration version",
+     "host": "https://api.solidgate.com/v2",
+     "semantics": "read",
+     "requires_review": true,
+     "classification_basis": "heuristic by operationId/method (not verified against the live API)"
+    },
+    {
+     "method": "POST",
+     "path": "/routing-configs/list",
+     "operationId": "list-routing-configs",
+     "tags": [
+      "Routing"
+     ],
+     "summary": "List routing configurations",
+     "host": "https://api.solidgate.com/v2",
+     "semantics": "read",
+     "requires_review": true,
+     "classification_basis": "heuristic by operationId/method (not verified against the live API)"
+    }
+   ],
+   "webhooks": [
+    {
+     "method": "POST",
+     "path": "CustomerCreated",
+     "operationId": "on-customer-created",
+     "tags": [
+      "Customers"
+     ],
+     "summary": "Customer created",
+     "host": "https://api.solidgate.com/v2",
+     "semantics": "event_received",
+     "requires_review": false
+    },
+    {
+     "method": "POST",
+     "path": "CustomerUpdated",
+     "operationId": "on-customer-updated",
+     "tags": [
+      "Customers"
+     ],
+     "summary": "Customer updated",
+     "host": "https://api.solidgate.com/v2",
+     "semantics": "event_received",
+     "requires_review": false
+    },
+    {
+     "method": "POST",
+     "path": "PaymentInstrumentCreated",
+     "operationId": "on-payment-instrument-created",
+     "tags": [
+      "Payment instruments"
+     ],
+     "summary": "Payment instrument created",
+     "host": "https://api.solidgate.com/v2",
+     "semantics": "event_received",
+     "requires_review": false
+    },
+    {
+     "method": "POST",
+     "path": "PaymentInstrumentRevoked",
+     "operationId": "on-payment-instrument-revoked",
+     "tags": [
+      "Payment instruments"
+     ],
+     "summary": "Payment instrument revoked",
+     "host": "https://api.solidgate.com/v2",
+     "semantics": "event_received",
+     "requires_review": false
+    },
+    {
+     "method": "POST",
+     "path": "PaymentInstrumentExpired",
+     "operationId": "on-payment-instrument-expired",
+     "tags": [
+      "Payment instruments"
+     ],
+     "summary": "Payment instrument expired",
+     "host": "https://api.solidgate.com/v2",
+     "semantics": "event_received",
+     "requires_review": false
+    },
+    {
+     "method": "POST",
+     "path": "InvoiceCreated",
+     "operationId": "on-invoice-created",
+     "tags": [
+      "Invoices"
+     ],
+     "summary": "Invoice created",
+     "host": "https://api.solidgate.com/v2",
+     "semantics": "event_received",
+     "requires_review": false
+    },
+    {
+     "method": "POST",
+     "path": "InvoiceUpdated",
+     "operationId": "on-invoice-updated",
+     "tags": [
+      "Invoices"
+     ],
+     "summary": "Invoice updated",
+     "host": "https://api.solidgate.com/v2",
+     "semantics": "event_received",
+     "requires_review": false
+    },
+    {
+     "method": "POST",
+     "path": "InvoiceFinalized",
+     "operationId": "on-invoice-finalized",
+     "tags": [
+      "Invoices"
+     ],
+     "summary": "Invoice finalized",
+     "host": "https://api.solidgate.com/v2",
+     "semantics": "event_received",
+     "requires_review": false
+    },
+    {
+     "method": "POST",
+     "path": "InvoiceFinalizationFailed",
+     "operationId": "on-invoice-finalization-failed",
+     "tags": [
+      "Invoices"
+     ],
+     "summary": "Invoice finalization failed",
+     "host": "https://api.solidgate.com/v2",
+     "semantics": "event_received",
+     "requires_review": false
+    },
+    {
+     "method": "POST",
+     "path": "InvoicePaid",
+     "operationId": "on-invoice-paid",
+     "tags": [
+      "Invoices"
+     ],
+     "summary": "Invoice paid",
+     "host": "https://api.solidgate.com/v2",
+     "semantics": "event_received",
+     "requires_review": false
+    },
+    {
+     "method": "POST",
+     "path": "InvoiceVoided",
+     "operationId": "on-invoice-voided",
+     "tags": [
+      "Invoices"
+     ],
+     "summary": "Invoice voided",
+     "host": "https://api.solidgate.com/v2",
+     "semantics": "event_received",
+     "requires_review": false
+    },
+    {
+     "method": "POST",
+     "path": "InvoiceDeleted",
+     "operationId": "on-invoice-deleted",
+     "tags": [
+      "Invoices"
+     ],
+     "summary": "Invoice deleted",
+     "host": "https://api.solidgate.com/v2",
+     "semantics": "event_received",
+     "requires_review": false
+    },
+    {
+     "method": "POST",
+     "path": "InvoicePaymentFailed",
+     "operationId": "on-invoice-payment-failed",
+     "tags": [
+      "Invoices"
+     ],
+     "summary": "Invoice payment failed",
+     "host": "https://api.solidgate.com/v2",
+     "semantics": "event_received",
+     "requires_review": false
+    },
+    {
+     "method": "POST",
+     "path": "InvoicePaymentRefunded",
+     "operationId": "on-invoice-payment-refunded",
+     "tags": [
+      "Invoices"
+     ],
+     "summary": "Invoice payment refunded",
+     "host": "https://api.solidgate.com/v2",
+     "semantics": "event_received",
+     "requires_review": false
+    },
+    {
+     "method": "POST",
+     "path": "InvoiceDunningStarted",
+     "operationId": "on-invoice-dunning-started",
+     "tags": [
+      "Invoices"
+     ],
+     "summary": "Invoice dunning started",
+     "host": "https://api.solidgate.com/v2",
+     "semantics": "event_received",
+     "requires_review": false
+    },
+    {
+     "method": "POST",
+     "path": "InvoiceUnpaid",
+     "operationId": "on-invoice-unpaid",
+     "tags": [
+      "Invoices"
+     ],
+     "summary": "Invoice unpaid",
+     "host": "https://api.solidgate.com/v2",
+     "semantics": "event_received",
+     "requires_review": false
+    },
+    {
+     "method": "POST",
+     "path": "SubscriptionCreated",
+     "operationId": "on-subscription-created",
+     "tags": [
+      "Subscriptions"
+     ],
+     "summary": "Subscription created",
+     "host": "https://api.solidgate.com/v2",
+     "semantics": "event_received",
+     "requires_review": false
+    },
+    {
+     "method": "POST",
+     "path": "SubscriptionUpdated",
+     "operationId": "on-subscription-updated",
+     "tags": [
+      "Subscriptions"
+     ],
+     "summary": "Subscription updated",
+     "host": "https://api.solidgate.com/v2",
+     "semantics": "event_received",
+     "requires_review": false
+    },
+    {
+     "method": "POST",
+     "path": "SubscriptionScheduledForCancellation",
+     "operationId": "on-subscription-scheduled-for-cancellation",
+     "tags": [
+      "Subscriptions"
+     ],
+     "summary": "Subscription scheduled for cancellation",
+     "host": "https://api.solidgate.com/v2",
+     "semantics": "event_received",
+     "requires_review": false
+    },
+    {
+     "method": "POST",
+     "path": "SubscriptionCancelled",
+     "operationId": "on-subscription-cancelled",
+     "tags": [
+      "Subscriptions"
+     ],
+     "summary": "Subscription cancelled",
+     "host": "https://api.solidgate.com/v2",
+     "semantics": "event_received",
+     "requires_review": false
+    },
+    {
+     "method": "POST",
+     "path": "SubscriptionTrialActivated",
+     "operationId": "on-subscription-trial-activated",
+     "tags": [
+      "Subscriptions"
+     ],
+     "summary": "Subscription trial activated",
+     "host": "https://api.solidgate.com/v2",
+     "semantics": "event_received",
+     "requires_review": false
+    },
+    {
+     "method": "POST",
+     "path": "SubscriptionActivated",
+     "operationId": "on-subscription-activated",
+     "tags": [
+      "Subscriptions"
+     ],
+     "summary": "Subscription activated",
+     "host": "https://api.solidgate.com/v2",
+     "semantics": "event_received",
+     "requires_review": false
+    },
+    {
+     "method": "POST",
+     "path": "SubscriptionExpired",
+     "operationId": "on-subscription-expired",
+     "tags": [
+      "Subscriptions"
+     ],
+     "summary": "Subscription expired",
+     "host": "https://api.solidgate.com/v2",
+     "semantics": "event_received",
+     "requires_review": false
+    },
+    {
+     "method": "POST",
+     "path": "SubscriptionRedemptionStarted",
+     "operationId": "on-subscription-redemption-started",
+     "tags": [
+      "Subscriptions"
+     ],
+     "summary": "Subscription redemption started",
+     "host": "https://api.solidgate.com/v2",
+     "semantics": "event_received",
+     "requires_review": false
+    },
+    {
+     "method": "POST",
+     "path": "SubscriptionUnpaid",
+     "operationId": "on-subscription-unpaid",
+     "tags": [
+      "Subscriptions"
+     ],
+     "summary": "Subscription unpaid",
+     "host": "https://api.solidgate.com/v2",
+     "semantics": "event_received",
+     "requires_review": false
+    },
+    {
+     "method": "POST",
+     "path": "SubscriptionRenewed",
+     "operationId": "on-subscription-renewed",
+     "tags": [
+      "Subscriptions"
+     ],
+     "summary": "Subscription renewed",
+     "host": "https://api.solidgate.com/v2",
+     "semantics": "event_received",
+     "requires_review": false
+    },
+    {
+     "method": "POST",
+     "path": "RoutingConfigVersionPublished",
+     "operationId": "on-routing-config-version-published",
+     "tags": [
+      "Routing"
+     ],
+     "summary": "Routing configuration version published",
+     "host": "https://api.solidgate.com/v2",
+     "semantics": "event_received",
+     "requires_review": false
+    },
+    {
+     "method": "POST",
+     "path": "FraudAlertReceived",
+     "operationId": "on-fraud-alert-received",
+     "tags": [
+      "Fraud alerts"
+     ],
+     "summary": "Fraud alert received",
+     "host": "https://api.solidgate.com/v2",
+     "semantics": "event_received",
+     "requires_review": false
+    },
+    {
+     "method": "POST",
+     "path": "PreventionAlertReceived",
+     "operationId": "on-prevention-alert-received",
+     "tags": [
+      "Prevention alerts"
+     ],
+     "summary": "Prevention alert received",
+     "host": "https://api.solidgate.com/v2",
+     "semantics": "event_received",
+     "requires_review": false
+    },
+    {
+     "method": "POST",
+     "path": "ReportGenerated",
+     "operationId": "on-report-generated",
+     "tags": [
+      "Reports"
+     ],
+     "summary": "Report generated",
+     "host": "https://api.solidgate.com/v2",
+     "semantics": "event_received",
+     "requires_review": false
+    }
+   ]
+  }
+ }
+}

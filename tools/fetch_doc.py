@@ -1,13 +1,13 @@
 #!/usr/bin/env python3
 """Fetch one official documentation page on demand and keep it in a local cache.
 
-Only official Stripe, Primer and FunnelFox documentation is accepted. The page is fetched in its
+Only official Stripe, Primer, FunnelFox and Solidgate documentation is accepted. The page is fetched in its
 Markdown form when the site offers one, robots.txt is respected, and the cached copy carries a YAML
 header with the source URL and the UTC fetch time so that answers can cite both.
 
 Usage:
     fetch_doc.py URL [--max-age-days N] [--refresh]
-    fetch_doc.py --index stripe|primer|funnelfox [--max-age-days N] [--refresh]
+    fetch_doc.py --index stripe|primer|funnelfox|solidgate [--max-age-days N] [--refresh]
 
 Exit codes: 0 ok, 1 fetch error, 2 URL refused (not an allowed documentation prefix),
 3 disallowed by robots.txt.
@@ -35,12 +35,16 @@ ALLOWED_PREFIXES = (
     "https://docs.stripe.com/",
     "https://primer.io/docs/",
     "https://funnelfox.com/docs/",
+    "https://docs.solidgate.com/",
+    "https://api-docs.solidgate.com/",
 )
 
 INDEXES = {
     "stripe": "https://docs.stripe.com/llms.txt",
     "primer": "https://primer.io/docs/llms.txt",
     "funnelfox": "https://funnelfox.com/docs/llms.txt",
+    # docs.solidgate.com has no llms.txt (its page index is sitemap.xml, handled by tools/sync_solidgate.py).
+    "solidgate": "https://api-docs.solidgate.com/llms.txt",
 }
 
 DEFAULT_MAX_AGE_DAYS = 14
@@ -248,7 +252,7 @@ def fetch(url, max_age_days=DEFAULT_MAX_AGE_DAYS, refresh=False, root=None, now=
 
 
 def main(argv=None):
-    a = argparse.ArgumentParser(description="Fetch official Stripe, Primer or FunnelFox documentation into a local cache.")
+    a = argparse.ArgumentParser(description="Fetch official Stripe, Primer, FunnelFox or Solidgate documentation into a local cache.")
     a.add_argument("url", nargs="?", help="documentation page URL")
     a.add_argument("--index", choices=sorted(INDEXES), help="fetch only the vendor llms.txt index")
     a.add_argument("--max-age-days", type=float, default=DEFAULT_MAX_AGE_DAYS, help="cache TTL in days (default 14)")

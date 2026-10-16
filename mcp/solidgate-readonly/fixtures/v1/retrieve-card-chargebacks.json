@@ -1,0 +1,18 @@
+{
+ "_fixture": "SYNTHETIC - obviously fake data",
+ "_not_evidence": true,
+ "chargebacks": [
+  {
+   "order_id": "FAKE-ORDER-0002",
+   "reason_code": "FAKE-0000",
+   "status": "open",
+   "amount": 1000,
+   "currency": "USD",
+   "due_date": "2000-02-01"
+  }
+ ],
+ "metadata": {
+  "next_page_iterator": null,
+  "count": 1
+ }
+}

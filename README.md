@@ -1,13 +1,14 @@
 # payments-ops-squad
 
-A team of payments operations specialists for Claude, covering **Stripe**, **Primer** and **FunnelFox**. It analyzes payment
+A team of payments operations specialists for Claude, covering **Stripe**, **Primer**, **FunnelFox** and **Solidgate**. It analyzes payment
 exports, investigates incidents across the payment stack, explains decline codes from official sources and reviews routing,
 retry and fraud rules. Every answer separates facts from hypotheses and cites the official source with a date.
 
 ## Who it is for
 
 Payments, billing and revenue operations teams, product managers and engineers who run subscriptions or checkouts on a
-FunnelFox, Primer and Stripe stack (or any part of it) and need evidence-based answers instead of guesses.
+FunnelFox, Primer and Stripe stack (or any part of it), or who evaluate or run Solidgate, and need evidence-based answers instead
+of guesses.
 
 ## Use cases
 
@@ -40,7 +41,7 @@ the source states about retrying and about the message shown to the customer.
 
 ## Primer and FunnelFox specialists
 
-16 of the 21 specialists are listed here (Primer and FunnelFox).
+16 of the 29 specialists are listed here (Primer and FunnelFox).
 
 | Specialist | Covers |
 |---|---|
@@ -61,6 +62,7 @@ the source states about retrying and about the message shown to the customer.
 | `funnelfox-performance` | Approval and conversion measured at the right grain |
 | `funnelfox-integrations` | Processors supported by FunnelFox and responsibility per layer |
 | 5 Stripe agents | See Stripe specialists below |
+| 8 Solidgate agents | See Solidgate specialists below |
 
 ## Stripe specialists
 
@@ -137,8 +139,45 @@ skill yet; `stripe-disputes` covers it from the official documentation.
 
 Entry point: `stripe-router` (routes to any of the skills above).
 
+## Solidgate specialists
+
+Eight Solidgate agents, with the `solidgate-core` skill as their entry point (it routes a question to the right specialist).
+They read the Solidgate guides and the API reference (v1 and v2 differ in authentication, hosts and webhooks, so every answer
+states the version), compare Solidgate with an existing Stripe, Primer or FunnelFox stack, and never assume equivalence from a
+similar name.
+
+| Specialist | Covers |
+|---|---|
+| `solidgate-api-architect` | API v1 and v2 contracts, request signing, webhooks, errors, idempotency, rate limits |
+| `solidgate-payment-performance` | Approval and decline rates, decline codes, segmentation by country, BIN, issuer, method |
+| `solidgate-routing` | Routing rules, connector priority, cascading, fallback, retries and traffic allocation |
+| `solidgate-3ds-risk` | 3DS frictionless and challenge, authentication failures, antifraud signals, liability shift |
+| `solidgate-billing` | Subscriptions, recurring payments, retries and dunning; comparison with other billing layers |
+| `solidgate-chargebacks` | Chargebacks, disputes, pre-dispute alerts, representment, evidence and reason codes |
+| `solidgate-reconciliation` | Reports, settlements, fees; authorized vs captured vs settled vs refunded |
+| `solidgate-incident-investigator` | Incidents, webhook failures, API errors and root cause; routes to the other specialists |
+
+| Skill | What it does |
+|---|---|
+| `solidgate-core` | Coordinator: source precedence, v1 vs v2, which specialist to use |
+| `solidgate-payment-form` | Reviews and troubleshoots a Payment Form integration: intent, form events, 3DS, webhooks |
+| `solidgate-h2h` | Host-to-host card payments: PCI scope, request signing, 3DS redirects, status; never logs card data |
+| `solidgate-chargebacks-alerts` | Chargebacks and pre-dispute alerts: refund vs representment; never reports an alert as resolved without a refund |
+
+Also included, all original work:
+
+- `knowledge/solidgate/playbooks/`: 13 diagnosis playbooks (low approval, decline codes, 3DS, routing, fallback, webhooks,
+  integration, chargebacks, recurring recovery, reconciliation, and Primer, Stripe and FunnelFox comparisons). Most are marked
+  **draft**: written from the documentation, not yet validated against a live account.
+- `knowledge/solidgate/cross-provider/equivalence-matrix.md`: Solidgate vs Primer, Stripe and FunnelFox, only cells with a source.
+- `knowledge/solidgate/indexes/`: pages by domain, operations of each OpenAPI file and a reading list per specialist (metadata
+  only).
+- `tools/sync_solidgate.py`: downloads the Solidgate documentation and OpenAPI files into your local cache (see below).
+- `mcp/solidgate-readonly/`: an optional read-only MCP server. It runs on mock fixtures by default and **has not been validated
+  against the live Solidgate API**; see its README before registering it, and never register it with a production key.
+
 Skills for the use cases: `analyze-export`, `investigate-incident`, `explain-decline`, `review-workflow`, `ask-payments`,
-`fetch-docs`, plus `primer-core` and `funnelfox-core` as entry points for each vendor.
+`fetch-docs`, plus `primer-core`, `funnelfox-core` and `solidgate-core` as entry points for each vendor.
 
 ## Installation
 
@@ -177,8 +216,9 @@ Commands and examples: [docs/USAGE.md](docs/USAGE.md).
 ## Documentation on demand
 
 No vendor documentation is stored in this repository. When an answer needs it, `tools/fetch_doc.py` (or the `pay-docs` command)
-fetches the official page from Stripe, Primer or FunnelFox, prefers its Markdown form, respects `robots.txt` and keeps a copy in a
-local cache for 14 days. Answers cite the page as `source_url` plus `fetched_at`. Only official documentation prefixes are
+fetches the official page from Stripe, Primer, FunnelFox or Solidgate, prefers its Markdown form, respects `robots.txt` and keeps a
+copy in a local cache for 14 days. For Solidgate, `python3 tools/sync_solidgate.py` builds the whole local base in one run (guides
+from the sitemap, API reference and both OpenAPI files; `--dry-run` lists what it would fetch). Answers cite the page as `source_url` plus `fetched_at`. Only official documentation prefixes are
 accepted. See [knowledge/INDEX.md](knowledge/INDEX.md) and [knowledge/sources.json](knowledge/sources.json).
 
 ## Ground rules built into every specialist
@@ -196,10 +236,12 @@ accepted. See [knowledge/INDEX.md](knowledge/INDEX.md) and [knowledge/sources.js
 - Three Stripe skills (`checkout-implementation`, `webhook-implementation`, `stripe-billing-context`) generate code or files.
 - The `stripe-billing-context` skill writes stripe-billing-context.md with account details; keep it out of version control.
 - Vendor behavior changes. Answers are only as current as the documentation fetched for them; check `fetched_at`.
+- The Solidgate playbooks marked draft and the `solidgate-readonly` MCP server have not been validated against a live Solidgate
+  account. Treat their output as a starting point to verify.
 
 ## Trademarks
 
-Independent project. Not affiliated with, endorsed by or sponsored by Stripe, Primer, FunnelFox or Adapty. Trademarks belong to
+Independent project. Not affiliated with, endorsed by or sponsored by Stripe, Primer, FunnelFox, Adapty or Solidgate. Trademarks belong to
 their owners.
 
 ## License and credits

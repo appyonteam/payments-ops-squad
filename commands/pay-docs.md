@@ -1,5 +1,5 @@
 ---
-description: Fetch an official Stripe, Primer or FunnelFox documentation page into the local cache
+description: Fetch an official Stripe, Primer, FunnelFox or Solidgate documentation page into the local cache
 argument-hint: "<docs URL> | --index stripe|primer|funnelfox [--refresh] [--max-age-days N]"
 allowed-tools: Bash(python3 *)
 ---
@@ -8,8 +8,9 @@ Use the `fetch-docs` skill from payments-ops-squad to handle this request.
 
 **Validate the arguments before running anything.** Split `$ARGUMENTS` on spaces and accept only these tokens:
 
-- exactly one URL that matches `^https://\S+$` and starts with `https://docs.stripe.com/`, `https://primer.io/docs/` or
-  `https://funnelfox.com/docs/`; or `--index` followed by exactly one of `stripe`, `primer`, `funnelfox` (never both a URL and
+- exactly one URL that matches `^https://\S+$` and starts with `https://docs.stripe.com/`, `https://primer.io/docs/`,
+  `https://funnelfox.com/docs/`, `https://docs.solidgate.com/` or `https://api-docs.solidgate.com/`; or `--index` followed by
+  exactly one of `stripe`, `primer`, `funnelfox` (never both a URL and
   `--index`);
 - optionally `--refresh`;
 - optionally `--max-age-days N`, where N is a positive number (digits with an optional decimal point).

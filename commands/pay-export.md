@@ -1,5 +1,5 @@
 ---
-description: Analyze a Stripe, Primer or FunnelFox payments export
+description: Analyze a Stripe, Primer, FunnelFox or Solidgate payments export
 argument-hint: "<file(s)> [question]"
 ---
 

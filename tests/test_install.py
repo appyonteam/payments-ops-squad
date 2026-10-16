@@ -26,12 +26,16 @@ class InstallShTest(unittest.TestCase):
         skills = [d for d in os.listdir(os.path.join(dest, "skills"))
                   if os.path.isfile(os.path.join(dest, "skills", d, "SKILL.md"))]
         commands = [f for f in os.listdir(os.path.join(dest, "commands")) if f.endswith(".md")]
-        self.assertEqual(len(agents), 21)
-        self.assertEqual(len(skills), 35 + 8)
+        self.assertEqual(len(agents), 29)
+        self.assertEqual(len(skills), 35 + 12)
         self.assertEqual(len(commands), 6)
         self.assertNotIn("stripe", os.listdir(os.path.join(dest, "skills")))
         pkg = os.path.join(dest, "payments-ops-squad")
         self.assertTrue(os.path.isfile(os.path.join(pkg, "tools", "fetch_doc.py")))
+        self.assertTrue(os.path.isfile(os.path.join(pkg, "tools", "sync_solidgate.py")))
+        for sub in ("playbooks", "cross-provider", "indexes"):
+            self.assertTrue(os.path.isdir(os.path.join(pkg, "knowledge", "solidgate", sub)), sub)
+        self.assertTrue(os.path.isfile(os.path.join(pkg, "mcp", "solidgate-readonly", "server.py")))
         self.assertTrue(os.path.isfile(os.path.join(pkg, "knowledge", ".payments-ops-cache")))
 
         again = self.run_install(home)

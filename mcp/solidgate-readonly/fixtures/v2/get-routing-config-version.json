@@ -1,0 +1,17 @@
+{
+ "_fixture": "SYNTHETIC - obviously fake data",
+ "_not_evidence": true,
+ "data": {
+  "id": "FAKE-RCV-0001",
+  "routes": [
+   {
+    "step": 1,
+    "connector": "FAKE-MID-A"
+   },
+   {
+    "step": 2,
+    "connector": "FAKE-MID-B"
+   }
+  ]
+ }
+}

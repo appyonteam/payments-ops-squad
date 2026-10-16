@@ -1,6 +1,6 @@
 ---
 name: review-workflow
-description: "Reviews a payment workflow or rule set, such as a Primer workflow, FunnelFox retry and orchestration settings, Stripe Radar rules or Stripe Billing retry settings: maps the flow, checks each rule for lost approvals, missing or wrong fallback, retry stacking, loops and unnecessary 3DS, and proposes changes with a backtest and rollback plan. Use when the user shares a workflow export, screenshot or rule list for review."
+description: "Reviews a payment workflow or rule set, such as a Primer workflow, FunnelFox retry and orchestration settings, Solidgate routing configuration, Stripe Radar rules or Stripe Billing retry settings: maps the flow, checks each rule for lost approvals, missing or wrong fallback, retry stacking, loops and unnecessary 3DS, and proposes changes with a backtest and rollback plan. Use when the user shares a workflow export, screenshot or rule list for review."
 ---
 
 # Review Workflow
@@ -29,7 +29,8 @@ description: "Reviews a payment workflow or rule set, such as a Primer workflow,
 
 ## Specialists to consult
 
-`primer-workflows`, `primer-3ds`, `funnelfox-orchestration`, `funnelfox-retries`, and the Stripe skills `radar-fraud-rules` and
+`primer-workflows`, `primer-3ds`, `funnelfox-orchestration`, `funnelfox-retries`, `solidgate-core` (coordinator, used whenever
+Solidgate is mentioned; for Solidgate routing, `solidgate-routing`), and the Stripe skills `radar-fraud-rules` and
 `past-due-dunning`.
 
 ## Extra output table
@@ -76,10 +77,11 @@ Report the customer or order view first ("of N customers who tried to pay, M pai
 1. Local cache: `$PAYMENTS_OPS_KNOWLEDGE`, else `${CLAUDE_PLUGIN_DATA}/knowledge/` (plugin install), else
    `~/.claude/payments-ops-squad/knowledge/` (script install). Search it with `grep -ril <term> <cache>`; the plugin's
    `knowledge/INDEX.md` explains how the cache works.
-2. Fetch on demand with the `pay-docs` command / `tools/fetch_doc.py` (official Stripe, Primer and FunnelFox documentation
-   only) and cite the cached file's `source_url` and `fetched_at`.
+2. Fetch on demand with the `pay-docs` command / `tools/fetch_doc.py` (official Stripe, Primer, FunnelFox and Solidgate
+   documentation only) and cite the cached file's `source_url` and `fetched_at`.
 3. If the local cache is empty, go straight to the official documentation online and say so in Sources: Stripe
-   (https://docs.stripe.com), Primer (https://primer.io/docs), FunnelFox (https://funnelfox.com/docs).
+   (https://docs.stripe.com), Primer (https://primer.io/docs), FunnelFox (https://funnelfox.com/docs), Solidgate
+   (https://docs.solidgate.com and https://api-docs.solidgate.com).
 4. Other sources, explicitly marked as non-official.
 
 Cite official URLs. Never paste vendor documentation text: summarize in your own words and link the page.

@@ -1,0 +1,1010 @@
+{
+ "_fixture": "SYNTHETIC - obviously fake data",
+ "_not_evidence": true,
+ "orders": [
+  {
+   "order_id": "FAKE-ORDER-0001",
+   "status": "settle_ok",
+   "type": "auth",
+   "amount": 1000,
+   "currency": "USD",
+   "created_at": "2000-01-01 00:00:00",
+   "error_code": null,
+   "mid": "FAKE-MID-A",
+   "geo_country": "USA",
+   "platform": "WEB",
+   "customer_email": "user@example.com",
+   "routing": {
+    "cascade_steps": [
+     {
+      "mid": "FAKE-MID-A",
+      "cascade_number": 1
+     }
+    ]
+   },
+   "transactions": [
+    {
+     "id": "FAKE-TX-0001",
+     "card": {
+      "brand": "VISA",
+      "bin": "000000",
+      "country": "USA",
+      "number": "000000XXXXXX0000"
+     }
+    }
+   ]
+  },
+  {
+   "order_id": "FAKE-ORDER-0002",
+   "status": "settle_ok",
+   "type": "auth",
+   "amount": 1000,
+   "currency": "USD",
+   "created_at": "2000-01-01 00:00:00",
+   "error_code": null,
+   "mid": "FAKE-MID-A",
+   "geo_country": "USA",
+   "platform": "WEB",
+   "customer_email": "user@example.com",
+   "routing": {
+    "cascade_steps": [
+     {
+      "mid": "FAKE-MID-A",
+      "cascade_number": 1
+     }
+    ]
+   },
+   "transactions": [
+    {
+     "id": "FAKE-TX-0002",
+     "card": {
+      "brand": "VISA",
+      "bin": "000000",
+      "country": "USA",
+      "number": "000000XXXXXX0000"
+     }
+    }
+   ]
+  },
+  {
+   "order_id": "FAKE-ORDER-0003",
+   "status": "settle_ok",
+   "type": "auth",
+   "amount": 1000,
+   "currency": "USD",
+   "created_at": "2000-01-01 00:00:00",
+   "error_code": null,
+   "mid": "FAKE-MID-A",
+   "geo_country": "USA",
+   "platform": "WEB",
+   "customer_email": "user@example.com",
+   "routing": {
+    "cascade_steps": [
+     {
+      "mid": "FAKE-MID-A",
+      "cascade_number": 1
+     }
+    ]
+   },
+   "transactions": [
+    {
+     "id": "FAKE-TX-0003",
+     "card": {
+      "brand": "VISA",
+      "bin": "000000",
+      "country": "USA",
+      "number": "000000XXXXXX0000"
+     }
+    }
+   ]
+  },
+  {
+   "order_id": "FAKE-ORDER-0004",
+   "status": "settle_ok",
+   "type": "auth",
+   "amount": 1000,
+   "currency": "USD",
+   "created_at": "2000-01-01 00:00:00",
+   "error_code": null,
+   "mid": "FAKE-MID-A",
+   "geo_country": "USA",
+   "platform": "WEB",
+   "customer_email": "user@example.com",
+   "routing": {
+    "cascade_steps": [
+     {
+      "mid": "FAKE-MID-A",
+      "cascade_number": 1
+     }
+    ]
+   },
+   "transactions": [
+    {
+     "id": "FAKE-TX-0004",
+     "card": {
+      "brand": "VISA",
+      "bin": "000000",
+      "country": "USA",
+      "number": "000000XXXXXX0000"
+     }
+    }
+   ]
+  },
+  {
+   "order_id": "FAKE-ORDER-0005",
+   "status": "settle_ok",
+   "type": "auth",
+   "amount": 1000,
+   "currency": "USD",
+   "created_at": "2000-01-01 00:00:00",
+   "error_code": null,
+   "mid": "FAKE-MID-A",
+   "geo_country": "USA",
+   "platform": "WEB",
+   "customer_email": "user@example.com",
+   "routing": {
+    "cascade_steps": [
+     {
+      "mid": "FAKE-MID-A",
+      "cascade_number": 1
+     }
+    ]
+   },
+   "transactions": [
+    {
+     "id": "FAKE-TX-0005",
+     "card": {
+      "brand": "VISA",
+      "bin": "000000",
+      "country": "USA",
+      "number": "000000XXXXXX0000"
+     }
+    }
+   ]
+  },
+  {
+   "order_id": "FAKE-ORDER-0006",
+   "status": "settle_ok",
+   "type": "auth",
+   "amount": 1000,
+   "currency": "USD",
+   "created_at": "2000-01-01 00:00:00",
+   "error_code": null,
+   "mid": "FAKE-MID-A",
+   "geo_country": "USA",
+   "platform": "WEB",
+   "customer_email": "user@example.com",
+   "routing": {
+    "cascade_steps": [
+     {
+      "mid": "FAKE-MID-A",
+      "cascade_number": 1
+     }
+    ]
+   },
+   "transactions": [
+    {
+     "id": "FAKE-TX-0006",
+     "card": {
+      "brand": "VISA",
+      "bin": "000000",
+      "country": "USA",
+      "number": "000000XXXXXX0000"
+     }
+    }
+   ]
+  },
+  {
+   "order_id": "FAKE-ORDER-0007",
+   "status": "settle_ok",
+   "type": "auth",
+   "amount": 1000,
+   "currency": "USD",
+   "created_at": "2000-01-01 00:00:00",
+   "error_code": null,
+   "mid": "FAKE-MID-A",
+   "geo_country": "USA",
+   "platform": "WEB",
+   "customer_email": "user@example.com",
+   "routing": {
+    "cascade_steps": [
+     {
+      "mid": "FAKE-MID-A",
+      "cascade_number": 1
+     }
+    ]
+   },
+   "transactions": [
+    {
+     "id": "FAKE-TX-0007",
+     "card": {
+      "brand": "VISA",
+      "bin": "000000",
+      "country": "USA",
+      "number": "000000XXXXXX0000"
+     }
+    }
+   ]
+  },
+  {
+   "order_id": "FAKE-ORDER-0008",
+   "status": "settle_ok",
+   "type": "auth",
+   "amount": 1000,
+   "currency": "USD",
+   "created_at": "2000-01-01 00:00:00",
+   "error_code": null,
+   "mid": "FAKE-MID-A",
+   "geo_country": "USA",
+   "platform": "WEB",
+   "customer_email": "user@example.com",
+   "routing": {
+    "cascade_steps": [
+     {
+      "mid": "FAKE-MID-A",
+      "cascade_number": 1
+     }
+    ]
+   },
+   "transactions": [
+    {
+     "id": "FAKE-TX-0008",
+     "card": {
+      "brand": "VISA",
+      "bin": "000000",
+      "country": "USA",
+      "number": "000000XXXXXX0000"
+     }
+    }
+   ]
+  },
+  {
+   "order_id": "FAKE-ORDER-0009",
+   "status": "settle_ok",
+   "type": "auth",
+   "amount": 1000,
+   "currency": "USD",
+   "created_at": "2000-01-01 00:00:00",
+   "error_code": null,
+   "mid": "FAKE-MID-A",
+   "geo_country": "USA",
+   "platform": "WEB",
+   "customer_email": "user@example.com",
+   "routing": {
+    "cascade_steps": [
+     {
+      "mid": "FAKE-MID-A",
+      "cascade_number": 1
+     }
+    ]
+   },
+   "transactions": [
+    {
+     "id": "FAKE-TX-0009",
+     "card": {
+      "brand": "VISA",
+      "bin": "000000",
+      "country": "USA",
+      "number": "000000XXXXXX0000"
+     }
+    }
+   ]
+  },
+  {
+   "order_id": "FAKE-ORDER-0010",
+   "status": "settle_ok",
+   "type": "auth",
+   "amount": 1000,
+   "currency": "USD",
+   "created_at": "2000-01-01 00:00:00",
+   "error_code": null,
+   "mid": "FAKE-MID-A",
+   "geo_country": "USA",
+   "platform": "WEB",
+   "customer_email": "user@example.com",
+   "routing": {
+    "cascade_steps": [
+     {
+      "mid": "FAKE-MID-A",
+      "cascade_number": 1
+     }
+    ]
+   },
+   "transactions": [
+    {
+     "id": "FAKE-TX-0010",
+     "card": {
+      "brand": "VISA",
+      "bin": "000000",
+      "country": "USA",
+      "number": "000000XXXXXX0000"
+     }
+    }
+   ]
+  },
+  {
+   "order_id": "FAKE-ORDER-0011",
+   "status": "settle_ok",
+   "type": "auth",
+   "amount": 1000,
+   "currency": "USD",
+   "created_at": "2000-01-01 00:00:00",
+   "error_code": null,
+   "mid": "FAKE-MID-A",
+   "geo_country": "USA",
+   "platform": "WEB",
+   "customer_email": "user@example.com",
+   "routing": {
+    "cascade_steps": [
+     {
+      "mid": "FAKE-MID-A",
+      "cascade_number": 1
+     }
+    ]
+   },
+   "transactions": [
+    {
+     "id": "FAKE-TX-0011",
+     "card": {
+      "brand": "VISA",
+      "bin": "000000",
+      "country": "USA",
+      "number": "000000XXXXXX0000"
+     }
+    }
+   ]
+  },
+  {
+   "order_id": "FAKE-ORDER-0012",
+   "status": "settle_ok",
+   "type": "auth",
+   "amount": 1000,
+   "currency": "USD",
+   "created_at": "2000-01-01 00:00:00",
+   "error_code": null,
+   "mid": "FAKE-MID-A",
+   "geo_country": "USA",
+   "platform": "WEB",
+   "customer_email": "user@example.com",
+   "routing": {
+    "cascade_steps": [
+     {
+      "mid": "FAKE-MID-A",
+      "cascade_number": 1
+     }
+    ]
+   },
+   "transactions": [
+    {
+     "id": "FAKE-TX-0012",
+     "card": {
+      "brand": "VISA",
+      "bin": "000000",
+      "country": "USA",
+      "number": "000000XXXXXX0000"
+     }
+    }
+   ]
+  },
+  {
+   "order_id": "FAKE-ORDER-0013",
+   "status": "auth_failed",
+   "type": "auth",
+   "amount": 1000,
+   "currency": "USD",
+   "created_at": "2000-01-01 00:00:00",
+   "error_code": "3.02",
+   "mid": "FAKE-MID-A",
+   "geo_country": "USA",
+   "platform": "WEB",
+   "customer_email": "user@example.com",
+   "routing": {
+    "cascade_steps": [
+     {
+      "mid": "FAKE-MID-A",
+      "cascade_number": 1
+     }
+    ]
+   },
+   "transactions": [
+    {
+     "id": "FAKE-TX-0013",
+     "card": {
+      "brand": "VISA",
+      "bin": "000000",
+      "country": "USA",
+      "number": "000000XXXXXX0000"
+     }
+    }
+   ]
+  },
+  {
+   "order_id": "FAKE-ORDER-0014",
+   "status": "auth_failed",
+   "type": "auth",
+   "amount": 1000,
+   "currency": "USD",
+   "created_at": "2000-01-01 00:00:00",
+   "error_code": "3.02",
+   "mid": "FAKE-MID-A",
+   "geo_country": "USA",
+   "platform": "WEB",
+   "customer_email": "user@example.com",
+   "routing": {
+    "cascade_steps": [
+     {
+      "mid": "FAKE-MID-A",
+      "cascade_number": 1
+     }
+    ]
+   },
+   "transactions": [
+    {
+     "id": "FAKE-TX-0014",
+     "card": {
+      "brand": "VISA",
+      "bin": "000000",
+      "country": "USA",
+      "number": "000000XXXXXX0000"
+     }
+    }
+   ]
+  },
+  {
+   "order_id": "FAKE-ORDER-0015",
+   "status": "auth_failed",
+   "type": "auth",
+   "amount": 1000,
+   "currency": "USD",
+   "created_at": "2000-01-01 00:00:00",
+   "error_code": "3.02",
+   "mid": "FAKE-MID-A",
+   "geo_country": "USA",
+   "platform": "WEB",
+   "customer_email": "user@example.com",
+   "routing": {
+    "cascade_steps": [
+     {
+      "mid": "FAKE-MID-A",
+      "cascade_number": 1
+     }
+    ]
+   },
+   "transactions": [
+    {
+     "id": "FAKE-TX-0015",
+     "card": {
+      "brand": "VISA",
+      "bin": "000000",
+      "country": "USA",
+      "number": "000000XXXXXX0000"
+     }
+    }
+   ]
+  },
+  {
+   "order_id": "FAKE-ORDER-0016",
+   "status": "auth_failed",
+   "type": "auth",
+   "amount": 1000,
+   "currency": "USD",
+   "created_at": "2000-01-01 00:00:00",
+   "error_code": "3.02",
+   "mid": "FAKE-MID-A",
+   "geo_country": "USA",
+   "platform": "WEB",
+   "customer_email": "user@example.com",
+   "routing": {
+    "cascade_steps": [
+     {
+      "mid": "FAKE-MID-A",
+      "cascade_number": 1
+     }
+    ]
+   },
+   "transactions": [
+    {
+     "id": "FAKE-TX-0016",
+     "card": {
+      "brand": "VISA",
+      "bin": "000000",
+      "country": "USA",
+      "number": "000000XXXXXX0000"
+     }
+    }
+   ]
+  },
+  {
+   "order_id": "FAKE-ORDER-0017",
+   "status": "auth_failed",
+   "type": "auth",
+   "amount": 1000,
+   "currency": "USD",
+   "created_at": "2000-01-01 00:00:00",
+   "error_code": "3.02",
+   "mid": "FAKE-MID-A",
+   "geo_country": "USA",
+   "platform": "WEB",
+   "customer_email": "user@example.com",
+   "routing": {
+    "cascade_steps": [
+     {
+      "mid": "FAKE-MID-A",
+      "cascade_number": 1
+     }
+    ]
+   },
+   "transactions": [
+    {
+     "id": "FAKE-TX-0017",
+     "card": {
+      "brand": "VISA",
+      "bin": "000000",
+      "country": "USA",
+      "number": "000000XXXXXX0000"
+     }
+    }
+   ]
+  },
+  {
+   "order_id": "FAKE-ORDER-0018",
+   "status": "auth_failed",
+   "type": "auth",
+   "amount": 1000,
+   "currency": "USD",
+   "created_at": "2000-01-01 00:00:00",
+   "error_code": "3.02",
+   "mid": "FAKE-MID-A",
+   "geo_country": "USA",
+   "platform": "WEB",
+   "customer_email": "user@example.com",
+   "routing": {
+    "cascade_steps": [
+     {
+      "mid": "FAKE-MID-A",
+      "cascade_number": 1
+     }
+    ]
+   },
+   "transactions": [
+    {
+     "id": "FAKE-TX-0018",
+     "card": {
+      "brand": "VISA",
+      "bin": "000000",
+      "country": "USA",
+      "number": "000000XXXXXX0000"
+     }
+    }
+   ]
+  },
+  {
+   "order_id": "FAKE-ORDER-0019",
+   "status": "auth_failed",
+   "type": "auth",
+   "amount": 1000,
+   "currency": "USD",
+   "created_at": "2000-01-01 00:00:00",
+   "error_code": "3.07",
+   "mid": "FAKE-MID-A",
+   "geo_country": "BRA",
+   "platform": "WEB",
+   "customer_email": "user@example.com",
+   "routing": {
+    "cascade_steps": [
+     {
+      "mid": "FAKE-MID-A",
+      "cascade_number": 1
+     }
+    ]
+   },
+   "transactions": [
+    {
+     "id": "FAKE-TX-0019",
+     "card": {
+      "brand": "MASTERCARD",
+      "bin": "000000",
+      "country": "BRA",
+      "number": "000000XXXXXX0000"
+     }
+    }
+   ]
+  },
+  {
+   "order_id": "FAKE-ORDER-0020",
+   "status": "auth_failed",
+   "type": "auth",
+   "amount": 1000,
+   "currency": "USD",
+   "created_at": "2000-01-01 00:00:00",
+   "error_code": "3.07",
+   "mid": "FAKE-MID-A",
+   "geo_country": "BRA",
+   "platform": "WEB",
+   "customer_email": "user@example.com",
+   "routing": {
+    "cascade_steps": [
+     {
+      "mid": "FAKE-MID-A",
+      "cascade_number": 1
+     }
+    ]
+   },
+   "transactions": [
+    {
+     "id": "FAKE-TX-0020",
+     "card": {
+      "brand": "MASTERCARD",
+      "bin": "000000",
+      "country": "BRA",
+      "number": "000000XXXXXX0000"
+     }
+    }
+   ]
+  },
+  {
+   "order_id": "FAKE-ORDER-0021",
+   "status": "auth_failed",
+   "type": "auth",
+   "amount": 1000,
+   "currency": "USD",
+   "created_at": "2000-01-01 00:00:00",
+   "error_code": "3.07",
+   "mid": "FAKE-MID-A",
+   "geo_country": "BRA",
+   "platform": "WEB",
+   "customer_email": "user@example.com",
+   "routing": {
+    "cascade_steps": [
+     {
+      "mid": "FAKE-MID-A",
+      "cascade_number": 1
+     }
+    ]
+   },
+   "transactions": [
+    {
+     "id": "FAKE-TX-0021",
+     "card": {
+      "brand": "MASTERCARD",
+      "bin": "000000",
+      "country": "BRA",
+      "number": "000000XXXXXX0000"
+     }
+    }
+   ]
+  },
+  {
+   "order_id": "FAKE-ORDER-0022",
+   "status": "settle_ok",
+   "type": "auth",
+   "amount": 1000,
+   "currency": "USD",
+   "created_at": "2000-01-01 00:00:00",
+   "error_code": null,
+   "mid": "FAKE-MID-B",
+   "geo_country": "BRA",
+   "platform": "WEB",
+   "customer_email": "user@example.com",
+   "routing": {
+    "cascade_steps": [
+     {
+      "mid": "FAKE-MID-B",
+      "cascade_number": 1
+     }
+    ]
+   },
+   "transactions": [
+    {
+     "id": "FAKE-TX-0022",
+     "card": {
+      "brand": "MASTERCARD",
+      "bin": "000000",
+      "country": "BRA",
+      "number": "000000XXXXXX0000"
+     }
+    }
+   ]
+  },
+  {
+   "order_id": "FAKE-ORDER-0023",
+   "status": "settle_ok",
+   "type": "auth",
+   "amount": 1000,
+   "currency": "USD",
+   "created_at": "2000-01-01 00:00:00",
+   "error_code": null,
+   "mid": "FAKE-MID-B",
+   "geo_country": "BRA",
+   "platform": "WEB",
+   "customer_email": "user@example.com",
+   "routing": {
+    "cascade_steps": [
+     {
+      "mid": "FAKE-MID-B",
+      "cascade_number": 1
+     }
+    ]
+   },
+   "transactions": [
+    {
+     "id": "FAKE-TX-0023",
+     "card": {
+      "brand": "MASTERCARD",
+      "bin": "000000",
+      "country": "BRA",
+      "number": "000000XXXXXX0000"
+     }
+    }
+   ]
+  },
+  {
+   "order_id": "FAKE-ORDER-0024",
+   "status": "settle_ok",
+   "type": "auth",
+   "amount": 1000,
+   "currency": "USD",
+   "created_at": "2000-01-01 00:00:00",
+   "error_code": null,
+   "mid": "FAKE-MID-B",
+   "geo_country": "BRA",
+   "platform": "WEB",
+   "customer_email": "user@example.com",
+   "routing": {
+    "cascade_steps": [
+     {
+      "mid": "FAKE-MID-B",
+      "cascade_number": 1
+     }
+    ]
+   },
+   "transactions": [
+    {
+     "id": "FAKE-TX-0024",
+     "card": {
+      "brand": "MASTERCARD",
+      "bin": "000000",
+      "country": "BRA",
+      "number": "000000XXXXXX0000"
+     }
+    }
+   ]
+  },
+  {
+   "order_id": "FAKE-ORDER-0025",
+   "status": "settle_ok",
+   "type": "auth",
+   "amount": 1000,
+   "currency": "USD",
+   "created_at": "2000-01-01 00:00:00",
+   "error_code": null,
+   "mid": "FAKE-MID-B",
+   "geo_country": "BRA",
+   "platform": "WEB",
+   "customer_email": "user@example.com",
+   "routing": {
+    "cascade_steps": [
+     {
+      "mid": "FAKE-MID-B",
+      "cascade_number": 1
+     }
+    ]
+   },
+   "transactions": [
+    {
+     "id": "FAKE-TX-0025",
+     "card": {
+      "brand": "MASTERCARD",
+      "bin": "000000",
+      "country": "BRA",
+      "number": "000000XXXXXX0000"
+     }
+    }
+   ]
+  },
+  {
+   "order_id": "FAKE-ORDER-0026",
+   "status": "settle_ok",
+   "type": "auth",
+   "amount": 1000,
+   "currency": "USD",
+   "created_at": "2000-01-01 00:00:00",
+   "error_code": null,
+   "mid": "FAKE-MID-B",
+   "geo_country": "BRA",
+   "platform": "WEB",
+   "customer_email": "user@example.com",
+   "routing": {
+    "cascade_steps": [
+     {
+      "mid": "FAKE-MID-B",
+      "cascade_number": 1
+     }
+    ]
+   },
+   "transactions": [
+    {
+     "id": "FAKE-TX-0026",
+     "card": {
+      "brand": "MASTERCARD",
+      "bin": "000000",
+      "country": "BRA",
+      "number": "000000XXXXXX0000"
+     }
+    }
+   ]
+  },
+  {
+   "order_id": "FAKE-ORDER-0027",
+   "status": "settle_ok",
+   "type": "auth",
+   "amount": 1000,
+   "currency": "USD",
+   "created_at": "2000-01-01 00:00:00",
+   "error_code": null,
+   "mid": "FAKE-MID-B",
+   "geo_country": "BRA",
+   "platform": "WEB",
+   "customer_email": "user@example.com",
+   "routing": {
+    "cascade_steps": [
+     {
+      "mid": "FAKE-MID-B",
+      "cascade_number": 1
+     }
+    ]
+   },
+   "transactions": [
+    {
+     "id": "FAKE-TX-0027",
+     "card": {
+      "brand": "MASTERCARD",
+      "bin": "000000",
+      "country": "BRA",
+      "number": "000000XXXXXX0000"
+     }
+    }
+   ]
+  },
+  {
+   "order_id": "FAKE-ORDER-0028",
+   "status": "settle_ok",
+   "type": "auth",
+   "amount": 1000,
+   "currency": "USD",
+   "created_at": "2000-01-01 00:00:00",
+   "error_code": null,
+   "mid": "FAKE-MID-B",
+   "geo_country": "BRA",
+   "platform": "WEB",
+   "customer_email": "user@example.com",
+   "routing": {
+    "cascade_steps": [
+     {
+      "mid": "FAKE-MID-B",
+      "cascade_number": 1
+     }
+    ]
+   },
+   "transactions": [
+    {
+     "id": "FAKE-TX-0028",
+     "card": {
+      "brand": "MASTERCARD",
+      "bin": "000000",
+      "country": "BRA",
+      "number": "000000XXXXXX0000"
+     }
+    }
+   ]
+  },
+  {
+   "order_id": "FAKE-ORDER-0029",
+   "status": "settle_ok",
+   "type": "auth",
+   "amount": 1000,
+   "currency": "USD",
+   "created_at": "2000-01-01 00:00:00",
+   "error_code": null,
+   "mid": "FAKE-MID-B",
+   "geo_country": "BRA",
+   "platform": "WEB",
+   "customer_email": "user@example.com",
+   "routing": {
+    "cascade_steps": [
+     {
+      "mid": "FAKE-MID-B",
+      "cascade_number": 1
+     }
+    ]
+   },
+   "transactions": [
+    {
+     "id": "FAKE-TX-0029",
+     "card": {
+      "brand": "MASTERCARD",
+      "bin": "000000",
+      "country": "BRA",
+      "number": "000000XXXXXX0000"
+     }
+    }
+   ]
+  },
+  {
+   "order_id": "FAKE-ORDER-0030",
+   "status": "settle_ok",
+   "type": "auth",
+   "amount": 1000,
+   "currency": "USD",
+   "created_at": "2000-01-01 00:00:00",
+   "error_code": null,
+   "mid": "FAKE-MID-B",
+   "geo_country": "BRA",
+   "platform": "WEB",
+   "customer_email": "user@example.com",
+   "routing": {
+    "cascade_steps": [
+     {
+      "mid": "FAKE-MID-A",
+      "cascade_number": 1
+     },
+     {
+      "mid": "FAKE-MID-B",
+      "cascade_number": 2
+     }
+    ]
+   },
+   "transactions": [
+    {
+     "id": "FAKE-TX-0030",
+     "card": {
+      "brand": "MASTERCARD",
+      "bin": "000000",
+      "country": "BRA",
+      "number": "000000XXXXXX0000"
+     }
+    }
+   ]
+  },
+  {
+   "order_id": "FAKE-ORDER-0031",
+   "status": "settle_ok",
+   "type": "auth",
+   "amount": 1000,
+   "currency": "USD",
+   "created_at": "2000-01-01 00:00:00",
+   "error_code": null,
+   "mid": "FAKE-MID-B",
+   "geo_country": "BRA",
+   "platform": "WEB",
+   "customer_email": "user@example.com",
+   "routing": {
+    "cascade_steps": [
+     {
+      "mid": "FAKE-MID-A",
+      "cascade_number": 1
+     },
+     {
+      "mid": "FAKE-MID-B",
+      "cascade_number": 2
+     }
+    ]
+   },
+   "transactions": [
+    {
+     "id": "FAKE-TX-0031",
+     "card": {
+      "brand": "MASTERCARD",
+      "bin": "000000",
+      "country": "BRA",
+      "number": "000000XXXXXX0000"
+     }
+    }
+   ]
+  }
+ ],
+ "metadata": {
+  "next_page_iterator": null,
+  "count": 31
+ }
+}

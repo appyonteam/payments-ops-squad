@@ -47,6 +47,12 @@ Get-ChildItem -Path (Join-Path $Src "commands") -Filter "*.md" -File | Sort-Obje
 Add-Unit "support" (Join-Path (Join-Path $Src "tools") "fetch_doc.py") (Join-Path (Join-Path $Pkg "tools") "fetch_doc.py")
 Add-Unit "support" (Join-Path (Join-Path $Src "knowledge") "INDEX.md") (Join-Path $Pkg "INDEX.md")
 Add-Unit "support" (Join-Path (Join-Path $Src "knowledge") "sources.json") (Join-Path $Pkg "sources.json")
+Add-Unit "support" (Join-Path (Join-Path $Src "tools") "sync_solidgate.py") (Join-Path (Join-Path $Pkg "tools") "sync_solidgate.py")
+# Only our own Solidgate folders: the downloaded docs/ and openapi/ in the same cache folder are never touched.
+foreach ($sub in @("playbooks", "cross-provider", "indexes")) {
+    Add-Unit "support" (Join-Path (Join-Path (Join-Path $Src "knowledge") "solidgate") $sub) (Join-Path (Join-Path (Join-Path $Pkg "knowledge") "solidgate") $sub)
+}
+Add-Unit "support" (Join-Path (Join-Path $Src "mcp") "solidgate-readonly") (Join-Path (Join-Path $Pkg "mcp") "solidgate-readonly")
 
 $Conflicts = @($Units | Where-Object { Test-Path -LiteralPath $_.Target } | ForEach-Object { $_.Target })
 
@@ -79,7 +85,7 @@ Write-Output "payments-ops-squad installed ($Scope scope) into $Dest"
 Write-Output "  agents:   $($Counts['agent'])"
 Write-Output "  skills:   $($Counts['skill'])"
 Write-Output "  commands: $($Counts['command'])"
-Write-Output "  tools:    $(Join-Path (Join-Path $Pkg 'tools') 'fetch_doc.py')"
+Write-Output "  tools:    $(Join-Path (Join-Path $Pkg 'tools') 'fetch_doc.py'), $(Join-Path (Join-Path $Pkg 'tools') 'sync_solidgate.py')"
 Write-Output "  cache:    $Knowledge"
 if ($Conflicts.Count -gt 0) {
     Write-Output "  overwritten (-Force): $($Conflicts.Count)"

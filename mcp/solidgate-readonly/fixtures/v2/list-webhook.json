@@ -1,0 +1,10 @@
+{
+ "_fixture": "SYNTHETIC - obviously fake data",
+ "_not_evidence": true,
+ "data": [
+  {
+   "id": "FAKE-WH-V2-0001",
+   "url": "https://example.invalid/hook"
+  }
+ ]
+}

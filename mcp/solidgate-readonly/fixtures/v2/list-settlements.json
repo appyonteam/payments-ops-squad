@@ -1,0 +1,15 @@
+{
+ "_fixture": "SYNTHETIC - obviously fake data",
+ "_not_evidence": true,
+ "data": [
+  {
+   "id": "FAKE-STL-0001",
+   "status": "paid",
+   "amount": 123456,
+   "currency": "USD"
+  }
+ ],
+ "pagination": {
+  "next_cursor": null
+ }
+}

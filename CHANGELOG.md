@@ -2,6 +2,27 @@
 
 All notable changes to this project are documented here. Versions follow semantic versioning.
 
+## [0.3.0] - 2026-10-16
+
+### Added
+- 8 Solidgate specialist agents: `solidgate-api-architect`, `solidgate-payment-performance`, `solidgate-routing`,
+  `solidgate-3ds-risk`, `solidgate-billing`, `solidgate-chargebacks`, `solidgate-reconciliation` and
+  `solidgate-incident-investigator`, with hand-offs to the Primer, FunnelFox and Stripe specialists.
+- 4 skills: `solidgate-core` (entry point), `solidgate-payment-form`, `solidgate-h2h` and `solidgate-chargebacks-alerts`. All
+  are original work written from the public documentation; no Solidgate skill package is redistributed.
+- `knowledge/solidgate/`: 13 diagnosis playbooks (most marked draft), a cross-provider equivalence matrix and metadata indexes.
+- `tools/sync_solidgate.py`: builds the local Solidgate base (guides from the sitemap, API reference, OpenAPI v1 and v2) in the
+  user's cache, honoring `robots.txt` (`docs.solidgate.com` disallows `/api/`).
+- `mcp/solidgate-readonly/`: optional read-only MCP server on mock fixtures, not validated against the live API.
+- `tools/fetch_doc.py` accepts `https://docs.solidgate.com/` and `https://api-docs.solidgate.com/`; `--index solidgate`.
+- Use-case skills and commands route Solidgate questions to `solidgate-core`.
+- The install scripts also copy `tools/sync_solidgate.py`, `knowledge/solidgate/` (into the cache) and the MCP server.
+- Tests: Solidgate agent pattern and hand-off targets, no vendor documentation in the repository, allowlist, sync and MCP.
+- Totals: 29 agents, 47 skills (35 Stripe and 12 own), 6 commands, 76 zips.
+
+### Unchanged
+- The 21 agents published in 0.1.0 and 0.2.0.
+
 ## [0.2.0] - 2026-10-06
 
 ### Added

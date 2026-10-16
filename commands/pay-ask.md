@@ -1,5 +1,5 @@
 ---
-description: Ask a payments operations question (Stripe, Primer, FunnelFox)
+description: Ask a payments operations question (Stripe, Primer, FunnelFox, Solidgate)
 argument-hint: "<question>"
 ---
 
