@@ -5,7 +5,7 @@ Scans file contents AND path names (files and directories) for:
     (one literal per line; a line starting with "re:" is a regular expression).
     Matching is case-insensitive by default, for literals and "re:" entries alike;
     pass --case-sensitive to match the denylist exactly as written;
-  * syntactic patterns of sensitive data (Stripe IDs, secret keys, e-mails,
+  * syntactic patterns of sensitive data (Stripe IDs, Chargeblast alert IDs, secret keys, e-mails,
     URLs with credentials, IPv4 addresses, CPF, CNPJ, Brazilian phone numbers).
 
 Output never contains the matched text: each finding is printed as
@@ -32,6 +32,8 @@ PATTERNS = [
     # Stripe object IDs: known prefix + body of 8+ chars containing at least one digit
     # (so in_progress, sub_total, ch_fallback or pi_XXXX placeholders do not match).
     ("stripe_id", re.compile(r"\b(?:" + STRIPE_PREFIXES + r")_(?=[A-Za-z0-9]*\d)[A-Za-z0-9]{8,}\b")),
+    # Chargeblast alert IDs: al_ + body of 12+ chars containing at least one digit (al_XXXX placeholders do not match).
+    ("chargeblast_id", re.compile(r"\bal_(?=[A-Za-z0-9]*\d)[A-Za-z0-9]{12,}\b")),
     ("secret_key", re.compile(r"\b(?:sk|rk)_(?:live|test)_|\bwhsec_")),
     ("userinfo_url", re.compile(r"[A-Za-z][A-Za-z0-9+.-]*://[^/\s:@]+:[^/\s@]+@")),
     ("email", re.compile(r"[A-Za-z0-9._%+-]+@[A-Za-z0-9.-]+\.[A-Za-z]{2,}")),

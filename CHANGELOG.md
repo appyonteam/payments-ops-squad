@@ -2,6 +2,25 @@
 
 All notable changes to this project are documented here. Versions follow semantic versioning.
 
+## [0.4.0] - 2026-10-22
+
+### Added
+- 4 Chargeblast specialist agents: `chargeblast-alerts`, `chargeblast-matching`, `chargeblast-credits` and
+  `chargeblast-cost-audit`, with hand-offs to `stripe-disputes` and `solidgate-chargebacks`.
+- 2 skills: `chargeblast-core` (entry point and reference) and `chargeblast-alert-audit` (alert-by-alert audit method). Both are
+  original work; the Chargeblast documentation has no redistribution license and is fetched on demand only.
+- `tools/chargeblast_watch.py`: read-only watcher for unanswered Ethoca and CDRN alerts (GET only, key from the environment).
+- `tools/fetch_doc.py` accepts `https://docs.chargeblast.com/`; `--index chargeblast`.
+- `tools/gate.py` flags Chargeblast alert IDs (`chargeblast_id`).
+- `stripe-disputes` and `solidgate-chargebacks` hand Chargeblast alert questions to the `chargeblast-*` specialists.
+- The install scripts also copy `tools/chargeblast_watch.py`.
+- Tests: Chargeblast agent pattern and hand-offs, no private context in Chargeblast files, docs allowlist, watcher (GET only,
+  key never printed), gate rule.
+- Totals: 33 agents, 49 skills (35 Stripe and 14 own), 6 commands, 82 zips.
+
+### Unchanged
+- The 29 agents published up to 0.3.0, apart from the hand-off lines in `stripe-disputes` and `solidgate-chargebacks`.
+
 ## [0.3.0] - 2026-10-16
 
 ### Added

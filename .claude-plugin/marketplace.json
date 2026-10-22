@@ -4,13 +4,13 @@
     "name": "Appyon"
   },
   "metadata": {
-    "description": "Payments operations squad for Stripe, Primer, FunnelFox and Solidgate"
+    "description": "Payments operations squad for Stripe, Primer, FunnelFox, Solidgate and Chargeblast"
   },
   "plugins": [
     {
       "name": "payments-ops-squad",
       "source": "./",
-      "description": "Payments operations squad for Stripe, Primer, FunnelFox and Solidgate"
+      "description": "Payments operations squad for Stripe, Primer, FunnelFox, Solidgate and Chargeblast"
     }
   ]
 }

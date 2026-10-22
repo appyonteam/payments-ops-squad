@@ -108,6 +108,24 @@
       "license": "Solidgate terms of use; no redistribution license",
       "redistribute": false,
       "note": "OpenAPI file for Solidgate API v2. Downloaded by the user into the local cache only (tools/sync_solidgate.py); cite the version and download date."
+    },
+    {
+      "id": "chargeblast-docs",
+      "vendor": "chargeblast",
+      "kind": "docs_llms_index",
+      "url": "https://docs.chargeblast.com/llms.txt",
+      "license": "No redistribution license (no LICENSE file)",
+      "redistribute": false,
+      "note": "Index of Chargeblast documentation pages. Fetch pages on demand with tools/fetch_doc.py and cite the URL and fetch date. Never copy page text into this repository."
+    },
+    {
+      "id": "chargeblast-api-docs",
+      "vendor": "chargeblast",
+      "kind": "git_repo",
+      "url": "https://github.com/ChargeblastLLC/api-docs",
+      "license": "No LICENSE file",
+      "redistribute": false,
+      "note": "Source of docs.chargeblast.com, listed for reference only and not downloaded automatically."
     }
   ]
 }

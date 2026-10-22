@@ -7,7 +7,7 @@ header with the source URL and the UTC fetch time so that answers can cite both.
 
 Usage:
     fetch_doc.py URL [--max-age-days N] [--refresh]
-    fetch_doc.py --index stripe|primer|funnelfox|solidgate [--max-age-days N] [--refresh]
+    fetch_doc.py --index stripe|primer|funnelfox|solidgate|chargeblast [--max-age-days N] [--refresh]
 
 Exit codes: 0 ok, 1 fetch error, 2 URL refused (not an allowed documentation prefix),
 3 disallowed by robots.txt.
@@ -37,6 +37,7 @@ ALLOWED_PREFIXES = (
     "https://funnelfox.com/docs/",
     "https://docs.solidgate.com/",
     "https://api-docs.solidgate.com/",
+    "https://docs.chargeblast.com/",
 )
 
 INDEXES = {
@@ -45,6 +46,7 @@ INDEXES = {
     "funnelfox": "https://funnelfox.com/docs/llms.txt",
     # docs.solidgate.com has no llms.txt (its page index is sitemap.xml, handled by tools/sync_solidgate.py).
     "solidgate": "https://api-docs.solidgate.com/llms.txt",
+    "chargeblast": "https://docs.chargeblast.com/llms.txt",
 }
 
 DEFAULT_MAX_AGE_DAYS = 14

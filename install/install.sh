@@ -52,6 +52,7 @@ UNITS+=("support|$SRC/tools/fetch_doc.py|$PKG/tools/fetch_doc.py")
 UNITS+=("support|$SRC/knowledge/INDEX.md|$PKG/INDEX.md")
 UNITS+=("support|$SRC/knowledge/sources.json|$PKG/sources.json")
 UNITS+=("support|$SRC/tools/sync_solidgate.py|$PKG/tools/sync_solidgate.py")
+UNITS+=("support|$SRC/tools/chargeblast_watch.py|$PKG/tools/chargeblast_watch.py")
 # Only our own Solidgate folders: the downloaded docs/ and openapi/ in the same cache folder are never touched.
 for sub in playbooks cross-provider indexes; do
   UNITS+=("support|$SRC/knowledge/solidgate/$sub|$PKG/knowledge/solidgate/$sub")
@@ -97,7 +98,7 @@ echo "payments-ops-squad installed (${SCOPE} scope) into ${DEST}"
 echo "  agents:   ${n_agent}"
 echo "  skills:   ${n_skill}"
 echo "  commands: ${n_command}"
-echo "  tools:    ${PKG}/tools/fetch_doc.py, ${PKG}/tools/sync_solidgate.py"
+echo "  tools:    ${PKG}/tools/fetch_doc.py, ${PKG}/tools/sync_solidgate.py, ${PKG}/tools/chargeblast_watch.py"
 echo "  cache:    ${PKG}/knowledge/"
 if [ "${#CONFLICTS[@]}" -gt 0 ]; then
   echo "  overwritten (--force): ${#CONFLICTS[@]}"

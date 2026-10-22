@@ -1,7 +1,7 @@
 # Knowledge: documentation on demand with a local cache
 
 This repository does not contain vendor documentation. Agents and skills read the official Stripe, Primer, FunnelFox and
-Solidgate documentation on demand and keep a local copy in a cache, so the same page is not downloaded again for every question.
+Solidgate and Chargeblast documentation on demand and keep a local copy in a cache, so the same page is not downloaded again for every question.
 
 ## Where the cache lives
 
@@ -27,7 +27,7 @@ fetched_at: YYYY-MM-DDTHH:MM:SSZ
 1. Search the cache first: `grep -ril "<term>" <cache>`. Read the matching file and check `fetched_at`.
 2. If nothing matches, or the copy is older than the TTL, fetch the page with the `pay-docs` command or directly:
    `python3 tools/fetch_doc.py <url>`. To discover pages, fetch the vendor index first:
-   `python3 tools/fetch_doc.py --index stripe|primer|funnelfox|solidgate` (each index is an `llms.txt` page list; for Solidgate
+   `python3 tools/fetch_doc.py --index stripe|primer|funnelfox|solidgate|chargeblast` (each index is an `llms.txt` page list; for Solidgate
    it covers the API reference only, see below).
 3. If the cache is empty and the tool cannot run (for example in Claude web or app), go straight to the official documentation
    online and say so in Sources.
@@ -36,7 +36,7 @@ fetched_at: YYYY-MM-DDTHH:MM:SSZ
 ## What `tools/fetch_doc.py` does
 
 - Accepts only these prefixes: `https://docs.stripe.com/`, `https://primer.io/docs/`, `https://funnelfox.com/docs/`,
-  `https://docs.solidgate.com/`, `https://api-docs.solidgate.com/`.
+  `https://docs.solidgate.com/`, `https://api-docs.solidgate.com/`, `https://docs.chargeblast.com/`.
   Any other URL is refused with exit code 2.
 - Tries the Markdown form of the page first (`<url>.md`, or `index.md` for a folder URL), then the URL itself.
 - Respects `robots.txt` (exit code 3 when disallowed) and identifies itself with the User-Agent

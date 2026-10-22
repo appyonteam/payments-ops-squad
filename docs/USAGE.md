@@ -82,4 +82,6 @@ start with the `stripe-router` skill, which names the owning agent (`stripe-paym
 `stripe-billing` or `stripe-finance`). You can also ask for one of them directly, for example: "Use stripe-billing to explain why
 MRR dropped". For Solidgate start with the `solidgate-core` skill, which names the specialist (for example
 "Use solidgate-routing to compare Solidgate cascading with our Primer Workflows fallback"). Build the local Solidgate base once
-with `python3 tools/sync_solidgate.py`.
+with `python3 tools/sync_solidgate.py`. For Chargeblast alerts start with the `chargeblast-core` skill (for example "Use
+chargeblast-cost-audit to classify last week's paid alerts by effect on the sale"); `tools/chargeblast_watch.py` lists the
+alerts that still need an answer, read-only.

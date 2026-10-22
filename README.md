@@ -1,6 +1,6 @@
 # payments-ops-squad
 
-A team of payments operations specialists for Claude, covering **Stripe**, **Primer**, **FunnelFox** and **Solidgate**. It analyzes payment
+A team of payments operations specialists for Claude, covering **Stripe**, **Primer**, **FunnelFox**, **Solidgate** and **Chargeblast** pre-dispute alerts. It analyzes payment
 exports, investigates incidents across the payment stack, explains decline codes from official sources and reviews routing,
 retry and fraud rules. Every answer separates facts from hypotheses and cites the official source with a date.
 
@@ -41,7 +41,7 @@ the source states about retrying and about the message shown to the customer.
 
 ## Primer and FunnelFox specialists
 
-16 of the 29 specialists are listed here (Primer and FunnelFox).
+16 of the 33 specialists are listed here (Primer and FunnelFox).
 
 | Specialist | Covers |
 |---|---|
@@ -63,6 +63,7 @@ the source states about retrying and about the message shown to the customer.
 | `funnelfox-integrations` | Processors supported by FunnelFox and responsibility per layer |
 | 5 Stripe agents | See Stripe specialists below |
 | 8 Solidgate agents | See Solidgate specialists below |
+| 4 Chargeblast agents | See Chargeblast specialists below |
 
 ## Stripe specialists
 
@@ -176,8 +177,31 @@ Also included, all original work:
 - `mcp/solidgate-readonly/`: an optional read-only MCP server. It runs on mock fixtures by default and **has not been validated
   against the live Solidgate API**; see its README before registering it, and never register it with a production key.
 
+## Chargeblast specialists
+
+Four Chargeblast agents for teams that use Chargeblast pre-dispute alerts (Ethoca, CDRN and Visa RDR), with the `chargeblast-core`
+skill as their entry point. They read the official documentation on demand (it has no redistribution license, so nothing is
+copied here), keep documented rules apart from behavior observed in practice, and never answer an alert, request credit or refund:
+those are written as recommendations for a human.
+
+| Agent | Focus |
+|---|---|
+| `chargeblast-alerts` | Alert lifecycle, response codes, the 48 hour deadline, who refunds per program, webhooks, scheduled responses |
+| `chargeblast-matching` | Enrollment (descriptors, BIN/CAID, ARN) and alert-to-sale matching on Stripe, Primer, wallets and order upload |
+| `chargeblast-credits` | Credit rules, what the API accepts versus what only support can grant, contestation |
+| `chargeblast-cost-audit` | Effectiveness and cost measured by the effect on the sale, verdict per alert, evidence to claim credit |
+
+| Skill | Purpose |
+|---|---|
+| `chargeblast-core` | Coordinator and reference: programs, response codes, credit rules, observed pitfalls, which specialist to use |
+| `chargeblast-alert-audit` | Method for an alert-by-alert audit: read-only collection, cross with refunds and disputes, verdict classes |
+
+- `tools/chargeblast_watch.py`: a read-only watcher (GET only) that lists unanswered Ethoca and CDRN alerts and the hours left
+  before the automatic decline. It never answers, requests credit or refunds. The key comes from `CHARGEBLAST_API_KEY` and is
+  never printed.
+
 Skills for the use cases: `analyze-export`, `investigate-incident`, `explain-decline`, `review-workflow`, `ask-payments`,
-`fetch-docs`, plus `primer-core`, `funnelfox-core` and `solidgate-core` as entry points for each vendor.
+`fetch-docs`, plus `primer-core`, `funnelfox-core`, `solidgate-core` and `chargeblast-core` as entry points for each vendor.
 
 ## Installation
 
@@ -216,7 +240,7 @@ Commands and examples: [docs/USAGE.md](docs/USAGE.md).
 ## Documentation on demand
 
 No vendor documentation is stored in this repository. When an answer needs it, `tools/fetch_doc.py` (or the `pay-docs` command)
-fetches the official page from Stripe, Primer, FunnelFox or Solidgate, prefers its Markdown form, respects `robots.txt` and keeps a
+fetches the official page from Stripe, Primer, FunnelFox, Solidgate or Chargeblast, prefers its Markdown form, respects `robots.txt` and keeps a
 copy in a local cache for 14 days. For Solidgate, `python3 tools/sync_solidgate.py` builds the whole local base in one run (guides
 from the sitemap, API reference and both OpenAPI files; `--dry-run` lists what it would fetch). Answers cite the page as `source_url` plus `fetched_at`. Only official documentation prefixes are
 accepted. See [knowledge/INDEX.md](knowledge/INDEX.md) and [knowledge/sources.json](knowledge/sources.json).
@@ -238,10 +262,12 @@ accepted. See [knowledge/INDEX.md](knowledge/INDEX.md) and [knowledge/sources.js
 - Vendor behavior changes. Answers are only as current as the documentation fetched for them; check `fetched_at`.
 - The Solidgate playbooks marked draft and the `solidgate-readonly` MCP server have not been validated against a live Solidgate
   account. Treat their output as a starting point to verify.
+- Chargeblast behavior marked "observed in practice" comes from field use, not from the documentation; confirm it in the current
+  documentation before relying on it.
 
 ## Trademarks
 
-Independent project. Not affiliated with, endorsed by or sponsored by Stripe, Primer, FunnelFox, Adapty or Solidgate. Trademarks belong to
+Independent project. Not affiliated with, endorsed by or sponsored by Stripe, Primer, FunnelFox, Adapty, Solidgate or Chargeblast. Trademarks belong to
 their owners.
 
 ## License and credits

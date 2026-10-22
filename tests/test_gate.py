@@ -71,6 +71,10 @@ class TestContent(unittest.TestCase):
         d = _tree({"a.md": "status in_progress\nfield sub_total\nch_fallback route\npi_XXXX placeholder\n"})
         self.assertEqual(gate.scan(d, []), [])
 
+    def test_chargeblast_ids(self):
+        d = _tree({"a.md": "alert al" + U + "Q1w2E3r4T5y6U7i8\nplaceholder al" + U + "XXXXXXXXXXXXXX\nnormal_word\n"})
+        self.assertEqual([(h[1], h[2]) for h in gate.scan(d, [])], [(1, "chargeblast_id")])
+
     def test_secret_keys(self):
         for prefix in ("sk~live~", "rk~live~", "sk~test~", "rk~test~", "whsec~"):
             d = _tree({"a.md": "key " + prefix.replace("~", U) + "abc\n"})

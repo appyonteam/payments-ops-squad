@@ -177,6 +177,18 @@ class FetchDocTest(unittest.TestCase):
                     "https://example.com/docs/guide"]:
             self.assertFalse(fetch_doc.is_allowed(url), url)
 
+    def test_chargeblast_host_is_allowed_and_nothing_near_it(self):
+        fetch_doc.ALLOWED_PREFIXES = self._saved[0]
+        for url in ["https://docs.chargeblast.com/llms.txt", "https://docs.chargeblast.com/reference/reason-codes.md"]:
+            self.assertTrue(fetch_doc.is_allowed(url), url)
+        for url in ["https://docs.chargeblast.com.evil.com/", "https://evil.com/docs.chargeblast.com/",
+                    "http://docs.chargeblast.com/llms.txt", "https://chargeblast.com/docs/",
+                    "https://api.chargeblast.com/api/v3/alerts", "https://app.chargeblast.com/alerts",
+                    "https://docs.chargeblast.com" + "@evil.com/", "https://user:pw" + "@docs.chargeblast.com/x",
+                    "https://docs.chargeblast.com/a/../b", "https://docs.chargeblast.com/x#frag"]:
+            self.assertFalse(fetch_doc.is_allowed(url), url)
+        self.assertEqual(self._saved[1]["chargeblast"], "https://docs.chargeblast.com/llms.txt")
+
     def test_solidgate_index_is_registered(self):
         fetch_doc.ALLOWED_PREFIXES = self._saved[0]
         index = self._saved[1]["solidgate"]

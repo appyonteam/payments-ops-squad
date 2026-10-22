@@ -1,8 +1,8 @@
 {
   "name": "payments-ops-squad",
   "displayName": "Payments Ops Squad",
-  "version": "0.3.0",
-  "description": "Payments operations specialists (29 agents) for Stripe, Primer, FunnelFox and Solidgate: export analysis, incident investigation, decline codes and workflow review. Read-only by design.",
+  "version": "0.4.0",
+  "description": "Payments operations specialists (33 agents) for Stripe, Primer, FunnelFox, Solidgate and Chargeblast alerts: export analysis, incident investigation, decline codes, alert and credit audits and workflow review. Read-only by design.",
   "author": {
     "name": "Vitor Dvorschi (Appyon)"
   },

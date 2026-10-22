@@ -12,7 +12,7 @@ claude plugin marketplace add appyonteam/payments-ops-squad
 claude plugin install payments-ops-squad@payments-ops-marketplace
 ```
 
-Reinicie o Claude Code. Confira com `/agents` (29 especialistas) e digitando `/payments-ops-squad:` para listar os comandos:
+Reinicie o Claude Code. Confira com `/agents` (33 especialistas) e digitando `/payments-ops-squad:` para listar os comandos:
 
 | Comando | Skill |
 |---|---|
@@ -44,8 +44,8 @@ Windows (PowerShell):
 
 O que o script copia:
 
-- `agents/*.md` para `<destino>/agents/` (29 arquivos)
-- cada skill para `<destino>/skills/<nome>/` (47 pastas; as skills da Stripe saem de `skills/stripe/` para o mesmo nível)
+- `agents/*.md` para `<destino>/agents/` (33 arquivos)
+- cada skill para `<destino>/skills/<nome>/` (49 pastas; as skills da Stripe saem de `skills/stripe/` para o mesmo nível)
 - `commands/*.md` para `<destino>/commands/` (6 arquivos; os comandos ficam sem namespace, por exemplo `/pay-export`)
 - `tools/fetch_doc.py`, `tools/sync_solidgate.py`, `knowledge/INDEX.md`, `knowledge/sources.json` e `mcp/solidgate-readonly/`
   para `<destino>/payments-ops-squad/`
@@ -59,8 +59,8 @@ No Windows, se `python3` não estiver no PATH, rode o buscador com `python` ou `
 
 ## 3. Claude web e aplicativo desktop
 
-1. Abra a Release mais recente de `appyonteam/payments-ops-squad` no GitHub e baixe os zips desejados (um por skill; 76 no total:
-   29 especialistas, 35 skills da Stripe e 12 skills próprias).
+1. Abra a Release mais recente de `appyonteam/payments-ops-squad` no GitHub e baixe os zips desejados (um por skill; 82 no total:
+   33 especialistas, 35 skills da Stripe e 14 skills próprias).
 2. No Claude, vá em **Settings > Capabilities > Skills** e envie cada zip.
 3. Skills exigem plano Pro, Max, Team ou Enterprise com execução de código habilitada. Em Team e Enterprise, um owner pode
    precisar habilitar skills para a organização antes.

@@ -94,6 +94,13 @@ API reference. No text, OpenAPI file, example or skill published by Solidgate is
 packages, and no Solidgate skill package was used as a base. The skills paraphrase, cite the official URL and state the date
 the page was read. The indexes in `knowledge/solidgate/indexes/` hold metadata only (URL, title, operation id, path, date).
 
+## Original work that refers to Chargeblast
+
+The skills `chargeblast-core` and `chargeblast-alert-audit`, the `chargeblast-*` agents and `tools/chargeblast_watch.py` are
+original work of this project, released under the MIT License. They were written from Chargeblast's public documentation and
+from practice. No text, OpenAPI file or example published by Chargeblast is included in this repository or in its release
+packages: the documentation repository has no license file, so it is cited and fetched on demand only.
+
 ## Not redistributed (fetched from official sources on demand)
 
 The following material is never versioned in this repository nor included in the release packages. Documentation pages are
@@ -113,6 +120,8 @@ downloaded automatically. Agents and skills cite the official URL instead of cop
 | adaptyteam/funnelfox-billing-js | https://github.com/adaptyteam/funnelfox-billing-js | MIT, Copyright (c) 2024 Funnelfox |
 | Solidgate documentation | https://docs.solidgate.com | Solidgate terms; not redistributed |
 | Solidgate API reference and OpenAPI files (v1, v2) | https://api-docs.solidgate.com | Solidgate terms; not redistributed |
+| Chargeblast documentation | https://docs.chargeblast.com | No license file; not redistributed |
+| ChargeblastLLC/api-docs | https://github.com/ChargeblastLLC/api-docs | No license file; not redistributed |
 
 Solidgate documentation and OpenAPI files are downloaded by the user, on the user's own machine, with `tools/sync_solidgate.py`
 or `tools/fetch_doc.py` (the `pay-docs` command). Each user is responsible for using the downloaded material under Solidgate's

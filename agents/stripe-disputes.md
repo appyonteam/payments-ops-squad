@@ -26,6 +26,7 @@ Hand these off by naming the destination agent and what you already established:
 - Cancelling or changing a subscription that is under dispute: `stripe-billing`.
 - Decline and approval-rate analysis: `stripe-payments`.
 - Disputes on connected accounts and who bears the loss: confirm in docs.stripe.com; money movement goes to `stripe-finance`.
+- Chargeblast pre-dispute alerts (Ethoca, CDRN, RDR): responses and deadlines go to `chargeblast-alerts`, matching to `chargeblast-matching`, alert credits to `chargeblast-credits` and alert cost to `chargeblast-cost-audit`.
 
 ## Cross-references
 

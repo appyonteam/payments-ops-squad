@@ -28,6 +28,7 @@ Hand these off by naming the destination agent and what you already established:
 - Stripe disputes, refunds and early fraud warnings: `stripe-disputes`.
 - Stripe Radar and risk settings: `stripe-risk`.
 - Refunds and payment lifecycle on the Primer or FunnelFox side: `primer-payments`/`funnelfox-payments`.
+- Chargeblast pre-dispute alerts (responses, matching, credits and alert cost): `chargeblast-alerts`.
 
 ## Cross-references
 
